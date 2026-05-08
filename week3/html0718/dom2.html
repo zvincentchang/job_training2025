@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>json html</title> 
+    <style>
+        .test{
+            color:yellowgreen;
+        }
+    </style>   
+</head>
+<body>
+    <h1>Hello World</h1>
+    <p>p1</p>
+    <div id="div1">
+        <p class="test">p2</p>
+    </div>
+    <div id="div2">
+        <p class="test">p3</p>
+    </div>
+    <button onclick="execute()">get all p tag</button>
+    <script>
+        function execute(){
+            var ptags=document.getElementsByClassName('test');
+            //console.log(typeof ptags);
+            for(var i=0;i<ptags.length;i++){
+                var obj=ptags[i];
+                //obj.innerText="paragraph "+(i+1);
+                obj.innerHTML="<h2 style='color:blue'>paragraph "+(i+1)+"</h2>";
+            }
+        }
+    </script>
+      
+</body>
+</html>

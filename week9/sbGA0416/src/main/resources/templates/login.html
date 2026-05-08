@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh-tw" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登入</title>
+</head>
+<body>
+    <h2>登入</h2>
+    <form action="/user/login" method="post"> 
+		<input type="hidden" name="secret" value="VAZLBIZWFISAGEYL">       
+        <label>Google 手機驗證碼：</label>
+        <input type="text" name="code" required><br>
+        <button type="submit">登入</button>
+    </form>
+   
+</body>
+</html>

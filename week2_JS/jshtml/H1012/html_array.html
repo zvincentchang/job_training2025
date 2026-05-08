@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Javascript Function</title>
+
+</head>
+
+<body>
+    <h1>Javascript Function</h1>
+    <script>
+        var fruits = ['Apple', 'Banana'];
+        function start(){            
+            var f=prompt('輸入水果');
+            fruits.push(f);
+            alert(fruits);
+        }
+        function start2() {
+                var f = prompt('輸入水果');
+                fruits.unshift(f);
+                alert(fruits);
+            }
+    </script>
+    <button onclick="start()">Execute Array tail</button>
+    <button onclick="start2()">Execute Array head</button>
+</body>
+
+</html>

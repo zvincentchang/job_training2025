@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>BOM Window</title>
+</head>
+
+<body>
+    <button onclick="openwin()">open</button>
+    <button onclick="openloc()">location</button>
+   <script>
+    function openwin(){
+      var windowObj = window.open(
+            'http://tw.yahoo.com/','yahoo','width=800,height=600'
+        );
+    }
+
+    function openloc(){
+        var site=prompt("website");
+        location.href= "http://"+site;
+    }
+   </script>
+</body>
+
+</html>

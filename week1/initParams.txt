@@ -1,0 +1,8 @@
+initParams={
+@WebInitParam(name="name", value="Mary"), 
+@WebInitParam(name="email", value="Mary@demo.com")}
+
+<context-param>
+     <param-name>host</param-name>
+     <param-value>myhost.com</param-value>
+</context-param>

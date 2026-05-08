@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Guess Game</title>
+    <script>      
+         var num=parseInt(Math.random()*100)+1;
+         var guess=0;
+         var count=0;
+         while(guess!=num){
+             count++;
+             guess =prompt('猜1~100');
+             if(guess>num)
+               alert(guess+" 猜得太大");
+             else if(guess<num)
+               alert(guess + " 猜得太小");
+             else
+               alert("bingo");
+         }
+         alert("共猜了 "+count);
+          
+    </script>
+</head>
+
+<body>
+   
+</body>
+
+</html>

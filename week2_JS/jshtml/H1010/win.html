@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>javascript window</title>
+    <script>
+        alert(location.pathname);
+        var windowObj = window.open(
+                'http://tw.yahoo.com/',
+                'yahoo', 'width=800,height=600,resizable=no,scrollbars=yes,status=no,location=yes'
+            );
+    </script>
+</head>
+
+<body>
+    <button onclick="btnSave()">Save</button>
+    <button onclick="btnRead()">Read</button>
+</body>
+<script>
+    function btnSave(){
+      var d = new Date();
+      d.setTime(d.getTime() + ( 60 * 60  ));
+      expires = "expires=" + d.toTimeString();
+      alert(expires);
+      document.cookie = 'username=Mary; '+expires+'; path=/';
+    }
+    function btnRead() {
+      var cookieAry = document.cookie.split(';');
+      for(var i=0;i< cookieAry.length;i++){
+        alert(cookieAry[i]);
+      }
+      
+    }
+</script>
+</html>

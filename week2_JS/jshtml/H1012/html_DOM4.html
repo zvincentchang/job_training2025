@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML first ChildNode</title>
+</head>
+
+<body>    
+    <p id="foo">
+        <span>First span</span>
+    </p>
+    <p id="foo2"><span>First span</span>
+        <span>Second span</span>
+        <span>Last span</span></p>
+
+    <script>
+        var p = document.getElementById('foo');
+        // 會顯示 "#text"，因為第一個子元素是空白的文字節點
+        alert(p.firstChild.nodeName);
+         var p2 = document.getElementById('foo2');
+         alert(p2.firstChild.innerHTML);
+         alert(p2.lastChild.innerHTML);
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-tw" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>DB 登入</title>
+</head>
+<body>
+    <h2>DB 登入</h2>
+    <form action="/user/dblogin" method="post">
+        <label>username：</label>  
+		<input type="text" name="username" value="marie"/><br/>       
+        <label>Google 手機驗證碼：</label>
+        <input type="text" name="code" required><br>
+        <button type="submit">登入</button>
+    </form>
+   
+</body>
+</html>

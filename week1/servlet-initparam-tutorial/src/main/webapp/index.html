@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servlet InitParam 教學專案</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, '微軟正黑體', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .main-container {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .header .subtitle {
+            font-size: 14px;
+            opacity: 0.8;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .introduction {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .introduction h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .introduction p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .demo-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .demo-card.webxml {
+            border-color: #dc3545;
+        }
+        
+        .demo-card.annotation {
+            border-color: #28a745;
+        }
+        
+        .demo-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .demo-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .demo-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .demo-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .demo-button:hover {
+            background: #0056b3;
+        }
+        
+        .demo-card.webxml .demo-button {
+            background: #dc3545;
+        }
+        
+        .demo-card.webxml .demo-button:hover {
+            background: #a71e2a;
+        }
+        
+        .demo-card.annotation .demo-button {
+            background: #28a745;
+        }
+        
+        .demo-card.annotation .demo-button:hover {
+            background: #1e7e34;
+        }
+        
+        .comparison-section {
+            background: #e9ecef;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .comparison-title {
+            text-align: center;
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th {
+            background: #495057;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .pros {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .cons {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .code-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+        
+        .code-example .comment {
+            color: #68d391;
+        }
+        
+        .code-example .keyword {
+            color: #f687b3;
+        }
+        
+        .code-example .string {
+            color: #90cdf4;
+        }
+        
+        .code-example .annotation {
+            color: #fbb6ce;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            color: #666;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .footer p {
+            margin: 5px 0;
+        }
+        
+        .sample-output {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .sample-output h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .sample-output .output {
+            font-size: 18px;
+            font-weight: bold;
+            color: #28a745;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .header p {
+                font-size: 16px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .comparison-table {
+                font-size: 14px;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <h1>📚 Servlet InitParam 教學專案</h1>
+            <p>學習兩種配置 Servlet 初始化參數的方法</p>
+            <div class="subtitle">web.xml vs @WebServlet 註解比較教學</div>
+        </div>
+        
+        <div class="content">
+            <div class="introduction">
+                <h2>🎯 教學目標</h2>
+                <p>
+                    本教學專案將示範如何在 Java Servlet 中使用初始化參數 (InitParam)。
+                    您將學習到兩種不同的配置方法：傳統的 web.xml 配置方式和現代的 @WebServlet 註解方式。
+                    透過實際的程式碼範例，您可以理解兩種方法的優缺點和適用場景。
+                </p>
+            </div>
+            
+            <div class="sample-output">
+                <h3>📞 您要求的程式碼範例輸出</h3>
+                <div class="code-example">
+<span class="comment">// 在 Servlet 中讀取 InitParam</span>
+String <span class="keyword">name</span> = <span class="keyword">super</span>.getInitParameter(<span class="string">"username"</span>);
+response.setContentType(<span class="string">"text/html;charset=utf-8"</span>);
+response.getWriter().append(<span class="string">"&lt;h2&gt;UserName is "</span>).append(name+<span class="string">"&lt;/h2&gt;"</span>);
+                </div>
+                <div class="output">UserName is 張小明</div>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card webxml">
+                    <span class="demo-icon">🔧</span>
+                    <div class="demo-title">web.xml 配置方式</div>
+                    <div class="demo-description">
+                        傳統的 XML 配置方式，在 web.xml 文件中定義 Servlet 和其初始化參數。
+                        這種方式提供了靈活的外部配置能力。
+                    </div>
+                    <a href="WebXmlInitParamServlet" class="demo-button">查看 web.xml 範例</a>
+                </div>
+                
+                <div class="demo-card annotation">
+                    <span class="demo-icon">📝</span>
+                    <div class="demo-title">@WebServlet 註解方式</div>
+                    <div class="demo-description">
+                        現代的註解配置方式，直接在 Java 類別上使用 @WebServlet 和 @WebInitParam 註解。
+                        程式碼更簡潔，配置與實作緊密結合。
+                    </div>
+                    <a href="AnnotationInitParamServlet" class="demo-button">查看註解範例</a>
+                </div>
+            </div>
+            
+            <div class="comparison-section">
+                <div class="comparison-title">📊 兩種方法詳細比較</div>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>比較項目</th>
+                            <th>web.xml 配置</th>
+                            <th>@WebServlet 註解</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>配置方式</strong></td>
+                            <td>外部 XML 文件</td>
+                            <td>Java 註解</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Servlet 版本</strong></td>
+                            <td>所有版本支援</td>
+                            <td>Servlet 3.0+</td>
+                        </tr>
+                        <tr>
+                            <td><strong>配置靈活性</strong></td>
+                            <td><span class="pros">高 - 無需重新編譯</span></td>
+                            <td><span class="cons">低 - 需要重新編譯</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>程式碼簡潔性</strong></td>
+                            <td><span class="cons">分離配置，需維護兩處</span></td>
+                            <td><span class="pros">配置與實作在一起</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>執行時修改</strong></td>
+                            <td><span class="pros">支援（重啟容器）</span></td>
+                            <td><span class="cons">不支援</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>團隊協作</strong></td>
+                            <td><span class="pros">配置集中管理</span></td>
+                            <td><span class="cons">分散在各 Java 檔案</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>學習門檻</strong></td>
+                            <td>需了解 XML 語法</td>
+                            <td>Java 開發者友善</td>
+                        </tr>
+                        <tr>
+                            <td><strong>最佳適用場景</strong></td>
+                            <td>企業級應用、需要靈活配置</td>
+                            <td>快速開發、小型應用</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="comparison-section">
+                <div class="comparison-title">💡 核心程式碼比較</div>
+                
+                <h4 style="color: #dc3545; margin: 20px 0 10px 0;">🔧 web.xml 配置方式</h4>
+                <div class="code-example">
+<span class="comment">&lt;!-- web.xml 文件中 --&gt;</span>
+<span class="keyword">&lt;servlet&gt;</span>
+    <span class="keyword">&lt;servlet-name&gt;</span>WebXmlInitParamServlet<span class="keyword">&lt;/servlet-name&gt;</span>
+    <span class="keyword">&lt;servlet-class&gt;</span>com.example.servlet.WebXmlInitParamServlet<span class="keyword">&lt;/servlet-class&gt;</span>
+    <span class="keyword">&lt;init-param&gt;</span>
+        <span class="keyword">&lt;param-name&gt;</span>username<span class="keyword">&lt;/param-name&gt;</span>
+        <span class="keyword">&lt;param-value&gt;</span>張小明<span class="keyword">&lt;/param-value&gt;</span>
+    <span class="keyword">&lt;/init-param&gt;</span>
+<span class="keyword">&lt;/servlet&gt;</span>
+
+<span class="comment">// Java 類別中</span>
+<span class="keyword">public class</span> WebXmlInitParamServlet <span class="keyword">extends</span> HttpServlet {
+    String <span class="keyword">name</span> = <span class="keyword">super</span>.getInitParameter(<span class="string">"username"</span>);
+}
+                </div>
+                
+                <h4 style="color: #28a745; margin: 20px 0 10px 0;">📝 @WebServlet 註解方式</h4>
+                <div class="code-example">
+<span class="comment">// Java 類別中直接註解配置</span>
+<span class="annotation">@WebServlet</span>(
+    name = <span class="string">"AnnotationInitParamServlet"</span>,
+    urlPatterns = {<span class="string">"/AnnotationInitParamServlet"</span>},
+    initParams = {
+        <span class="annotation">@WebInitParam</span>(name = <span class="string">"username"</span>, value = <span class="string">"John Doe"</span>),
+        <span class="annotation">@WebInitParam</span>(name = <span class="string">"email"</span>, value = <span class="string">"john.doe@example.com"</span>)
+    }
+)
+<span class="keyword">public class</span> AnnotationInitParamServlet <span class="keyword">extends</span> HttpServlet {
+    String <span class="keyword">name</span> = <span class="keyword">super</span>.getInitParameter(<span class="string">"username"</span>);
+}
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>📚 Java Servlet InitParam 完整教學</strong></p>
+            <p>程式設計教授 © 2025 | 教育用途專案</p>
+            <p>點擊上方按鈕體驗兩種不同的 InitParam 配置方法</p>
+        </div>
+    </div>
+    
+    <script>
+        // 簡單的動畫效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.demo-card');
+            
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+        
+        // 點擊效果
+        document.querySelectorAll('.demo-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // 創建漣漪效果
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255,255,255,0.6)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.left = (e.clientX - e.target.offsetLeft) + 'px';
+                ripple.style.top = (e.clientY - e.target.offsetTop) + 'px';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    </script>
+    
+    <style>
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+</body>
+</html>

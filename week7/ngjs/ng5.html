@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/angular.js/1.8.1/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <code-directive></code-directive>
+    <div my-demo></div>
+    <div class="class-demo"></div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.directive("codeDirective", function () {
+            return {
+                template: "<h1>自定義指令!</h1>"
+            };
+        });
+        app.directive("myDemo", function () {
+            return {
+                restrict: "A",
+                template: "<h1>myDemo自定義指令!</h1>"
+            };
+        });
+        app.directive("classDemo", function () {
+            return {
+                restrict: "C",
+                template: "<h1>Class 自定義指令!</h1>"
+            };
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Create New Book</title>
+</head>
+<body>
+<form action="bookCreate" method ="post">
+  名稱:<input type="text" name="name"/><br/>
+  類別:<select name = "bookCategory">
+  <option th:each="bookCategory : ${allBookCategories}" 
+          th:value="${bookCategory.id}" 
+          th:text="${bookCategory.name}">商業</option>
+</select>
+ 價格:<input type="number" name ="price"/><br/>
+ <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>

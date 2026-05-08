@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>dom event</title>
+</head>
+
+<body>
+    <img id="scene" src="../html0717/images/img10.jpg" width="600" height="400" onmouseenter="enter()" onmouseout="leave()"/>
+
+    <script>
+        var scene = document.getElementById("scene");
+       scene.onmouseover =
+            function () { window.alert('Scene onmouseover'); };
+       function enter(){
+          console.log("mouse enter");  
+       }
+       function leave(){
+          console.log("mouse out");
+       }
+    </script>
+
+</body>
+
+</html>

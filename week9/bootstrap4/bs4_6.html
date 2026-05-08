@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta charset="utf-8">
+       <title>Bootstrap Html</title>       
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+       <script src="./js/bootstrap.min.js"></script>       
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>       
+       <link rel="stylesheet" href="./css/bootstrap.min.css">
+       <style>
+        .carousel-inner img {
+            height: 32rem;
+            width: auto;           
+        }
+    </style>
+
+    </head>
+    <body>       
+        <div class="container">                  
+           
+                <div id="ExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#ExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#ExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#ExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#ExampleIndicators" data-slide-to="3"></li>
+                    </ol>
+        
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-interval="3000">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>First slide label</h5>
+                            </div>
+                            <img src="./images/img7.jpg" class="d-block w-100" alt="banner 1" />
+                        </div>
+                        <div class="carousel-item" data-interval="3000">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Second slide label</h5>
+                            </div>
+                            <img src="./images/img8.jpg" class="d-block w-100" alt="banner 2" />
+                        </div>
+                        <div class="carousel-item" data-interval="3000">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Third slide label</h5>
+                            </div>
+                            <img src="./images/img9.jpg" class="d-block w-100" alt="banner 3" />
+                        </div>
+                        <div class="carousel-item" data-interval="3000">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Fourth slide label</h5>
+                            </div>
+                            <img src="./images/img10.jpg" class="d-block w-100" alt="banner 4" />
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#ExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#ExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        
+              
+        </div>
+    </body>
+</html>

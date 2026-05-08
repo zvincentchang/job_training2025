@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Show Pictures</title>
+        <script type="text/javascript">
+              var pics=["img7.jpg","img8.jpg","img9.jpg"];
+              var index=0;
+              var no;
+              function change(){
+                var path = pics[index];
+                  var imgObj = document.getElementById("pic1");
+                  imgObj.src = path;
+                  index++;
+                  if (index >= pics.length)
+                      index = 0;
+              }
+              function start(){                  
+                  no=setInterval(change,2000);
+              }
+              function end(){
+                  clearInterval(no);
+              }
+        </script>
+    </head>
+    <body>
+        <img src="img8.jpg" id="pic1" width="600" height="400"></img><p></p>
+        <button onclick="start()">Start</button>
+        <button onclick="end()">Stop</button>
+    </body>
+</html>

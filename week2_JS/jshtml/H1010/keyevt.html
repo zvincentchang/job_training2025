@@ -1,0 +1,19 @@
+<p>Hello</p>
+<script>
+// 當使用者在網頁中按下鍵盤按鍵時
+document.onkeydown = function(event) {
+
+if (event.keyCode === 89 && event.ctrlKey) {
+alert('你同時按下 "control + y"');
+
+} else if (event.which === 90 && event.ctrlKey ){
+alert('你同時按下 "control + z"');
+}
+};
+    // 當使用者要離開或關閉目前頁面時
+    window.onbeforeunload = function (event) {
+
+        // 返回要顯示給使用者看的提醒文字
+        return '你確定要離開本頁面嗎？';
+    };
+</script>

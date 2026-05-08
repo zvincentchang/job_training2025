@@ -1,0 +1,10 @@
+List<String> data=new ArrayList<>();
+  data.add("A");
+  data.add("B");
+  for(int i=0;i<data.size();i++)
+    System.out.println(data.get(i));
+
+  Iterator<String> it=data.iterator();
+  while(it.hasNext()){
+      String s=it.next();
+  }

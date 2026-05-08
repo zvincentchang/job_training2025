@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        AngularJS - REST Demo using $http service
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="../bootstrap4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../bootstrap4/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- Load AngularJS -->
+    <script src="./js/employee.js"></script>
+    <style>
+        .button {
+            cursor: pointer;
+            color: blue;
+        }
+
+        td,
+        th {            
+            width: 25%;
+            text-align: left;
+        }
+
+        table {
+            width: 600px;
+        }
+    </style>
+
+    <head>
+
+    <body ng-app="UserManagement" ng-controller="UserManagementController">
+        <div class="container">
+            <h1>
+                AngularJS - Use $http to invoke RESTful APIs
+            </h1>
+            <h2>Add/Edit Employee</h2>
+
+            <form ng-submit="submitEmployee()">
+                <table class="table" style="width:50%">
+                    <tr>
+                        <td>First Name</td>
+                        <td><input type="text" ng-model="form.firstName" size="60" /></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td><input type="text" ng-model="form.lastName" size="60" /></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="text" ng-model="form.email" size="60" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="submit" value="Submit" class="btn btn-danger"/></td>
+                    </tr>
+                </table>
+            </form>
+            <table class="table table-striped ">
+                <tr class="table-secondary">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+
+                <tr ng-repeat="employee in employees">
+                    <td>{{ employee.firstName }}</td>
+                    <td>{{ employee.lastName }}</td>
+                    <td>{{ employee.email }}</td>
+                    <td><a ng-click="editEmployee( employee )" class="btn btn-primary">Edit</a> | 
+                        <a ng-click="removeEmployee( employee )" class="btn btn-secondary">Remove</a></td>
+                </tr>
+
+            </table>
+
+
+        </div>
+    </body>
+
+</html>

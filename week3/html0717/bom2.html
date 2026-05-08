@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>First html</title>   
+</head>
+<body>
+    <h1>Hello World</h1>
+    <button onclick="countdown()">tw.yahoo.com</button>
+    <script>
+        function loc1(){
+            //var loc=prompt("url");
+            location.href="http://tw.yahoo.com";
+        }
+        function countdown(){
+            //window.setTimeout(loc1,3000);
+            window.setTimeout(function(){
+                location.href="http://www.hinet.net";
+            },5000);
+        }
+        countdown();
+    </script>
+</body>
+</html>

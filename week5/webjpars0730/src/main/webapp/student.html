@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Page</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+<form id="form1" action="javascript:alert('form execute')">
+  <h2>
+     SID: <input type="text" id="sid" value="110"/><br/>
+     SNAME:<input type="text" id="sname" value="Tony"/><br/>
+     AGE:<input type="text" id="age" value="20"/><br/>
+     <input type="submit" value="add"/>
+  </h2>
+</form>
+<script>
+$("#form1").submit(function (evt) {
+    evt.preventDefault();
+    var obj={};
+    obj.sid=parseInt($("#sid").val());
+    obj.sname=$("#sname").val();
+    obj.age=parseInt($("#age").val());
+    $.ajax({
+        method: 'POST',
+        url: 'http://localhost:8080/webjpars0730/api/students/add', //設定資料的網址
+        contentType: 'application/json;charset=UTF-8',
+        dataType: "json", //設定回傳的資料格式
+        data:JSON.stringify(obj),
+        statusCode: { //依不同StatusCode執行不同邏輯                        
+                201: function (res, stausText, xhr) {
+                    alert("201-Location=" + 
+                        //透過XHR取出Response Header
+                        xhr.getResponseHeader("Location"));
+                },
+                204: function () {
+                    alert("No Content!");
+                },
+                404: function () {
+                    alert("Page Not Found!");
+                },
+                304: function () {
+                    alert("Data Not Modified!");
+                },
+                500: function (xhr, statusText, err) {
+                    alert(xhr.responseText);
+                }
+        },
+        success: onSuccess //設定當Ajax要求成功時所要執行的函式
+    });
+});
+function onSuccess(data) {
+	if(data!=undefined)
+      alert(JSON.stringify(data));
+}
+</script>
+</body>
+</html>

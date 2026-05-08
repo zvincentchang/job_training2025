@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        AngularJS - REST Demo using $http service
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="../bootstrap4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../bootstrap4/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- Load AngularJS -->
+    <script src="./js/store.js"></script>
+    <style>
+        table {
+            width: 100%;
+        }
+    </style>
+    <head>
+    <body ng-app="StoreManagement" ng-controller="StoreManagementController">
+        <div class="container">           
+            <h2>Add/Edit Store</h2>
+            <form ng-submit="submitStore()">
+                <table id="productTB" class="table" style="width:50%;display:none">
+                    <tr>
+                        <td>Title</td>
+                        <td><input type="text" ng-model="form.title" size="80" /></td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td><input type="text" ng-model="form.description" size="80" /></td>
+                    </tr>
+                    <tr>
+                        <td>Image Path</td>
+                        <td><input type="text" ng-model="form.image" size="80" /></td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td><input type="text" ng-model="form.price" size="80" /></td>
+                    </tr>
+                    <tr>
+                        <input type="hidden" ng-model="form.id" size="10" />
+                        <td colspan="2"><input type="submit" value="Submit" class="btn btn-danger"/></td>
+                    </tr>
+                </table>
+            </form> 
+            <h5>Category:
+                <select ng-model="myselect" ng-change="myClickFilter(myselect)">
+                   <option ng-repeat="x in mycategory"> {{x}} </option>
+               </select>          
+            </h5>
+            <div class="row">
+                <div class="col-md-3" ng-repeat="product in filterProducts">                    
+                    <div class="card">
+                       <img class="card-img-top" src='{{ product.image }}'  alt="Card image" style="height:200px;width:190px">
+                       <div class="card-body">
+                         <h4 class="card-title">{{ product.title }}</h4>
+                         <p class="card-text">Price : {{ product.price }}</p>
+                        <a ng-click="editProduct( product )" class="btn btn-primary">Edit</a> | 
+                        <a ng-click="removeProduct( product )" class="btn btn-secondary">Remove</a>
+                       </div>
+                     </div>
+                      
+               </div>                 
+            </div>
+           
+
+
+        </div>
+    </body>
+
+</html>

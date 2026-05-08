@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/angular.js/1.8.1/angular.min.js"></script>
+</head>
+
+<body>
+
+    <div ng-app="">
+        Keep HTML: <input type="checkbox" ng-model="myVar" ng-init="myVar = true">
+
+        <div ng-if="myVar">
+            <h1>Welcome</h1>
+            <p>Welcome to my home.</p>
+            <hr>
+        </div>
+        <p>The DIV element will be removed when the checkbox is not checked.</p>
+        <p>The DIV element will return, if you check the checkbox.</p>
+
+    </div>
+
+</body>
+
+</html>

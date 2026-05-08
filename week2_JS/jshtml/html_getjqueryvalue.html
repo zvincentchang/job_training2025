@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>First jQuery Test</title>
+    <script src="js/jquery3.6.0.js"></script>
+</head>
+
+<body>
+    <h1>jQuery Test</h1>
+    <h2>
+        Name:<input type="text" id="userName" value="John"/><br/>
+        <button id="b1">Get Text</button>
+        <button id="b2">Set Text</button>
+    </h2>
+    <script>
+        function setText(){
+           var s=prompt("Input Name:");
+           $("#userName").val(s);
+        }
+        function getText() {
+            var n= $("#userName").val();
+            alert(n);
+        }
+        function start() {
+           $("#b1").click(getText);
+           $("#b2").click(setText);
+        }
+        $(document).ready(start);
+    </script>
+</body>
+
+</html>

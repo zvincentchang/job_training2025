@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+	<title>空氣品質預報</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script>
+		$(function () {
+			var dataUrl = "https://data.moenv.gov.tw/api/v2/aqf_p_01?api_key=e8dd42e6-9b8b-43f8-991e-b3dee723a52d&limit=10&sort=publishtime%20desc&format=JSON&callback";
+			$("#forecast").on("click", function () {
+				$.ajax({
+					method: 'GET',
+					url: dataUrl,			//設定資料的網址
+					dataType: "json",		//設定資料的格式
+					success: onSuccess		//設定當Ajax要求成功時所要執行的函式
+				});
+			});
+		});
+
+		function onSuccess(data) {
+			$("#airQ").empty();
+			//建立表格的第一列
+			var firstRow = $("<tr><th>地區</th><th>預報內容</th></tr>");
+			$("#airQ").append(firstRow);
+			//將取得的資料一一建立為表格的每一列
+			$.each(data.records, function (i) {
+				var row = $("<tr></tr>");
+				var td1 = $("<td></td>").text(this.area).appendTo(row);
+				var td2 = $("<td></td>").text(this.content).appendTo(row);
+				$("#airQ").append(row);
+			});
+		}	  
+	</script>
+</head>
+
+<body>
+	<button id="forecast">更新空氣品質預報</button><br><br>
+	<table id="airQ" rules="rows"></table>
+</body>
+
+</html>

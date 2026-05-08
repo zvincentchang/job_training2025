@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Users</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1 id="h1">Product</h1>
+    <button id="getProduct">Get Json Product</button>
+    <button id="saveProduct">Save Product</button>
+
+
+    </table>
+    <script>
+        var products=[];
+        $("#getProduct").on("click", function () {           
+            $.ajax({
+                method: 'GET',
+                url: 'jsondata.txt', //設定資料的網址                
+                dataType: "json", //設定回傳的資料格式 
+                success: onSuccess //設定當Ajax要求成功時所要執行的函式
+            });
+        });
+        function onSuccess(data) {
+            products=data;            
+            console.log(JSON.stringify(data[0]));
+        }
+
+        $("#saveProduct").on("click", function () {           
+            $.ajax({
+                method: 'POST',
+                url: 'saveproducts', //設定資料的網址 
+                contentType:'application/json',
+                data: JSON.stringify(products),               
+                dataType: "json", //設定回傳的資料格式 
+                success: function(data){
+                	       console.log(JSON.stringify(data));
+                         }
+            });
+        });
+        function onSuccess(data) {
+            products=data;            
+            console.log(JSON.stringify(data[0]));
+        }
+
+    </script>
+
+</body>
+
+</html>

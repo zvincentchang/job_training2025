@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>dom html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <p id="p1">Hello</p>    
+    <input type="button" id="b1" value="Button 1"/>    
+    <input type="button" id="b2" value="Button 2"/>    
+    <input type="button" id="b3" value="Button 3"/>    
+    <script>
+       function execute2(){
+        $('#p1').css('color', 'red');
+       }
+       function execute(){
+        $('#p1').css('color', 'blue');
+       }
+       function start(){
+         $("#b1").click(execute);
+         $("#b2").click(execute2);
+         $("#b3").click(function(){
+            $('#p1').css('color', 'green');
+         });
+       }
+       $(document).ready(start);
+    </script>
+
+</body>
+
+</html>

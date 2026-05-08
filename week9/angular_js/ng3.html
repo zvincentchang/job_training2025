@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/angular.js/1.8.1/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="" ng-init="quantity=1;price=5;names=['Jani','Hege','Kai']">
+        <h2>價格計算機</h2>
+        數量： <input type="number" ng-model="quantity">
+        價格： <input type="number" ng-model="price">
+        <p><b>總價：</b> {{ quantity * price }}</p>
+
+        <p>使用 ng-repeat 來迴圈陣列</p>
+        <ul>
+            <li ng-repeat="x in names">
+                {{ x }}
+            </li>
+        </ul>
+
+    </div>
+
+    </script>
+
+
+</body>
+
+</html>

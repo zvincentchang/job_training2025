@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>First jQuery Test</title>
+    <script src="js/jquery3.6.0.js"></script>
+</head>
+
+<body>
+    <h1>jQuery Test</h1>
+    <button id="b1">Button 1</button>
+    <button id="b2">Button 2</button>
+    <button id="b3">Button 3</button>
+    <script>
+        function myclick(evt) {
+                alert("all button trigger");
+        }
+        function myclick1(evt){
+            alert("b1");
+        }
+        function myclick2(evt) {
+            alert("b2");
+        }
+        function myclick3(evt) {
+            alert("b3");
+        }
+        function start() {
+            $("button").click(myclick);
+            $("#b1").click(myclick1);
+            $("#b2").click(myclick2);
+            $("#b3").click(myclick3);
+        }
+        $(document).ready(start);
+    </script>
+</body>
+
+</html>

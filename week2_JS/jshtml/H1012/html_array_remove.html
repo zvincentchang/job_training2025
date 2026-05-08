@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Javascript Function</title>
+
+</head>
+
+<body>
+    <h1>Javascript Function</h1>
+    <script>
+        var vs = [1,2,3,4,5,6,7,8,9,10];
+        function start() {
+           var e1=vs.pop();
+           alert("移除的元素 "+e1);
+           alert("陣列剩餘的元素 "+vs); 
+        }
+        function start2() {
+                var e1 = vs.shift();
+                alert("移除的元素 " + e1);
+                alert("陣列剩餘的元素 " + vs);
+        }
+
+    </script>
+    <button onclick="start2()">Remove Array</button>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>First jQuery Test</title>
+    <script src="js/jquery3.6.0.js"></script>
+</head>
+
+<body>
+    <h1>jQuery Test</h1>
+    <p>Paragraph 1</p>
+    <p class="p2">Paragraph 2</p>
+    <p id="p3">Paragraph 3</p>
+    <button>all hide</button>
+    <button class="b2">hide class</button>
+    <button id="b3">hide id</button>
+    <script>
+        function start() {
+          // $("button").click(function(){
+          //    $("p").hide();
+          // });
+           $(".b2").click(function(){
+               $(".p2").hide();
+           });
+           $("#b3").click(function () {
+                $("#p3").hide();
+           });
+        }
+        $(document).ready(start);
+    </script>
+</body>
+
+</html>

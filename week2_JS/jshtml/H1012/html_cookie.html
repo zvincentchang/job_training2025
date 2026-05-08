@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Javascript cookie</title>
+</head>
+
+<body>
+   <button onclick="btnSave()">Save</button>
+   <button onclick="btnRead()">Read</button>
+   <script>
+      function btnSave() {
+            var d = new Date();
+            d.setTime(d.getTime() + (60 * 60));
+            expires = "expires=" + d.toTimeString();
+            alert(expires);
+            document.cookie = 'username=Mary;' + expires + '; path=/';
+        }
+        function btnRead() {
+            var cookieAry = document.cookie.split(';');
+            for (var i = 0; i < cookieAry.length; i++) {
+                alert(cookieAry[i]);
+            }
+        }
+   </script>
+</body>
+
+</html>

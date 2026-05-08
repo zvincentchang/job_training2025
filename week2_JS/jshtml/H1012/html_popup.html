@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Popup window</title>
+    <script>
+        function execute(){
+            var yn=confirm('你確定?');
+            //alert(yn);
+            if(yn){
+                alert('true(確定)');
+            }else
+                alert('false(取消)');
+        }
+        function execute2(){
+            var input=prompt("輸入名字");
+            alert(input);
+            alert(typeof input);
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="execute()">confirm</button>
+    <button onclick="execute2()">prompt</button>
+</body>
+
+</html>

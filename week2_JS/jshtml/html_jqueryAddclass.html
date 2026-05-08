@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>First jQuery Test</title>
+    <script src="js/jquery3.6.0.js"></script>
+    <style>
+        .hello{
+            background-color: aqua;
+        }
+        .goodbye{
+            background-color: burlywood;
+        }
+        .big{ font-weight: bold; font-size:20px; }
+        .small{ font-weight: normal; font-size:10px; }
+
+    </style>
+</head>
+
+<body>
+    <h1>jQuery Test</h1>
+    <div class="container">
+        <div class="hello">Hello World</div>
+        <div class="goodbye">Good Bye</div>
+    </div>
+    <button id="b1">Big</button>
+    <button id="b2">Small</button>
+    <button id="b3">remove hello</button>
+    <button id="b4">remove goodbye</button>
+    <button id="b5">goodbye toogle</button>
+    <script>
+        function addBig(){
+           $(".hello").addClass("big"); 
+        }
+        function addSmall(){
+           $(".goodbye").addClass("small");
+        }
+        function rmHello(){
+           $(".hello").removeClass("hello"); 
+        }
+        function rmGoodBye(){
+           $(".goodbye").removeClass("goodbye");
+        }
+        function myToogle(){
+             $(".goodbye").toggleClass("small");
+        }
+        function start() {
+          $("#b1").click(addBig);
+          $("#b2").click(addSmall);
+          $("#b3").click(rmHello);
+          $("#b4").click(rmGoodBye);
+          $("#b5").click(myToogle);
+        }
+        $(document).ready(start);
+    </script>
+</body>
+
+</html>

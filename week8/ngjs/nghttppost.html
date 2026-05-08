@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AngularJs $http.post() Service Response Example</title>
+<script src="https://cdn.staticfile.org/angular.js/1.8.1/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+	<div ng-app="postserviceApp" ng-controller="postserviceCtrl">
+		<div>
+			Name : <input ng-model="name" /><br /> <br /> 
+			Age : <input ng-model="age" /><br /> <br />
+			Address : <input ng-model="address" /><br /> <br />
+			 <input type="button" 	value="Send" ng-click="postdata(name, age, address)" /> <br /> <br />
+		</div>
+		<p>Output Message : {{msg}}</p>
+		<p>StatusCode: {{statusval}}</p>
+		<p>Status: {{statustext}}</p>
+		<p>Response Headers: {{headers}}</p>
+	</div>
+	<script type="text/javascript">
+	 var app = angular.module("postserviceApp", []);
+	    app.controller("postserviceCtrl", function ($scope, $http) {
+	    	 $scope.postdata = function (name, age, address)  {
+	           // use $.param jQuery function to serialize data from JSON 
+	            var data =$.param( {
+	                name: name,
+	                age: age,
+	                address:address
+	            });	        
+	            var config = {
+	                headers : {
+	                  'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+	                }
+	            }
+	            $http.post('http://localhost:8080/ng', data,config)
+	               .then(function (response) {
+	            	   $scope.msg = response.data;
+                       $scope.statusval = response.status;
+                       $scope.statustext = response.statusText;
+                       $scope.headers = response.headers();
+	                },function (data, status, header, config) {
+	                  $scope.msg = "Error Data: " + data +
+	                    "<br />status: " + status +
+	                    "<br />headers: " + header +
+	                    "<br />config: " + config;
+	            });
+	        };
+	    });
+</script>
+</body>
+</html>

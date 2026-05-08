@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>簡易商城</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        let isLoggedIn = false;
+        let cart = [];
+        let myproducts = [];
+        function addToCart(productId) {
+            const product = myproducts.find(p => p.id === productId);
+            cart.push(product);
+            alert(`已將 ${product.title} 加入購物車`);
+        }
+        function updateCart() {
+            $('#cartItems').empty();
+            let total = 0;
+
+            if (cart.length === 0) {
+                $('#cartItems').append('<li class="list-group-item">購物車是空的</li>');
+            } else {
+                cart.forEach((item, index) => {
+                    total += item.price;
+                    $('#cartItems').append(`
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            ${item.title} - ${item.price} 元
+            <button class="btn btn-sm btn-danger" onclick="removeFromCart(${index})">刪除</button>
+          </li>
+        `);
+                });
+            }
+            $('#totalPrice').text(total);
+        }
+
+        function start() {
+            $('.nav-link').click(function (e) {
+                e.preventDefault();
+                let target = $(this).data('target');
+                $('#content > div').removeClass('active');
+                $('#' + target).addClass('active');
+
+                if (target === 'products') loadProducts();
+                if (target === 'cart') updateCart();
+            });
+
+            $('#loginBtn').click(function (e) {
+                e.preventDefault();
+                const user = $('#username').val();
+                const pass = $('#password').val();
+
+                $.ajax({
+                    url: "http://localhost:8080/api/user/login",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({ username: user, password: pass }),
+                    success: function (res) {
+						localStorage.setItem("token", res.token);
+						console.log("encoded data :"+res.token);
+                        isLoggedIn = true;
+                        $('#loginMessage').text('');
+                        $('#loginStatus').text(`歡迎，${user}`);
+                        alert("登入成功！");
+                    },
+                    error: function (xhr) {
+                        $('#loginMessage').text('帳號或密碼錯誤');
+                    }
+                });
+
+            });
+
+            function loadProducts() {
+                $('#productList').empty();
+                $.ajax({
+                    url: "http://localhost:8080/api/products",
+                    type: "GET",
+                    dataType: "json",
+                    success: function (products) {
+                        myproducts = products;
+                        $.each(products, function (i, product) {
+                            $('#productList').append(`
+                               <div class="col-md-3">
+                                 <div class="card mb-3">
+                                  <div class="card-body">
+                                    <h5 class="card-title">${product.title}</h5>
+                                    <img src="${product.image}"  class="card-img-top" width="160" height="200"/>
+                                    <p class="card-text">價格：${product.price} 元</p>
+                           <button class="btn btn-success" onclick="addToCart(${product.id})">加入購物車</button>
+                                 </div>
+                                </div>
+                              </div>
+                            `);
+                        });
+                    },
+                    error: function (xhr) {
+                        $('#loginMessage').text('帳號或密碼錯誤');
+                    }
+                });
+
+            }
+        }
+        $(document).ready(start);
+
+    </script>
+
+    <style>
+        #content>div {
+            display: none;
+        }
+
+        #content>.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 導覽列 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">我的商城</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#" data-target="login">帳戶登入</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-target="products">產品列表</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-target="orders">訂單</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-target="cart">購物車</a></li>
+                </ul>
+                <span class="navbar-text text-white" id="loginStatus">未登入</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 中央內容區 -->
+    <div class="container mt-4" id="content">
+        <!-- 登入區塊 -->
+        <div id="login" class="active">
+            <h3>帳戶登入</h3>
+            <input type="text" id="username" class="form-control mb-1 w-25 " placeholder="admin">
+            <input type="password" id="password" class="form-control mb-1 w-25" placeholder="1234">
+            <button id="loginBtn" class="btn btn-primary">登入</button>
+            <div id="loginMessage" class="mt-2 text-danger"></div>
+        </div>
+
+        <!-- 產品列表 -->
+        <div id="products">
+            <h3>產品列表</h3>
+            <div id="productList" class="row"></div>
+        </div>
+
+        <!-- 訂單 -->
+        <div id="orders">
+            <h3>訂單管理</h3>
+            <p>尚未實作（可與伺服器整合）</p>
+        </div>
+
+        <!-- 購物車 -->
+        <div id="cart">
+            <h3>購物車</h3>
+            <ul id="cartItems" class="list-group mb-2"></ul>
+            <p><strong>總金額：</strong><span id="totalPrice">0</span> 元</p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket 聊天室</title> 
+    <style>
+        @import url("/css/mystyles.css");        
+    </style>  
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 WebSocket 即時聊天室</h1>
+        </div>
+        
+        <!-- 狀態顯示 -->
+        <div id="status" class="status connecting">
+            正在連接中...
+        </div>
+        
+        <!-- 用戶名輸入表單 -->
+        <div id="usernameForm" class="username-form">
+            <div class="form-group">
+                <label for="name">請輸入您的用戶名：</label>
+                <input type="text" id="name" placeholder="輸入用戶名" maxlength="20" required>
+            </div>
+            <button id="connect" class="btn" type="button">進入聊天室</button>
+        </div>
+        
+        <!-- 聊天容器 -->
+        <div id="chatContainer" class="chat-container">
+            <div class="chat-header">
+                <span>歡迎，</span>
+                <span id="connectedUser" class="connected-user"></span>
+                <span>！您已成功連接到聊天室。</span>
+            </div>
+            
+            <div id="chatArea" class="chat-area">
+                <!-- 聊天訊息會動態添加到這裡 -->
+            </div>
+            
+            <form id="messageForm" class="message-form">
+                <input type="text" id="messageInput" class="message-input" 
+                       placeholder="輸入訊息..." maxlength="500" required>
+                <button type="submit" id="sendBtn" class="send-btn">發送</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 引入必要的JavaScript庫 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    
+    <script src="/js/wsclient.js"></script>
+</body>
+</html>

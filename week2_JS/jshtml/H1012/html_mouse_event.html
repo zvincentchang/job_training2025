@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Mouse Event </title>
+   
+</head>
+
+<body>
+    <h1>KeyDown</h1>
+    <div id="div1">Mouse Area</div>
+    <script type="text/javascript">
+        function display() {
+            alert('div mouseover');
+        }
+        var div1 = document.getElementById("div1");
+        //div1.onmouseover = display;
+        div1.addEventListener('mouseover',display);
+    </script>
+</body>
+
+</html>

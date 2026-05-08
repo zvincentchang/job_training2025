@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>dom html</title>
+    <style>
+        #elem {
+            position: absolute;
+            left: 100px;
+            top: 200px;
+            height: 50px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="elem" style="top:50px;">CSS Property Test</div>
+    
+
+    <button onclick="execute()">change css</button>
+
+    <script>
+        function execute() {
+            var elem = document.getElementById('elem');
+            // 顯示100px
+            var computed = window.getComputedStyle(elem);
+            alert(computed.height);
+            // 顯示50px
+            alert(computed.top);
+        }
+
+    </script>
+
+</body>
+
+</html>

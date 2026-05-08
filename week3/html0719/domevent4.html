@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>dom event</title>
+</head>
+
+<body>
+    <form id="myform" action="javascript:alert('myform submit')" method="post" >
+       <button>Send</button>
+    </form>
+    <script>
+        function check(evt){
+            alert('check');
+            evt.preventDefault();           
+            
+        }
+        document.getElementById('myform').addEventListener('submit',check);
+    </script>
+
+</body>
+
+</html>

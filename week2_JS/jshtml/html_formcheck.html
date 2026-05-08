@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Form Check</title>
+
+</head>
+
+<body>
+    <h1>Form</h1>
+    <form action="html_attr.html" method="post" onsubmit="return check()">
+     No:<input type="password" id="num" value="A" name="pass" required />   <br/>
+    <select id="carManufacturer" name="carManufacturer">
+        <optgroup label="歐洲車">
+            <option value="volvo">Volvo</option>
+            <option value="audi">Audi</option>
+        </optgroup>
+        <optgroup label="美國車">
+            <option value="chrysler">
+                Chrysler</option>
+            <option value="ford">
+                Ford</option>
+        </optgroup>
+    </select>
+
+   
+    <input id="ageCategory" name="ageCategory" list="ageRanges" />
+    <datalist id="ageRanges">
+        <option value="1">低於2歲</option>
+        <option value="2">2 - 7</option>
+        <option value="3">8 - 12</option>
+        <option value="4">13-18</option>
+        <option value="5">成人</option>
+    </datalist>
+    <br/>
+     <input type="submit" value="傳送"/>
+    </form>
+    <script type="text/javascript">
+         function check(){
+            var password=document.getElementById("num");
+            if(isNaN(password.value)){
+                alert(password.value+ " 不是數字");
+                return false;
+            }
+            else
+            return true;
+         }
+    </script>
+</body>
+
+</html>

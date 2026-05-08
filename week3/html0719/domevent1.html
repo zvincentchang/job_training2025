@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>dom onclick event</title>
+</head>
+
+<body>
+    <button onclick="triggerAlert(this);" data-name="Mike">click me</button>
+    <button id="b1">B1 Button</button>
+    <script>
+        function b1_click(){
+            alert('b1 click');
+        }       
+        function triggerAlert(evt) {
+            alert('Hey ' + evt.getAttribute('data-name'));
+            document.body.addEventListener('click', function (event) {
+                // 把字體改成黃色
+                event.target.style.color = 'yellow';
+            });
+        }
+        document.getElementById("b1").addEventListener('click',b1_click);
+    </script>
+
+</body>
+
+</html>

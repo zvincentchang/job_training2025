@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>WebSocket Test</title>
+<meta charset="UTF-8">
+<style>
+@import url("/css/mystyles.css");
+</style>
+<script src="/js/wsclient.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h1>🚀 WebSocket 即時聊天室</h1>
+		</div>
+		<!-- 狀態顯示 -->
+		<div id="status" class="status connecting">正在連接中...</div>
+		<div id="usernameForm" class="username-form">
+			<div class="form-group">
+				<form id="chatRoomForm1" onsubmit="return false;">
+					<label for="name">請輸入您的用戶名：</label> <input type="text"
+						id="userNameInput" placeholder="輸入用戶名" maxlength="20" required />
+					<input type="button" id="loginBtn" value="登入" />
+					 <span	id="infoWindow"></span>
+				</form>
+				<div class="form-group">
+				<form id="chatRoomForm2" onsubmit="return false;"
+					class="message-form">
+					<input type="text" id="userinput" class="message-input" />
+					<button type="button" id="sendBtn" class="send-btn">發送</button>
+				</form>
+			</div>
+			</div>
+
+		</div>
+		<div id="chatContainer" class="chat-container">			
+
+			<div id="chatArea" class="chat-area">
+				<!-- 聊天訊息會動態添加到這裡 -->
+				<div id="messageDisplay"></div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

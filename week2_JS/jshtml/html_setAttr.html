@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>set attribute</title>
+
+    <script type="text/javascript">
+        function getAttr() {
+            var tag = document.getElementById("foo");
+            alert(tag.getAttribute("href"));
+            tag.setAttribute("target","_blank");
+            alert(tag.getAttribute("target"));
+        }  
+    </script>
+</head>
+
+<body>
+    <button onclick="getAttr()">Change Style Property</button><p></p>
+    <a id="foo" href="http://www.gjun.com.tw">Gjun</a>
+    
+
+
+
+
+</body>
+
+</html>

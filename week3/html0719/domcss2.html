@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>dom html</title>
+</head>
+
+<body>
+    <p id="h1">Hello World</p>
+
+    <button onclick="execute()">change css</button>
+    <button onclick="execute2()">show cssText</button>
+    <script>
+        function execute() {
+            var foo = document.getElementById('h1');
+            // 輸出"" 空字串，因為foo 上沒有設定style 屬性
+            alert(foo.style.cssText);
+            // 將foo 的字體大小設為20px、字體顏色設為紫色
+            foo.style.cssText = 'font-size:24px; color:purple;';
+        }
+        function execute2() {
+            var foo = document.getElementById('h1');           
+            alert(foo.style.cssText);
+        }
+    </script>
+
+</body>
+
+</html>

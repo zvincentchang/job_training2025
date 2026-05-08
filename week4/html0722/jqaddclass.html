@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        .big{ font-weight: bold; font-size:20px; }
+        .small{ font-weight: normal; font-size:10px; }
+    </style>
+</head>
+
+<body>
+    <h1 id="h1">Hello World</h1>
+    <h2>jQuery addClass() Method</h2>
+    <button onclick="add()">Add Class</button>
+    <button onclick="toggleBig()">Toggle Class</button>
+    <div class="container">        
+        <div class="hello">Hello</div>
+        <div class="goodbye">Goodbye</div>
+    </div>
+    <script>  
+        function toggleBig(){
+            $('.goodbye').toggleClass('big');
+        }
+        function add(){
+            $(".hello").addClass('big');
+            $(".goodbye").addClass('small');
+        }  
+    </script>
+
+</body>
+
+</html>

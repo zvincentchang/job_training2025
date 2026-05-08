@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>First jQuery Test</title>
+    <script src="js/jquery3.6.0.js"></script>
+</head>
+
+<body>
+    <h1>jQuery Test</h1>
+    <div class="container">
+        <div class="hello">Hello</div>
+        <div class="goodbye">Good Bye</div>
+    </div>
+    <button id="b1">empty</button>
+    <button id="b2">remove</button>
+    <script>
+        function myempty(){
+           $(".hello").empty();  
+        }
+        function myremove(){
+           $(".hello").remove();
+        }
+        function start() {
+            $("#b1").click(myempty);
+            $("#b2").click(myremove);
+        }
+        $(document).ready(start);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>First jQuery Test</title>
+    <script src="js/jquery3.6.0.js"></script>
+</head>
+
+<body>
+    <h1>jQuery Test</h1>
+    <div style="background-color: blueviolet;">Hello</div>
+    <button id="b1">set Multiple CSS</button>
+    <script>
+        function addMultiple(){
+            $("div").css({"background-color":"blue","font-size":"36px"});
+        }
+        function start() {
+            $("#b1").click(addMultiple);
+        }
+        $(document).ready(start);
+    </script>
+</body>
+
+</html>

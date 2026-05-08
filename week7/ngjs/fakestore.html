@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        AngularJS - REST Demo using $http service
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="../bootstrap4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../bootstrap4/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- Load AngularJS -->
+    <script src="./js/store.js"></script>
+    <style>
+        table {
+            width: 100%;
+        }
+    </style>
+    <head>
+    <body ng-app="StoreManagement" ng-controller="StoreManagementController">
+        <div class="container">           
+            <h2>Add/Edit Store</h2>
+            <form ng-submit="submitStore()">
+                
+            </form>
+            <table class="table table-striped ">
+                <tr class="table-secondary">
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+
+                <tr ng-repeat="product in products">
+                    <td width="30%">{{ product.title }}</td>
+                    <td>{{ product.price }}</td>
+                    <td><img src='{{ product.image }}' width="200px"/></td>
+                    <td><a ng-click="editProduct( product )" class="btn btn-primary">Edit</a> | 
+                        <a ng-click="removeProduct( product )" class="btn btn-secondary">Remove</a></td>
+                </tr>
+
+            </table>
+
+
+        </div>
+    </body>
+
+</html>

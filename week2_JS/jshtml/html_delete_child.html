@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>UL delete Child</title>
+    <script type="text/javascript">
+       function show(){
+         var head=document.getElementById("firstUL");
+         //alert(head.childNodes.length);
+         //alert(head.childNodes[0].innerText);
+         //alert(head.childNodes[1].innerText);
+         //alert(head.childNodes[2].innerText);
+         head.removeChild(head.childNodes[2]);
+       }
+    </script>
+</head>
+
+<body>
+
+    <button onclick="show()">Show Child </button>
+    <p></p>
+    <ul id="firstUL"><li>1</li><li>2</li><li>3</li></ul>
+
+</body>
+
+</html>

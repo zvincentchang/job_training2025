@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Node removeChild </title>
+    <script type="text/javascript">
+        function remove() {
+           
+            var currentDiv = document.getElementById("foo");            
+            var s1 = document.getElementById("s1");
+            
+            var rm=currentDiv.removeChild(s1);
+            alert("刪除節點:"+ rm.innerHTML);
+            alert(currentDiv.innerHTML);
+        }
+    </script>
+</head>
+
+<body>
+
+    <button onclick="remove()">Get Node Data</button>
+    <p></p>
+    <div id="foo"><span id="s1">hello</span><span id="s2">world</span></div>
+
+
+</body>
+
+</html>

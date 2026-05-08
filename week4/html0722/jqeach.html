@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery html</title>
+    <script src="./js/jquery.3.6.3.min.js"></script>
+</head>
+
+<body>
+    <h1 id="h1">Hello World</h1>
+    <button onclick="create()">Create Table</button>
+    <table id="product" width="50%">        
+    </table>
+    <script>
+        function create() {
+            $("#product").attr("border",1);
+            head=$("<tr></tr>").html("<td>Row</td><td>Name</td><td>Price</td>>")
+            $("#product").append(head);
+            var arr = [{ "name": "Apple", "price": 60 }, {"name": "Lemon","price": 90}, { "name": "Cherry", "price": 300 }];
+            $.each(arr, function (i) {
+                var row = $("<tr></tr>");
+                $("<td></td>").text(i + 1).appendTo(row);
+                $("<td></td>").text(this.name).appendTo(row);
+                $("<td></td>").text(this.price).appendTo(row);
+                $("#product").append(row);
+            });
+            
+       }
+        function start() {
+            //alert('jquery start');
+            //$("button").click(create);
+        }
+
+        $(document).ready(start);
+    </script>
+
+</body>
+
+</html>

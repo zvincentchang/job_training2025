@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Javascript Function</title>
+
+</head>
+
+<body>
+    <h1>Javascript Function</h1>
+    <script>
+        var fruits = ['Apple', 'Banana','Cherry','Mongo','Lemon','Peach'];
+        function start() {
+           alert(fruits);
+           var f=prompt('要刪除的水果');
+           var index =fruits.indexOf(f,0);
+           if(index>=0){
+              var rm=fruits.splice(index,1);
+              alert("刪除 "+rm);
+              alert("剩餘 "+fruits);
+           }else{
+              alert(f+' 未搜尋到');
+           }
+        }
+        function start2() {
+                alert(fruits);
+                var f1 = prompt('要刪除的水果');
+                var f2 = prompt('要插入的水果');
+                var index = fruits.indexOf(f1, 0);
+                if (index >= 0) {
+                    var rm = fruits.splice(index, 0 ,f2);
+                    alert("刪除 " + rm);
+                    alert("插入後 " + fruits);
+                } else {
+                    alert(f + ' 未搜尋到');
+                }
+            }
+       
+    </script>
+    <button onclick="start()">Execute Array splice(delete)</button>
+    <button onclick="start2()">Execute Array splice(delete,insert)</button>
+    
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>onclick with arg </title>
+
+    <script type="text/javascript">
+         function mybutton(){
+            var btn = document.getElementById("bt1");
+            alert(btn.getAttribute("data-name"));
+         }
+    </script>
+</head>
+
+<body>
+    <button id="bt1" data-name="button name is bt1">Click Me</button>
+
+
+    <script>       
+        var btn=document.getElementById("bt1");
+        btn.addEventListener('click',mybutton);
+    </script>
+
+
+</body>
+
+</html>

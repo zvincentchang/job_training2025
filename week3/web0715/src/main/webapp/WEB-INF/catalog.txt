@@ -1,0 +1,4 @@
+P-100|$5.95|123|Duke's jeans , Extra faded
+P-101|$19.95|20|Navy Blue jeans
+P-102|$1.95|35|Duke's Wild Red jeans
+P-103|$3.95|30|Duke's Wild Socks

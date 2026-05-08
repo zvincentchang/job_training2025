@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>First html</title>
+    
+</head>
+<body>
+    <h1>Hello World</h1>
+    <button onclick="arrydelete()">delete(2,2)</button>
+    <button onclick="arrydelins()">deleteins(2,2,7,8,9)</button>
+   <script>
+       var data=[1,2,3,4,5,6]
+       function arrydelete(){
+          var delvalue=data.splice(2,2);
+          console.log("remove values:"+delvalue);
+          console.log("remains:"+data);
+       }
+       function arrydelins(){
+        var delvalue=data.splice(2,0,7,8,9);
+          console.log("remove values:"+delvalue);
+          console.log("remains:"+data);
+       }
+   </script>
+</body>
+</html>

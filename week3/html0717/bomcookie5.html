@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Cookie Page</title>
+
+</head>
+
+<body>
+    <h1>Hello World</h1>
+
+    <button onclick="btnSave()">Save Cookie</button>
+    <button onclick="btnRead()">Read Cookie</button>
+    <script>
+        function btnSave() {
+            var d = new Date();
+            d.setTime(d.getTime() + (5*1000));
+            expires = "expires="+d.toUTCString();
+            alert(expires);
+            document.cookie = 'username=Mary;' + expires + ';path=/';
+        }
+        function btnRead() {
+            var cookieAry = document.cookie.split(';');
+            for (var i = 0; i < cookieAry.length; i++) {
+                alert(cookieAry[i]);
+            }
+        }  
+    </script>
+</body>
+
+</html>

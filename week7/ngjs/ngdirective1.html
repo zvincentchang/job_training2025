@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="https://cdn.staticfile.org/angular.js/1.8.1/angular.min.js"></script>
+</head>
+<body>
+ 
+<div ng-app="myApp">
+    <code-directive></code-directive>
+
+    <script>
+    var app = angular.module("myApp", []);
+    app.directive("codeDirective", function() {
+        return {
+            template : "<h1>自定義指令!</h1>"
+        };
+    });
+    </script>
+    
+</div>
+ 
+</body>
+</html>

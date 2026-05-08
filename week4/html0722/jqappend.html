@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1 id="h1">Hello World</h1>
+    <button id="tail">append</button>
+    <button id="head">preappend</button>
+    <button id="beforeafter">before after</button><br/><br/>
+    <p>I would like to say: </p>
+    <script>
+      function beforeafter(){
+         $("p").before("<b>before</b>");
+         $("p").after("<b>after</b>");
+      }
+      function addlast(){
+         $("p").append("<b>Hello Last</b>");
+      } 
+      function addfirst(){
+        $("p").prepend("<b>Hello First</b>");
+      } 
+      function start(){
+        $("#tail").click(addlast);
+        $("#head").click(addfirst);
+        $("#beforeafter").click(beforeafter);
+      }
+      $(document).ready(start);
+    </script>
+
+</body>
+
+</html>

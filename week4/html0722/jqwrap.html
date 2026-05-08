@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        .demo{
+            font-size: 24px;
+            color:blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="h1">Hello World</h1>
+    <button onclick="change()">Change</button>
+    <div class="container">
+        <div class="inner">Hello</div>
+        <div class="inner">Goodbye</div>
+    </div>
+    <script>
+       function change(){
+        //$('.inner').wrap('<div class="demo"></div>');
+        $('.inner').wrapAll('<div class="demo"></div>');
+       }     
+    </script>
+
+</body>
+
+</html>

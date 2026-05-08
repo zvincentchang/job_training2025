@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>First html</title>
+   
+</head>
+<body>
+    <h1>Hello World</h1>
+    User Name:<input type="text" id="user" value="Mary"/><br/>
+    User Age:<input type="text" id="age" value="20"/><br/>
+    <button onclick="show()">show</button>
+    <button onclick="openwin()">open window</button>
+    <script>
+        function show(){
+           var txt=document.getElementById("user");
+           alert(txt.value);
+        }
+        function openwin(){
+          var windowObj= window.open(
+            'http://tw.yahoo.com/','yahoo','resizable=no,width=600,height=800,scrollbars=0,status=0,location=0'
+          );
+          windowObj.resizable=false;
+        }
+    </script>
+</body>
+</html>

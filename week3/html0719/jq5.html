@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>dom html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    
+</head>
+
+<body>
+    <h2>Hello World 1</h2>
+    <h2>Hello World 2</h2>
+    <h2>Hello World 3</h2>
+    <input type="text" id="username"/><br/>
+    <span id="sp1"></span>
+    <p></p>
+    <button id="b1">change h2 color</button>
+    <button id="b2">Change Value</button>
+    <button id="b3">Change span text</button>
+    
+    <script>
+       function changeColor(){
+         $("h2").css('color','blue');
+       }
+       function changeValue(){
+          n=prompt('input name');
+          $("#username").val(n);
+       }
+       function changeSP(){         
+          $("#sp1").html("<p style='color:red;font-size:24px'>demo</p>");
+       }
+       function start(){         
+         $("#b1").click(changeColor);
+         $("#b2").click(changeValue);
+         $("#b3").click(changeSP);
+        }      
+
+       $(document).ready(start);
+    </script>
+
+</body>
+
+</html>

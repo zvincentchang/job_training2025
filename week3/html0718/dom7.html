@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>json html</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <ul id="firstUL"><li>1</li><li>2</li><li>3</li></ul>
+    <button onclick="execute()">add child</button>
+    <script>
+        function execute() {
+            var head = document.getElementById('firstUL');
+            // 刪除<li> 3 </li>
+            head.removeChild(head.childNodes[2]);
+        }
+    </script>
+
+</body>
+
+</html>

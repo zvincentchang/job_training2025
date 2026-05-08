@@ -1,0 +1,32 @@
+ {
+        "addressLine1": "Kung yuan 30",
+        "city": "Taipei",
+        "country": "Taiwan",        
+        "officeCode": "8",
+        "phone": "+886 02 23826015",
+        "postalCode": "100",
+        "state": "TW",
+        "territory": "ASIA",
+        "employees": [
+            {
+                "email": "danis@classicmodelcars.com",
+                "employeeNumber": 1900,
+                "extension": "x111",
+                "firstName": "Danis",
+                "jobTitle": "Sales Rep",
+                "lastName": "Wang",
+                "officeCode": "8",
+                "reportsTo": 1056
+            },
+            {
+                "email": "tim@classicmodelcars.com",
+                "employeeNumber": 1901,
+                "extension": "x222",
+                "firstName": "tim",
+                "jobTitle": "Sales Rep",
+                "lastName": "Lee",
+                "officeCode": "8",
+                "reportsTo": 1056
+            }
+        ]
+    }

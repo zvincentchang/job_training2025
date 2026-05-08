@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>dom html</title>
+</head>
+
+<body>
+    <a id="foo" href="http://www.gjun.com/" target="_blank" data-foo="demo test">
+        www.gjun.com</a>
+
+    <a id="foo2" href="http://www.pcschool.com.tw/">www.pcschool.com.tw</a>
+
+    <button onclick="execute()">getAttribute</button>
+    <button onclick="execute2()">setAttribute</button>
+
+    <script>
+        function execute() {
+            // 取得目前頁面上的foo 元素
+            var foo = document.getElementById('foo');
+            // 顯示null
+            alert(foo.getAttribute('xyz'));
+            // 顯示http://www.gjun.com/
+            alert(foo.getAttribute('href'));
+            // 顯示_blank
+            alert(foo.getAttribute('target'));
+            // 顯示"" 空字串
+            alert(foo.getAttribute('data-foo'));
+        }
+        function execute2() {
+            // 取得目前頁面上的foo 元素
+            var foo = document.getElementById('foo2');
+            // 顯示null
+            alert(foo.getAttribute('target'));
+            // 將target 屬性設定為_blank
+            foo.setAttribute('target', '_blank');
+        }
+    </script>
+
+</body>
+
+</html>

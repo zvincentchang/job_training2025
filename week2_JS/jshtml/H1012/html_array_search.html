@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Javascript Function</title>
+
+</head>
+
+<body>
+    <h1>Javascript Function</h1>
+    <script>
+        var vs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        function start() {
+            var s=prompt("輸入搜尋數值");
+            var index=vs.indexOf(parseInt(s),0);
+            if(index>=0)
+              alert("搜尋成功 索引位置 "+index);
+            else
+              alert("搜尋失敗 沒有找到 "+s);
+        }
+     
+
+    </script>
+    <button onclick="start()">Search Array</button>
+
+</body>
+
+</html>

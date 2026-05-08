@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Picture Rotate</title>   
+</head>
+<body>    
+    <img src="images/img11.jpg" id="picture1" width="600" height="400"/><br/>
+    <button onclick="start()">start</button>
+    <button onclick="cleartimer()">stop</button>
+    <script>
+       var tid;
+       var index=0;
+       function showPicture(){
+         var picPath=["images/img7.jpg","images/img8.jpg","images/img9.jpg","images/img10.jpg","images/img11.jpg"];
+         var pic=document.getElementById("picture1");
+         pic.src=picPath[index];
+         index++;
+         if(index==picPath.length)
+            index=0;
+       }
+       function start(){
+          tid=window.setInterval(showPicture,5000);
+       }
+       function cleartimer(){
+          window.clearInterval(tid);
+       }
+    </script>
+</body>
+</html>

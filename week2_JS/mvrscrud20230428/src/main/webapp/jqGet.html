@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Get</title>
+<script src="./js/jquery3.6.2.js"></script>
+</head>
+<body>
+<button id="btnGet">Get</button><button id="btnAjax">Ajax</button>
+<div id="message">Data here</div>
+<script>
+   function result(data,status){
+	  alert(status);
+	  var str=JSON.stringify(data);
+	  str="<table width='60%' border='1'>"     
+	  data.forEach((item) => {
+		    str+="<tr><td>"+
+	            item.id+"</td><td>"+item.name+"</td><td>"+item.email
+	         +"</td></tr>";
+	  });
+	  str+="</table>"
+	  $("#message").html(str);
+   }
+   function jqGet(){
+	   $.get("http://localhost:8080/mvrscrud20230428/api/users",result);
+   }
+   function jqAjax(){
+	   $.ajax({
+		    url : 'http://localhost:8080/mvrscrud20230428/api/users' ,
+		    type : 'get', 
+		    dataType : 'json',  // From Server returns		    
+		    success : result
+	   }
+	  );
+
+   }
+   function start(){
+	   $("#btnGet").click(jqGet);
+	   $("#btnAjax").click(jqAjax);
+   }
+   $(document).ready(start);
+</script>
+</body>
+</html>

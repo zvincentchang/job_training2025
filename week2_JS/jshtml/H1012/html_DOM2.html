@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>DIM HTML</title>
+</head>
+
+<body>
+    <div id="parent-id">
+        <p>hello word1</p>
+        <p class="test">hello word2</p>
+        <p class="test">hello word3</p>
+    </div>
+
+    <button onclick="countp()">Count &lt;p&gt; length</button>
+</body>
+<script>
+    function countp() {
+        var div1 = document.getElementById("parent-id");
+        var tagName = div1.getElementsByClassName("test");
+        //alert(tagName.length);
+        for (var i = 0; i < tagName.length; i++)
+            alert(tagName[i].innerText);
+    }
+</script>
+
+</html>

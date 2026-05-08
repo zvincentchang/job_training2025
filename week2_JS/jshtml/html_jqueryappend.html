@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>First jQuery Test</title>
+    <script src="js/jquery3.6.0.js"></script>
+</head>
+
+<body>
+    <h1>jQuery Test</h1>
+    <div id="d1">Hello</div>
+    <button id="b1">append</button>
+    <button id="b2">prepend</button>
+    <button id="b3">before</button>
+    <button id="b4">after</button>
+    <script>
+        function mybefore(){
+           $("#d1").before("<b>First</b>");
+        }
+        function myafter(){
+            $("#d1").after("<b>First</b>");
+        }
+        function myprepend(){
+            $("#d1").prepend("<b>First</b>");
+        }
+        function myappend(){
+            $("#d1").append("<b>World</b>");
+        }
+        function start() {
+            $("#b1").click(myappend);
+            $("#b2").click(myprepend);
+            $("#b3").click(mybefore);
+            $("#b4").click(myafter);
+        }
+        $(document).ready(start);
+    </script>
+</body>
+
+</html>

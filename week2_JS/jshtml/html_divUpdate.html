@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>DIV Node Value Update</title>
+    <script type="text/javascript">
+        function update() {
+           var div1=document.getElementById("test");
+           alert(div1.innerText);
+           div1.innerText="Updated Text";
+        }
+    </script>
+</head>
+
+<body>
+
+    <button onclick="update()">Get Node Data</button>
+    <p></p>
+    <div id="test"><span>Div Test Value</span>100</div>
+
+</body>
+
+</html>

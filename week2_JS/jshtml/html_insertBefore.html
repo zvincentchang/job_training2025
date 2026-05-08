@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Node insertBefore </title>
+    <script type="text/javascript">
+        function insertChild(){
+            var newSpan=document.createElement("span");
+            newSpan.innerText=" new Inner Text ";
+            var currentDiv=document.getElementById("foo");
+            var s2=document.getElementById("s2");
+            var s1=document.getElementById("s1");
+            //currentDiv.insertBefore(newSpan,s2);
+            currentDiv.insertBefore(s2, s1);
+            alert(currentDiv.innerHTML);
+        }
+    </script>
+</head>
+
+<body>
+
+    <button onclick="insertChild()">Get Node Data</button>
+    <p></p>
+    <div id="foo"><span id="s1">hello</span><span id="s2">world</span></div>
+
+
+</body>
+
+</html>

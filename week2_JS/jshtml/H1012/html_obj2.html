@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Declare Object Init</title>
+</head>
+
+<body>
+    <h1>First HTML</h1>
+    <script>
+        var user={
+            firstName:"Amy" ,
+            lastName:"Lee", 
+            age: 20 ,
+            fullName : function(){
+               return this.firstName +":"+ this.lastName;
+            }           
+        };
+        var st=JSON.stringify(user);
+        //alert(st);
+        //alert(user);
+        //user.firstName="A";
+        //user.lastName="Anderson";
+        var s2=user.fullName();
+        alert(s2);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Get</title>
+<script src="./js/jquery3.6.2.js"></script>
+</head>
+<body>
+<button>Get</button>
+<div id="message">Data here</div>
+<script>
+   function result(data,status){
+	  alert(status);
+	  var str=JSON.stringify(data);
+	  $("#message").text(str);
+   }
+   function jqGet(){
+	   $.get("http://localhost:8080/mvrscrud20230421/api/users",result);
+   }
+   function start(){
+	   $("button").click(jqGet);
+   }
+   $(document).ready(start);
+</script>
+</body>
+</html>

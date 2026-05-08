@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Div Modify</title>
+</head>
+
+<body>
+    <div id="outerDiv">Hello
+        <div id="innerDiv">Test</div>
+    </div>
+    <button onclick="getAllDiv()">Get All Div</button>
+    <button onclick="updateDiv()">update outer Div</button>
+    <button onclick="updateInnerDiv()">update inner Div</button>
+    <script>
+        function getAllDiv(){
+          var divs= document.getElementsByTagName("div");
+          for(var i=0;i<divs.length;i++){
+            var dx=divs[i];
+            alert(dx.innerText);
+          }
+        }
+        function updateDiv(){
+            var div = document.getElementById("outerDiv");
+            div.innerHTML="<h2 style='color:blue;background-color:yellow'>Hello Div</h2>";
+            //  div.innerText="Hello DIV";
+        }
+        function updateInnerDiv(){
+            var div = document.getElementById("innerDiv");
+            div.innerHTML="<h1>Hello Inner</h1>";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JSON</title>
+</head>
+
+<body>
+    <button onclick="create()">create json</button>
+    <button onclick="parse()">parse json</button>
+</body>
+<script>
+   function create(){
+      //var data=[{name:"Mary",age:20},{name:"George",age:25},{name:"Rose",age:18}];
+      var data=[];
+      var obj=new Object();
+       obj.name="Mary";
+       obj.age=20;
+       data.push(obj);
+       obj = new Object();
+       obj.name = "George";
+       obj.age = 25;
+       data.push(obj);
+       obj = new Object();
+       obj.name = "Rose";
+       obj.age = 18;
+       data.push(obj);
+      var str=JSON.stringify(data);
+      alert(str);
+   }
+  
+</script>
+</html>

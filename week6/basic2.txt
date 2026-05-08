@@ -1,0 +1,290 @@
+ex1.
+int[] lst = {1, 2, 3, 4, 5, 4, 3, 2, 1};
+int sum = 0;
+for (int frnt = 0, rear = lst.length - 1; frnt < 5 && rear >= 5; frnt++, rear--) {
+    sum = sum + lst[frnt] + lst[rear];
+}
+System.out.print(sum);
+
+What is the result?
+
+A.
+20
+
+B.
+25
+
+C.
+29
+
+D. Compilation fails
+E. An ArrayIndexOutOfBoundsException is thrown at runtime
+
+
+Ex2.
+
+Which two array initialization statements are valid?
+
+A)
+int array[3] = new int[] {1, 2, 3};
+B)
+int array[] = new int[] {1,2,3};
+C)
+int array[] = new int[3];
+array = {1, 2, 3};
+D)
+int array[] = new int[3] {1, 2, 3};
+E)
+int array[] = new int[3];
+array[0] = 1;
+array[1] = 2;
+array[2] = 3;
+
+Ex3:
+
+Given the code fragment:
+String shirts[][] = new String[2][2];
+shirts[0][0] = "red";
+shirts[0][1] = "blue";
+shirts[1][0] = "small";
+shirts[1][1] = "medium";
+
+Which code fragment prints red:blue:small:medium:?
+A)
+for (String[] c : shirts) {
+     for (String s : c) {
+        System.out.print(s + ":");
+     }
+}
+B)
+for (int index = 1; index < 2; index++) {
+     for (int idx = 1; idx < 2; idx++) {
+        System.out.print(shirts[index][idx] + ":");
+     }
+}
+C)
+for (int index = 0; index < 2; ++index) {
+      for (int idx = 0; idx < index; ++idx) {
+            System.out.print(shirts[index][idx] + ":");
+       }
+}
+D)
+for (int index = 0; index <= 2;) {
+    for (int idx = 0; idx <= 2;) {
+          System.out.print(shirts[index][idx] + ":");
+   }
+   index++;
+}
+
+Ex4:
+Given:
+public class Test {
+   public static void main(String[] args) {
+      String[][] chs = new String[5][2];
+      chs[0] = new String[2];
+      chs[1] = new String[5];
+      int i = 97;
+      for (int a = 0; a < chs.length; a++) {
+          for (int b = 0; b < chs.length; b++) {
+              chs[a][b] = "" + i;
+              i++;
+          }
+      }
+     for (String[] ca : chs) {
+          for (String c : ca) {
+            System.out.print(c + " ");
+          }
+       System.out.println();
+     }
+  }
+}
+
+What is the result?
+A)
+A NullPointerException is thrown at runtime.
+B)
+97 98
+99 100 null null null
+C)
+97 98
+99 100 101 102 103
+D)
+Compilation fails.
+E)
+An ArrayIndexOutOfBoundsException is thrown at runtime.
+
+Ex5:
+Given the code fragment:
+public static void main(String[] args) {
+   int[][] arr = new int[2][4];
+   arr[0] = new int[]{1, 3, 5, 7};
+   arr[1] = new int[]{1, 3};
+   for (int[] a : arr) {
+      for (int i=0; i < arr.length; i++) {
+          System.out.print(a[i] + " ");
+      }
+     System.out.println();
+   }
+}
+
+What is the result?
+A)
+1 3
+followed by an ArrayIndexOutOfBoundsException
+B)
+1 3 5 7
+1 3
+C)
+Compilation fails.
+D)
+1 3
+1 3
+E)
+1 3
+1 3 0 0
+
+Ex6:
+public static void main(String[] args) {
+    int[] stack = {10, 20, 30};
+    int size = 3;
+    int idx = 0;
+    // line n1 //
+    System.out.print("The Top element: " + stack[idx]);
+}
+Which two code fragments, inserted at line n1 independently, print The Top element: 30?
+A)
+do {
+   idx++;
+} while (idx < size - 1);
+B)
+do {
+   idx++;
+} while (idx >= size);
+C)
+do {
+   idx++;
+} while (idx <= size);
+D)
+while (idx <= size - 1) {
+    idx++;
+}
+E)
+while (idx < size - 1) {
+    idx++;
+}
+
+Ex7: 
+
+Given the code fragment:
+int [] array = {1, 2, 3, 4, 5};
+And given the requirements:
+1. Process all the elements of the array in the reverse order of entry.
+2. Process all the elements of the array in the order of entry.
+3. Process alternating elements of the array in the order of entry.
+
+Which two statements are true?
+A) Requirements 1, 2, and 3 can be implemented by using the standard for loop.
+B) Requirement 3 CANNOT be implemented by using either the enhanced for loop or the standard.
+C) Requirements 2 and 3 CANNOT be implemented by using the standard for loop.
+D) Requirements 1, 2, and 3 can be implemented by using the enhanced for loop.
+E) Requirements 2 can be implemented by using the enhanced for loop.
+
+Ex8:
+Given:
+class Equal {
+public static void main(String[] args){
+   String str1 = "Java";
+   String[] str2 = {"J", "a", "v", "a"};
+   String str3 = "";
+   for(String str : str2) {
+     str3 = str3+str;
+   }
+   boolean b1 = (str1.equals(str3));
+   boolean b2 = (str1 == str3);
+   System.out.print(b1+", "+b2);
+  }
+}
+What is the result?
+A) false, false
+B) true, true
+C) true, false
+D) false, true
+
+Ex9:
+Given the code fragment:
+public static void main(String[] args) {
+    int data[] = {2010, 2013, 2014, 2015, 2014};
+    int key = 2014;
+    int count = 0;
+    for (int e: data) {
+           if (e != key) {
+           continue;
+           count++;
+    }
+}
+System.out.print(count + " Found");
+}
+What is the result?
+A) 3 Found
+B) 0 Found
+C) 1 Found
+D) Compilation fails.
+
+Ex10:
+Given the code fragment:
+int array1[] = {1, 2, 3};
+int array2[] = new int[5];
+
+array2 = array1;
+
+for (int i : array2) {
+     System.out.print(i + " ");
+}
+System.out.println();
+int array3[] = new int[3];
+
+array3 = array2;
+
+for (int i : array3) {
+    System.out.print(i + " ");
+}
+
+What is the result?
+A)
+1 2 3 0 0
+1 2 3 0 0
+B)
+1 2 3 0 0
+1 2 3
+C)
+1 2 3
+1 2 3
+D)
+An Exception is thrown at run time.
+
+Ex11:
+public static void main(final String[] args) throws Exception {
+    String[][] arr = {{"A", "B", "C"}, {"D", "E"}};
+    for (int i = 0; i < arr.length; i++) {
+        for (int j = 0; j < arr[i].length; j++) {
+            System.out.print(arr[i][j] + " ");
+            if (arr[i][j].equals("B")) {
+                break;
+            }
+        }
+        continue;
+    }
+}
+What is the result?
+
+A.
+A B C
+
+B.
+A B C D E
+
+C.
+A B D E
+
+D. Compilation fails.
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>First jQuery Test</title>
+    <script src="js/jquery3.6.0.js"></script>
+</head>
+
+<body>
+    <h1>jQuery Test</h1>
+    <button class="mycs">Button 1</button>
+    <button class="mycs">Button 2</button>
+    <button>Button 3</button>
+    <script>
+        function classTest(){
+            alert("Button class");
+        }
+        function start() {
+            $(".mycs").click(classTest);
+        }
+        $(document).ready(start);
+    </script>
+</body>
+
+</html>

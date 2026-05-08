@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>json html</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <div id="outer">
+        <div id="inner">blah</div>
+    </div>
+    <button onclick="execute()">add child</button>
+    <script>
+        function execute() {
+            var outerDiv = document.getElementById('outer');
+            console.log(outerDiv.innerText);
+            var divs = document.getElementsByTagName('div');
+            // 顯示2
+            alert(divs.length);
+            // 清空outer 下的節點
+            outerDiv.innerHTML = '';
+            // 顯示1
+            alert(outerDiv.innerText);
+        }
+    </script>
+
+</body>
+
+</html>

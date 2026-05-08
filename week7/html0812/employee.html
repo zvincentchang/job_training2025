@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+    <table border="1" width="40%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="users-table-body">
+        </tbody>
+    </table>
+    <p>
+    <form>
+        <input type="hidden" id="user-id">
+        <label for="user-name">Name:</label>
+        <input type="text" id="user-name"><br/>
+        <label for="user-email">Email:</label>
+        <input type="text" id="user-email"><br/>
+        <button type="button" id="create-user">Create User</button>
+        <button type="button" id="update-user">Update User</button>
+    </form>
+    <script>
+        var apiUrl = 'http://localhost:8080/api/v1/employees';
+
+        $(document).ready(function() {
+            // Load initial users data
+            loadUsers();
+
+            // Create new user
+            $('#create-user').click(function() {
+                var name = $('#user-name').val();
+                var email = $('#user-email').val();
+                var user = {name: name, email: email};
+                createUser(user);
+            });
+
+            // Update existing user
+            $('#update-user').click(function() {
+                var id = $('#user-id').val();
+                var name = $('#user-name').val();
+                var email = $('#user-email').val();
+                var user = {id: id, name: name, email: email};
+                updateUser(user);
+            });
+
+            // Load users data
+            function loadUsers() {
+                $.get(apiUrl)
+                    .done(function(data) {
+                        $('#users-table-body').empty();
+                        $.each(data, function(i, user) {
+                            var row = '<tr>' +
+                                      '<td>' + user.id + '</td>' +
+                                      '<td>' + user.firstName + '</td>' +
+                                      '<td>' + user.email + '</td>' +
+                                      '<td><button type="button" class="edit-user" data-id="' + user.id + '">Edit</button> ' +
+                                          '<button type="button" class="delete-user" data-id="' + user.id + '">Delete</button></td>' +
+                                      '</tr>';
+                            $('#users-table-body').append(row);
+                        });
+                    });
+            }
+
+            // Create user
+            function createUser(user) {
+                $.ajax({
+                    url: apiUrl,
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(user)
+                })
+                .done(function() {
+                    clearForm();
+                    loadUsers();
+                })
+                .fail(function(jqXHR, textStatus, errorThrown) {
+                    alert('Failed to create user: ' + errorThrown);
+                });
+            }
+
+            // Update user
+            function updateUser(user) {
+                $.ajax({
+                    url: apiUrl + '/' + user.id,
+                    type: 'PUT',
+                    contentType: 'application/json',
+                    data: JSON.stringify(user)
+                })
+                .done(function() {
+                    clearForm();
+                    loadUsers();
+                })
+                .fail(function(jqXHR, textStatus, errorThrown) {
+                    alert('Failed to update user: ' + errorThrown);
+                });
+            }
+
+            // Delete user
+            $('#users-table-body').on('click', '.delete-user', function() {
+                var id = $(this).data('id')
+            $.ajax({
+                url: apiUrl + '/' + id,
+                type: 'DELETE'
+            })
+            .done(function() {
+                loadUsers();
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+                alert('Failed to delete user: ' + errorThrown);
+            });
+        });
+
+        // Edit user
+        $('#users-table-body').on('click', '.edit-user', function() {
+            var id = $(this).data('id');
+            $.get(apiUrl + '/' + id)
+                .done(function(user) {
+                    $('#user-id').val(user.id);
+                    $('#user-name').val(user.firstName);
+                    $('#user-email').val(user.email);
+                })
+                .fail(function(jqXHR, textStatus, errorThrown) {
+                    alert('Failed to load user: ' + errorThrown);
+                });
+        });
+
+        // Clear form
+        function clearForm() {
+            $('#user-id').val('');
+            $('#user-name').val('');
+            $('#user-email').val('');
+        }
+    });
+</script>

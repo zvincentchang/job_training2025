@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Form</title>
+</head>
+<body>
+<form action="studentsingle" method="post" onsubmit="return createjson2()">
+    <h2>
+       <input type="hidden" name="student" id="student"/>
+       User Name<input type="text"  id="name" value="Danny"/><br/>
+       Age <input type="text"  id="age" value="20"/><br/>
+       <input type="button" onclick="add()" value="Add to Array"/><input type="submit" value="Send"/>
+    </h2>
+</form>
+<script>
+ var stuArray=[];
+ function add(){
+	    var obj={};
+	    var name=document.getElementById('name');
+		var age=document.getElementById('age');
+		obj.name=name.value;
+		obj.age=parseInt(age.value);
+		stuArray.push(obj);
+		alert(JSON.stringify(stuArray));
+ }
+ function createjson2(){	
+	   var student=document.getElementById('student');
+		student.value=JSON.stringify(stuArray);
+		return true;		
+ }
+ function createjson(){
+	var name=document.getElementById('name');
+	var age=document.getElementById('age');
+	var student=document.getElementById('student');
+	var obj={};
+	obj.name=name.value;
+	obj.age=parseInt(age.value);
+	student.value=JSON.stringify(obj);
+	return true;
+	//if(age.value>20)
+	//  return true;
+	//else
+	//  return false;
+ }
+</script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>數學運算計算器</title>
+    <style>
+        body {
+            font-family: Arial, '微軟正黑體', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 50px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .calculator-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .calculator-header h1 {
+            color: #333;
+            font-size: 28px;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .calculator-header p {
+            color: #666;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #555;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 20px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .operations-container {
+            margin-top: 30px;
+        }
+        
+        .operations-label {
+            display: block;
+            color: #555;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .operations-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .operation-btn {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .operation-btn.add {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .operation-btn.add:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .operation-btn.substract {
+            background: #ff9800;
+            color: white;
+        }
+        
+        .operation-btn.substract:hover {
+            background: #e68900;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+        }
+        
+        .operation-btn.multiply {
+            background: #2196F3;
+            color: white;
+        }
+        
+        .operation-btn.multiply:hover {
+            background: #1976D2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+        }
+        
+        .operation-btn.divide {
+            background: #f44336;
+            color: white;
+        }
+        
+        .operation-btn.divide:hover {
+            background: #d32f2f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(244, 67, 54, 0.3);
+        }
+        
+        .input-constraints {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        /* 響應式設計 */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+            
+            .calculator-container {
+                padding: 25px;
+            }
+            
+            .calculator-header h1 {
+                font-size: 24px;
+            }
+            
+            .operations-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator-header">
+            <h1>🧮 數學運算計算器</h1>
+            <p>請輸入兩個數字並選擇運算類型</p>
+        </div>
+        
+        <form action="MathOPServlet" method="post">
+            <div class="form-group">
+                <label for="no1">第一個數字 (Number 1):</label>
+                <input type="number" 
+                       id="no1" 
+                       name="no1" 
+                       min="10" 
+                       max="20" 
+                       value="15" 
+                       required>
+                <div class="input-constraints">範圍：10 到 20</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="no2">第二個數字 (Number 2):</label>
+                <input type="number" 
+                       id="no2" 
+                       name="no2" 
+                       min="1" 
+                       max="10" 
+                       value="5" 
+                       required>
+                <div class="input-constraints">範圍：1 到 10</div>
+            </div>
+            
+            <div class="operations-container">
+                <label class="operations-label">選擇運算類型：</label>
+                <div class="operations-grid">
+                    <input type="submit" 
+                           name="submit" 
+                           value="add" 
+                           class="operation-btn add" 
+                           title="加法運算">
+                    
+                    <input type="submit" 
+                           name="submit" 
+                           value="substract" 
+                           class="operation-btn substract" 
+                           title="減法運算">
+                    
+                    <input type="submit" 
+                           name="submit" 
+                           value="multiply" 
+                           class="operation-btn multiply" 
+                           title="乘法運算">
+                    
+                    <input type="submit" 
+                           name="submit" 
+                           value="divide" 
+                           class="operation-btn divide" 
+                           title="除法運算">
+                </div>
+            </div>
+        </form>
+        
+        <div class="footer">
+            <p>📚 Java Servlet 數學運算範例</p>
+            <p>程式設計教學專案 © 2025</p>
+        </div>
+    </div>
+    
+    <script>
+        // 表單驗證
+        document.querySelectorAll('.operation-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const no1 = document.getElementById('no1').value;
+                const no2 = document.getElementById('no2').value;
+                
+                if (!no1 || !no2) {
+                    e.preventDefault();
+                    alert('請輸入完整的數字！');
+                    return false;
+                }
+                
+                const num1 = parseFloat(no1);
+                const num2 = parseFloat(no2);
+                
+                if (num1 < 10 || num1 > 20) {
+                    e.preventDefault();
+                    alert('第一個數字必須在 10 到 20 之間！');
+                    return false;
+                }
+                
+                if (num2 < 1 || num2 > 10) {
+                    e.preventDefault();
+                    alert('第二個數字必須在 1 到 10 之間！');
+                    return false;
+                }
+                
+                if (this.value === 'divide' && num2 === 0) {
+                    e.preventDefault();
+                    alert('除數不能為零！');
+                    return false;
+                }
+                
+                // 顯示載入效果
+                this.style.transform = 'scale(0.95)';
+                this.innerHTML = '計算中...';
+                
+                return true;
+            });
+        });
+        
+        // 數字輸入即時驗證
+        document.getElementById('no1').addEventListener('input', function() {
+            const value = parseFloat(this.value);
+            if (value < 10 || value > 20) {
+                this.style.borderColor = '#f44336';
+            } else {
+                this.style.borderColor = '#4CAF50';
+            }
+        });
+        
+        document.getElementById('no2').addEventListener('input', function() {
+            const value = parseFloat(this.value);
+            if (value < 1 || value > 10) {
+                this.style.borderColor = '#f44336';
+            } else {
+                this.style.borderColor = '#4CAF50';
+            }
+        });
+    </script>
+</body>
+</html>

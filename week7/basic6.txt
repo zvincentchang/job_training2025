@@ -1,0 +1,715 @@
+Ex1.
+
+class Alpha {
+    public String doStuff(String msg) {
+        return msg;
+    }
+}
+
+class Beta extends Alpha {
+    public String doStuff(String msg) {
+        return msg.replace('a', 'e');
+    }
+}
+
+class Gamma extends Beta {
+    public String doStuff(String msg) {
+        return msg.substring(2);
+    }
+}
+And the code fragment of the main() method,
+
+List<Alpha> strs = new ArrayList<Alpha>();
+strs.add(new Alpha());
+strs.add(new Beta());
+strs.add(new Gamma());
+for (Alpha t : strs) {
+    System.out.println(t.doStuff("Java"));
+}
+What is the result?
+
+A.
+
+Java
+Java
+Java
+
+B.
+
+Java
+Jeve
+va
+
+C.
+
+Java
+Jeve
+ve
+
+D. Compilation fails
+
+
+Ex2.
+
+public class Test {
+ 
+    static int count = 0;
+    int i = 0;
+ 
+    public void changeCount() {
+        while (i < 5) {
+            ++i;
+            count++;
+        }
+    }
+ 
+    public static void main(String[] args) {
+        Test check1 = new Test();
+        Test check2 = new Test();
+        check1.changeCount();
+        check2.changeCount();
+        System.out.println(check1.count + " : " + check2.count);
+    }
+}
+What is the result?
+
+A.
+
+10 : 10
+
+B.
+
+5 : 5
+
+C.
+
+5 : 10
+
+D. Compilation fails
+
+
+Ex3.
+
+public class Employee {
+ 
+    String name;
+    boolean contract;
+    double salary;
+ 
+    Employee() {
+        // line n1
+    }
+ 
+    public String toString() {
+        return name + ":" + contract + ":" + salary;
+    }
+ 
+    public static void main(String[] args) {
+        Employee e = new Employee();
+        // line n2
+        System.out.print(e);
+    }
+}
+Which two modifications, when made independently, enable the code to print joe:true:100.0?
+
+A.
+Replace line n2 with:
+
+e.name = "Joe";
+e.contract = true;
+e.salary = 100;
+B.
+Replace line n2 with:
+
+this.name = "Joe";
+this.contract = true;
+this.salary = 100;
+C.
+Replace line n1 with:
+
+this.name = new String("Joe");
+this.contract = new Boolean(true);
+this.salary = new Double(100);
+D.
+Replace line n1 with:
+
+name = "Joe";
+contract = TRUE;
+salary = 100.0f;
+E.
+Replace line n1 with:
+
+this("Joe", true, 100);
+
+
+Ex4.
+
+public abstract class Shape {
+ 
+    private int x;
+    private int y;
+ 
+    public abstract void draw();
+ 
+    public void setAnchor(int x, int y) {
+        this.x = x;
+        this.x = y;
+    }
+}
+Which two classes use the shape class correctly?
+
+A.
+
+public class Circle implements Shape{
+    private int radius;
+}
+B.
+
+public abstract class Circle extends Shape{
+    private int radius;
+}
+C.
+
+public class Circle extends Shape{
+    private int radius;
+    public void draw();
+}
+D.
+
+public abstract class Circle implements Shape{
+    private int radius;
+    public void draw();
+}
+E.
+
+public class Circle extends Shape{
+    private int radius;
+    public void draw() { /* code here */ }
+}
+F.
+
+public abstract class Circle implements Shape{
+    private int radius;
+    public void draw() { /* code here */ }
+}
+
+Ex5.
+
+import java.util.ArrayList;
+import java.util.List;
+ 
+public class Whizlabs {
+ 
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        list.add(21); list.add(13);
+        list.add(30); list.add(11);
+        list.removeIf(e -> e % 2 != 0);
+        System.out.println(list);
+    }
+}
+What is the output?
+
+A. [21, 13, 11]
+B. [30]
+C. []
+D. Compilation fails due to error at line 7
+E. Compilation tails due to error at line 10
+
+Ex6.
+
+Base.java
+class Base {
+ 
+    public void test() {
+        System.out.println("Base ");
+    }
+}
+DerivedA.java
+class DerivedA extends Base {
+ 
+    public void test() {
+        System.out.println("DerivedA");
+    }
+}
+DerivedB.java
+class DerivedB extends DerivedA {
+ 
+    public void test() {
+        System.out.println("DerivedB");
+    }
+ 
+    public static void main(String[] args) {
+        Base b1 = new DerivedB();
+        Base b2 = new DerivedA();
+        Base b3 = new DerivedB();
+        b1 = (Base) b3;
+        Base b4 = (DerivedA) b3;
+        b1.test();
+        b4.test();
+    }
+}
+What is the result?
+
+A.
+
+Base
+DerivedA
+
+B.
+
+Base
+DerivedB
+
+C.
+
+DerivedB
+DerivedB
+
+D.
+
+DerivedB
+DerivedA
+
+E. A classcast Except ion is thrown at runtime.
+
+Ex7.
+
+class Star {
+ 
+    public void doStuff() {
+        System.out.println("Twinkling Star");
+    }
+}
+ 
+interface Universe {
+ 
+    public void doStuff();
+}
+ 
+class Sun extends Star implements Universe {
+ 
+    public void doStuff() {
+        System.out.println("Shining Sun");
+    }
+}
+ 
+public class Bob {
+ 
+    public static void main(String[] args) {
+        Sun obj2 = new Sun();
+        Star obj3 = obj2;
+        ((Sun) obj3).doStuff();
+        ((Star) obj2).doStuff();
+        ((Universe) obj2).doStuff();
+    }
+}
+What is the result?
+
+A.
+
+Shining Sun
+Shining Sun
+Shining Sun
+
+B.
+
+Shining Sun
+Twinkling Star
+Shining Sun
+
+C. Compilation fails
+D. A ClassCastException is thrown at runtime
+
+Ex8.
+
+abstract class A1 {
+ 
+    public abstract void m1();
+ 
+    public void m2() {
+        System.out.println("Green");
+    }
+}
+ 
+abstract class A2 extends A1 {
+ 
+    public abstract void m3();
+ 
+    public void m1() {
+        System.out.println("Cyan");
+    }
+ 
+    public void m2() {
+        System.out.println("Blue");
+    }
+}
+ 
+public class A3 extends A2 {
+ 
+    public void m1() {
+        System.out.println("Yellow");
+    }
+ 
+    public void m2() {
+        System.out.println("Pink");
+    }
+ 
+    public void m3() {
+        System.out.println("Red");
+    }
+ 
+    public static void main(String[] args) {
+        A2 tp = new A3();
+        tp.m1();
+        tp.m2();
+        tp.m3();
+    }
+}
+What is the result?
+
+A.
+
+Yellow
+Pink
+Red
+
+B.
+
+Cyan
+Blue
+Red
+
+C.
+
+Cyan
+Green
+Red
+
+D. Compilation Fails
+
+
+Ex9.
+
+public class SuperTest {
+ 
+    public static void main(String[] args) {
+        // statement1
+        // statement2
+        // statement3
+    }
+}
+ 
+class Shape {
+ 
+    public Shape() {
+        System.out.println("Shape: constructor");
+    }
+ 
+    public void foo() {
+        System.out.println("Shape: foo");
+    }
+}
+ 
+class Square extends Shape {
+ 
+    public Square() {
+        super();
+    }
+ 
+    public Square(String label) {
+        System.out.println("Square: constructor");
+    }
+ 
+    public void foo() {
+        super.foo();
+    }
+ 
+    public void foo(String label) {
+        System.out.println("Square: foo");
+    }
+}
+What should statement1, statement2, and statement3, be respectively, in order to produce the result?
+
+Shape: constructor
+Square: foo
+Shape: foo
+
+A.
+
+Square square = new Square("bar");
+square.foo("bar");
+square.foo();
+B.
+
+Square square = new Square("bar");
+square.foo("bar");
+square.foo("bar");
+C.
+
+Square square = new Square();
+square.foo();
+square.foo(bar);
+D.
+
+Square square = new Square();
+square.foo();
+square.foo("bar");
+E.
+
+Square square = new Square();
+square.foo();
+square.foo();
+F.
+
+Square square = new Square();
+square.foo("bar");
+square.foo();
+
+Ex10.
+
+interface Pet {
+}
+ 
+class Dog implements Pet {
+}
+ 
+public class Beagle extends Dog {
+}
+Which three are valid?
+
+A.
+
+Pet a = new Dog();
+B.
+
+Pet b = new Pet();
+C.
+
+Dog f = new Pet();
+D.
+
+Dog d = new Beagle();
+E.
+
+Pet e = new Beagle();
+F.
+
+Beagle c = new Dog();
+
+Ex11.
+
+class Mid {
+ 
+    public int findMid(int n1, int n2) {
+        return (n1 + n2) / 2;
+    }
+}
+ 
+public class Calc extends Mid {
+ 
+    public static void main(String[] args) {
+        int n1 = 22, n2 = 2;
+        // insert code here
+        System.out.print(n3);
+    }
+}
+Which two code fragments, when inserted at // insert code here, enable the code to compile and print 12?
+
+A.
+
+Calc c = new Calc();
+int n3 = c.findMid(n1, n2);
+B.
+
+int n3 = super.findMid(n1, n3);
+C.
+
+Calc c = new Mid();
+int n3 = c.findMid(n1, n2);
+D.
+
+Mid m1 = new Calc();
+int n3 = m1.findMid(n1, n2);
+E.
+
+int n3 = Calc.findMid(n1, n2);
+
+Ex12.B
+
+interface Runnable{
+    public void run();
+}
+Which of the following will create instance of Runnable type?
+
+A.
+
+Runnable run = () -> {System.out.println("Run");};
+B.
+
+Runnable run = () -> System.out.println("Run");
+C.
+
+Runnable run = () > System.out.println("Run");
+D.
+
+Runnable run = > System.out.println("Run");
+
+E. None of the above.
+
+Ex13.
+
+List<String> names = new ArrayList<>();
+names.add("Robb");
+names.add("Bran");
+names.add("Rick");
+names.add("Bran");
+if (names.remove("Bran")) {
+    names.remove("Jon");
+}
+System.out.println(names);
+What is the result?
+
+A.
+
+[Robb, Rick, Bran]
+
+B.
+
+[Robb, Rick]
+
+C.
+
+[Robb, Bran, Rick, Bran]
+
+D. An exception is thrown at runtime.
+
+Ex14.
+
+interface Contract {
+}
+ 
+class Super implements Contract {
+}
+ 
+class Sub extends Super {
+}
+ 
+public class Ref {
+ 
+    public static void main(String[] args) {
+        List objs = new ArrayList();
+        Contract c1 = new Super();
+        Contract c2 = new Sub(); // line n1
+        Super s1 = new Sub();
+ 
+        objs.add(c1);
+        objs.add(c2);
+        objs.add(s1); // line n2
+ 
+        for (Object itm : objs) {
+            System.out.println(itm.getClass().getName());
+        }
+    }
+}
+What is the result?
+
+A.
+
+Super
+Sub
+Sub
+
+B.
+
+Contract
+Contract
+Super
+
+C. Compilation fails at line n1
+D. Compilation fails at line n2
+
+Ex15.
+
+Person.java
+public class Person {
+ 
+    String name;
+    int age;
+ 
+    public Person(String n, int a) {
+        name = n;
+        age = a;
+    }
+ 
+    public String getName() {
+        return name;
+    }
+ 
+    public int getAge() {
+        return age;
+    }
+}
+Test.java
+public class Test {
+ 
+    public static void checkAge(List<Person> list, Predicate<Person> predicate) {
+        for (Person p : list) {
+            if (predicate.test(p)) {
+                System.out.println(p.name + " ");
+            }
+        }
+    }
+ 
+    public static void main(String[] args) {
+        List<Person> iList = Arrays.asList(new Person("Hank", 45), new Person("Charlie", 40), new Person("Smith", 38));
+        // line n1
+    }
+}
+Which code fragment, when inserted at line n1, enables the code to print Hank?
+
+A.
+checkAge(iList, () -> p.getAge() > 40);
+
+B.
+checkAge(iList, Person p -> p.getAge() > 40);
+
+C.
+checkAge(iList, p -> p.getAge() > 40);
+
+D.
+checkAge(iList, (Person p) -> { p.getAge() > 40; });
+
+Ex16.
+
+public abstract class Animal
+public interface Hunter
+public class Cat extends Animal implements Hunter
+public class Tiger extends Cat
+
+Which answer fails to compile?
+
+A.
+
+ArrayList<Animal> myList = new ArrayList<>();
+myList.add(new Tiger());
+
+B.
+
+ArrayList<Hunter> myList = new ArrayList<>();
+myList.add(new Cat());
+
+C.
+
+ArrayList<Hunter> myList = new ArrayList<>();
+myList.add(new Tiger());
+
+D.
+
+ArrayList<Tiger> myList = new ArrayList<>();
+myList.add(new Cat());
+E.
+
+ArrayList<Animal> myList = new ArrayList<>();
+myList.add(new Cat());
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>商品</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+  <h2>
+	<div class="page-title">商品</div>
+
+	<form id="myform1" th:action="@{/api/product}" method="POST" enctype="multipart/form-data">
+		<table style="text-align:left;">
+			<tr>
+				<td>Code *</td>
+				<td style="color:red;">
+					<input type="text" name="code" id="code" value="P01" />
+				</td>
+			</tr>
+			<tr>
+				<td>Name *</td>
+				<td><input name="name" id="name" value="Apple" /></td>
+			</tr>
+			<tr>
+			<td>Price *</td>
+			<td><input type="text" name="price" id="price" value="30" /></td>
+			</tr>
+			<tr>
+				<td>Upload Image</td>
+				<td><input type="file" name="fileData" id="fileData" /></td>
+				<td> </td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>
+				<input type="button" value="Add" onclick="saveform()" />
+				<input type="button" value="Upload All" onclick="upload()" />
+				</td>
+			</tr>
+		</table>
+	</form>
+	<div id="listProducts">All Products show here</div>
+	</h2>
+	<script>
+		var forms = [];
+		function saveform() {
+			var formData = new FormData();
+			formData.append("code", $("#code").val());
+			formData.append("name", $("#name").val());
+			formData.append("price", $("#price").val());
+			formData.append("fileData", $("#fileData")[0].files[0]);
+			alert($("#fileData")[0].files[0].name);
+			forms.push(formData);
+		}
+		function upload() {
+
+			for (i = 0; i < forms.length; i++) {
+				console.log("index:" + i + ":" + forms[i].get('name'));
+				console.log("index:" + i + ":" + forms[i].get('code'));
+				console.log("index:" + i + ":" + forms[i].get('price'));
+				console.log("index:" + i + ":" + forms[i].get('fileData').name);
+				$.ajax({
+					url: '/api/upload',
+					type: 'POST',
+					data: forms[i],
+					processData: false,
+					contentType: false,
+					success: function (response) {
+						console.log('上傳成功', response);
+						alert('上傳成功');
+					},
+					error: function (error) {
+						console.error('上失败', error);
+					}
+				});
+			}
+
+		}
+	</script>
+	</form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>DIV Add Child Div Node </title>
+    <script type="text/javascript">
+         function addChild(){
+            var newDiv=document.createElement("div");
+            var text=document.createTextNode("new div text");            
+            var currentDiv=document.getElementById("test");
+            alert(currentDiv.innerHTML);
+            //newDiv.appendChild(text);
+            newDiv.innerText="add InnerText";
+            currentDiv.appendChild(newDiv);
+            alert(currentDiv.innerHTML);
+         }
+    </script>
+</head>
+
+<body>
+
+    <button onclick="addChild()">Get Node Data</button>
+    <p></p>
+    <div id="test"><span>Hello</span></div>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>First jQuery Test</title>
+    <script src="js/jquery3.6.0.js"></script>
+    <style>
+        .newDiv2{
+            color:red;
+        }
+        .newDiv3{
+            color:greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>jQuery Test</h1>
+    <div id="container">
+        <div class="inner">inner1</div>
+        <div class="inner">inner2</div>
+    </div>
+    <button id="b1">Wrap</button>
+    <button id="b2">WrapAll</button>
+    <button id="b3">WrapInner</button>
+    <script>
+        function mywrap(){
+            $(".inner").wrap("<div class='newDiv'></div>");
+        }
+        function mywrapAll() {
+                $(".inner").wrapAll("<div class='newDiv2'></div>");
+        }
+        function mywrapInner() {
+                $(".inner").wrapInner("<div class='newDiv3'></div>");
+        }
+        function start() {
+            $("#b1").click(mywrap);
+            $("#b2").click(mywrapAll);
+            $("#b3").click(mywrapInner);
+        }
+        $(document).ready(start);
+    </script>
+</body>
+
+</html>

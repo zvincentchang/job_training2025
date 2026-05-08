@@ -1,0 +1,281 @@
+Ex1.
+List<String> empDetails = Arrays.asList("100, Robin, HR",
+        "200, Mary, AdminServices",
+        "101, Peter, HR");
+empDetails.stream()
+        .filter(s -> s.contains("1"))
+        .sorted()
+        .forEach(System.out::println); //line n1
+What is the result?
+
+A.
+
+100, Robin, HR
+101, Peter, HR
+
+B. A compilation error occurs at line n1.
+C.
+
+100, Robin, HR
+101, Peter, HR
+200, Mary, AdminServices
+
+D.
+
+100, Robin, HR
+200, Mary, AdminServices
+101, Peter, HR
+
+Ex2.
+List<String> nL = Arrays.asList("Jim", "John", "Jeff");
+Function<String, String> funVal = s -> "Hello : ".concat(s);
+nL.stream()
+        .map(funVal)
+        .peek(System.out::print);
+What is the result?
+
+A.
+
+Hello : JimHello : JohnHello : Jeff
+
+B.
+
+JimJohnJeff
+
+C. The program prints nothing.
+D. A compilation error occurs.
+
+Ex3.
+
+Stream<List<String>> iStr = Stream.of(
+        Arrays.asList("1", "John"),
+        Arrays.asList("2", null));
+IntStream nInSt = iStr.flatMapToInt((x) -> x.stream().mapToInt(Integer::valueOf));
+nInSt.forEach(System.out::print);
+
+What is the result?
+
+A.
+
+1John2null
+
+B.
+
+12
+
+C. A NumberFormatException is thrown at run time.
+D. A compilation error occurs.
+
+Ex4:
+
+public class Emp {
+ 
+    private String eName;
+    private Integer eAge;
+ 
+    Emp(String eN, Integer eA) {
+        this.eName = eN;
+        this.eAge = eA;
+    }
+ 
+    public Integer getEAge() {
+        return eAge;
+    }
+ 
+    public String getEName() {
+        return eName;
+    }
+}
+and code fragment:
+
+List<Emp> li = Arrays.asList(
+       new Emp("Sam", 20), 
+       new Emp("John", 60), 
+       new Emp("Jim", 51));
+
+Predicate<Emp> agVal = s -> s.getEAge() > 50; //line n1
+
+li = li.stream().filter(agVal).collect(Collectors.toList());
+Stream<String> names = li.stream().map(Emp::getEName); //line n2
+names.forEach(n -> System.out.print(n + " "));
+What is the result?
+
+A.
+
+Sam John Jim
+
+B.
+
+John Jim
+
+C. A compilation error occurs at line n1.
+D. A compilation error occurs at line n2.
+
+
+Ex5.
+
+String str = "Java is a programming language";
+ToIntFunction<String> indexVal = str::indexOf; //line n1
+int x = indexVal.applyAsInt("Java"); //line n2
+System.out.println(x);
+What is the result?
+
+A.
+
+0
+
+B.
+
+1
+
+C. A compilation error occurs at line n1.
+D. A compilation error occurs at line n2.
+=======================================================================
+Ex6.
+List<String> listVal = Arrays.asList("Joe", "Paul", "Alice", "Tom");
+System.out.println(
+    // line n1
+);
+Which code fragment, when inserted at line n1, enables the code to print
+ the count of string elements whose length is greater than three?
+
+A.
+
+listVal.stream().filter(x -> x.length() > 3).count()
+B.
+
+listVal.stream().map(x -> x.length() > 3).count()
+C.
+
+listVal.stream().peek(x -> x.length() > 3).count().get()
+D.
+
+listVal.stream().filter(x -> x.length() > 3).mapToInt(x -> x).count()
+
+Ex7:
+interface CourseFilter extends Predicate<String> {
+ 
+    public default boolean test(String str) {
+        return str.equals("Java");
+    }
+}
+and
+
+List<String> strs = Arrays.asList("Java", "Java EE", "Java ME");
+Predicate<String> cf1 = s -> s.length() > 3;
+Predicate cf2 = new CourseFilter() { //line n1
+    public boolean test(String s) {
+        return s.contains("Java");
+    }
+};
+long c = strs.stream()
+        .filter(cf1)
+        .filter(cf2) //line n2
+        .count();
+System.out.println(c);
+What is the result?
+
+A.
+
+2
+
+B.
+
+3
+
+C. A compilation error occurs at line n1.
+D. A compilation error occurs at line n2.
+
+Ex8:
+Given the code fragment: 
+
+BiFunction<Integer, Double, Integer> val = (t1, t2) -> t1 + t2; // line n1
+System.out.println(val.apply(10, 10.5));
+What is the result?
+A.
+
+20
+
+B.
+
+20.5
+
+C. A compilation error occurs at line n1.
+D. A compilation error occurs at line n2.
+
+Ex9:
+
+Given the code fragment: 
+
+List<Integer> nums = Arrays.asList(10, 20, 8);
+System.out.println( 
+        //line n1
+    );
+Which code fragment must be inserted at line n1 to enable the code to print the maximum number in the nums list?
+
+A.
+
+nums.stream().max(Comparator.comparing(a -> a)).get()
+B.
+
+nums.stream().max(Integer::max).get()
+C.
+
+nums.stream().max()
+D.
+
+nums.stream().map(a -> a).max()
+
+
+Ex10:
+
+public class Country {
+ 
+    public enum Continent {
+        ASIA, EUROPE
+    }
+    String name;
+    Continent region;
+ 
+    public Country(String na, Continent reg) {
+        name = na;
+        region = reg;
+    }
+ 
+    public String getName() {
+        return name;
+    }
+ 
+    public Continent getRegion() {
+        return region;
+    }
+}
+and the code fragment:
+
+List<Country> couList = Arrays.asList(
+        new Country("Japan", Country.Continent.ASIA),
+        new Country("Italy", Country.Continent.EUROPE),
+        new Country("Germany", Country.Continent.EUROPE));
+Map<Country.Continent, List<String>> regionNames = couList.stream().
+            collect(Collectors.groupingBy(Country::getRegion,
+                Collectors.mapping(Country::getName, Collectors.toList())));
+System.out.println(regionNames);
+What is the output?
+
+A.
+
+{EUROPE = [Italy, Germany], ASIA = [Japan]}
+
+B.
+
+{ASIA = [Japan], EUROPE = [Italy, Germany]}
+
+C.
+
+{EUROPE = [Germany, Italy], ASIA = [Japan]}
+
+D.
+
+{EUROPE = [Germany], EUROPE = [Italy], ASIA = [Japan]}
+
+

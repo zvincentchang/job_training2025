@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>商品照片</title>
+</head>
+<body>
+<h2 th:text="@{|編號:${code}|}"></h2>
+ <img th:src="@{|/api/productImage/${code}|}" width="640" height="400" alt="No Image" />
+</body>
+</html>

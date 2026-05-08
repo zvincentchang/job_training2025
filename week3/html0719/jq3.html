@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>dom html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1 id="h1">Hello World</h1>
+    <button id="b1">hide</button>
+    <button id="b2">show</button>
+    <div id="div1">
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+    </div>
+    <p>Paragraph 3</p>
+    <script>
+       function hideAll(){
+          $("#div1").hide();
+       }
+       function showAll(){
+          $("#div1").show();
+       }
+
+       function start(){         
+         $("#b1").click(hideAll);
+         $("#b2").click(showAll);
+        }      
+
+       $(document).ready(start);
+    </script>
+
+</body>
+
+</html>

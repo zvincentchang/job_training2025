@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>dom event</title>
+</head>
+
+<body>
+
+    <button id="b1">B1 Button</button>
+    <script>
+        document.onkeydown = function (event) {
+            if (event.keyCode === 89 && event.ctrlKey) {
+                alert('你同時按下"control + y"');
+            } else if (event.which === 90 && event.ctrlKey) {
+                alert('你同時按下"control + z"');
+            }
+        };
+
+    </script>
+
+</body>
+
+</html>

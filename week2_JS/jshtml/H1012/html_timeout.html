@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>setTimeout</title>
+</head>
+
+<body>
+   <button onclick="start()">start timeout</button>
+   <div id="mytime"></div>
+ <script>
+      var ctime;
+      function transfer(){
+        location.href="http://www.google.com";
+      }
+      function countdown(){
+         ctime--;
+         var div=document.getElementById("mytime");
+         div.innerText=ctime;
+      }
+      function start(){
+        var t=prompt("輸入倒數時間");
+        ctime=parseInt(t);
+        var div = document.getElementById("mytime");
+        div.innerText = ctime;
+        rt=parseInt(t)*1000;
+        setInterval(countdown,1000);
+        setTimeout(transfer, rt);
+      }
+   </script>
+</body>
+
+</html>

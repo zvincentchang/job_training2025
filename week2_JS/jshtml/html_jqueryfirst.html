@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>First jQuery Test</title>
+    <script src="js/jquery3.6.0.js"></script>
+    <style>
+        .intro{
+            color:red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>jQuery Test</h1>
+    <p>First</p>
+    <p>Second</p>
+    <p>Third</p>
+    <button id="b1">Test First</button>
+    <script>
+        function changeFirst(){
+          $("p:first").addClass("intro");
+          $("p:last").addClass("intro");
+        }
+        function start() {
+            // $("p").each(function(){
+            //     this.style.color="blue";
+            // });
+            $("#b1").click(changeFirst);
+        }
+        $(document).ready(start);
+    </script>
+</body>
+
+</html>

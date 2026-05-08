@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>登入畫面</title>
+  <style>
+    body {
+      background-color: #f8f9fa;
+      display: flex;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-card {
+      width: 100%;
+      max-width: 400px;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+  <div class="card login-card">
+    <h4 class="text-center mb-4">驗證 Header</h4>
+    <form id="loginForm">      
+	  <button type="button" class="btn btn-primary w-200" id="checklogin">驗證 Header</button>
+    </form>
+   
+  </div>
+
+  
+  <script>
+	$("#checklogin").click(function(e){
+		e.preventDefault();
+		fetchProtectedData();
+	});
+   
+    function fetchProtectedData() {
+        const token = localStorage.getItem("token");
+        
+        $.ajax({
+            url: "http://localhost:8080/api/protected/resource",
+            type: "GET",
+            headers: {
+                "Authorization": "Bearer " + token // 將 Token 加入 Authorization Header
+            },
+            success: function(data) {
+                console.log("Data received:", data);
+            },
+            error: function(xhr) {
+                if (xhr.status === 401) {
+                    alert("登入已過期，請重新登入");
+                    handleLogout();
+                }
+            }
+        });
+    }
+  </script>
+</body>
+</html>

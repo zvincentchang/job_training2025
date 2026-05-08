@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>UL Child</title>
+    <script type="text/javascript">
+        function changeCssText() {
+            var foo = document.getElementById("foo");
+            alert(foo.style.cssText);
+            foo.style.cssText="font-size:36px;color:blue;background-color:yellow";
+            alert(foo.style.cssText)
+        }  
+    </script>
+</head>
+
+<body>
+
+    <button onclick="changeCssText()">Change Style</button>
+    <p id="foo">Hello World</p>
+
+
+</body>
+
+</html>

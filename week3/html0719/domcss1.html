@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>dom html</title>
+</head>
+
+<body>
+    <h1 id="h1">Hello World</h1>
+
+    <button onclick="execute2()">change css</button>
+    <script>
+        function execute() {
+            var foo = document.getElementById('h1');
+            // 將<p> 的文字字體顏色改成綠色
+            foo.style.color = 'green';
+            // 將<p> 的背景顏色改成灰色
+            foo.style.background = 'gray';
+        }
+        function execute2() {
+            var foo = document.getElementById('h1');
+            // 將<p> 的文字字體顏色改成綠色
+            foo.style.color = 'green';
+            // 將<p> 的背景顏色改成red
+            foo.style['background-color'] = '#00f';
+        }
+    </script>
+
+</body>
+
+</html>

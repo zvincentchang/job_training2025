@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Javascript Object</title>
+</head>
+
+<body>
+    <h1>Object</h1>
+    <button onclick="add3Users()">3 Users</button>
+    <script>
+        var myObj;
+        // var myObj={};
+        var users=[];
+        function add3Users(){
+         for(var i=0;i<3;i++)
+         { 
+           myObj = new Object();
+           var name=prompt("第 "+(i+1) +" 個 User name");
+           myObj.userName=name;
+           var password=prompt("第 " + (i + 1) +" 個 User Password");
+           myObj.password=password;
+           users.push(myObj);
+         }
+         
+         for(var i=0;i<users.length;i++){
+            document.write(users[i].userName);
+            document.write(users[i].password+"<br/>");
+         }
+        
+        }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>json html</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <p id="foo"><span>First span</span></p>
+    <p id="foo2"><span>First span</span><span>Second span</span><span>Last span</span></p>
+    <button onclick="execute()">get children</button>
+    <script>
+        function execute() {
+            var p = document.getElementById('foo');
+            // 會顯示"#text"，因為第㇐個子元素是空白的文字節點
+            alert(p.firstChild.nodeName);
+            var p2 = document.getElementById('foo2');            
+            alert(p2.lastChild.innerText);
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+Ex1
+Which two code fragments cause compilation errors?
+A)
+   float flt = 100.00F;
+B)
+  double y1 = 203.22;
+  float flt = y1;
+C)
+  float flt = (float) 1_11.00;
+D)
+  int y2 = 100;
+  float flt = (float) y2;
+E)
+  Float flt = 100.00;
+
+=======================================================
+Ex2:
+Given the code fragment:
+public class Test {
+public static void main(String[] args){
+      //line n1
+     switch (x) {
+          case 1:
+            System.out.println("One");
+            break;
+         case 2:
+             System.out.println("Two");
+             break;
+      }
+}
+}
+Which three code fragments can be independently inserted at line n1 to enable the code to print One?
+A) double x = 1;
+B) String x = "1";
+C) Integer x = new Integer("1");
+D) long x = 1;
+E) byte x = 1;
+F) short x = 1;
+
+=============================================================
+Ex3:
+Given:
+public class Vowel {
+      private char var;
+      public static void main(String[] args) {
+           char var1 = 'a';
+           char var2 = var1;
+           var2 = 'e';
+           Vowel obj1 = new Vowel();
+           Vowel obj2 = obj1;
+           obj1.var = 'o';
+           obj2.var = 'i';
+           System.out.println(var1 + ", " +var2);
+           System.out.print(obj1.var + ", " + obj2.var);
+      }
+}
+What is the result?
+A)
+   e, e
+    i,  i
+B)
+   a, e
+    i, i
+C)
+  a, a
+  o, o
+D)
+  a, e
+  o, o
+
+===========================================================
+Ex 4.
+Given the code fragment:
+int x = 10;
+int y = ++x;
+int z = 0;
+if (y >= 10 | y <= ++x) {
+     z = x;
+} else {
+     z = x++;
+}
+System.out.println(z);
+
+What is the result?
+A) 12
+B) A compile time error occurs.
+C) 10
+D) 11
+
+=======================================================
+
+Ex5.
+Given the code fragment:
+public static void main(String[] args) {
+double discount = 0;
+int qty = Integer.parseInt(args[0]);
+//line n1;
+}
+And given the requirements:
+If the value of the qty variable is greater than or equal to 90, discount = 0.5
+If the value of the qty variable is between 80 and 90, discount = 0.2
+
+Which two code fragments can be independently placed at line n1 to meet the requirements?
+
+A)
+  discount = (qty >= 90) ? 0.5 : (qty > 80)? 0.2 : 0;
+B)
+if (qty > 80 && qty < 90) {
+    discount = 0.2;
+} else {
+   discount = 0;
+}
+if (qty >= 90) {
+   discount = 0.5;
+} else {
+   discount = 0;
+}
+C)
+  discount = (qty > 80) ? 0.2 : (qty >= 90) ? 0.5 : 0;
+D)
+  if (qty >= 90) { discount = 0.5; }
+  if (qty > 80 && qty < 90) { discount = 0.2; }
+E)
+  discount = (qty >= 90) ? 0.5 : 0;
+  discount = (qty > 80) ? 0.2 : 0;
+=======================================================
+
+Ex6.
+Given:
+String stuff = "TV";
+String res = null;
+
+if (stuff.equals("TV")) {
+   res = "Walter";
+} else if (stuff.equals("Movie")) {
+   res = "White";
+} else {
+   res = "No Result";
+}
+
+Which code fragment can replace the if block?
+A) stuff.equals("TV") ? res = "Walter" : stuff.equals("Movie") ? res = "White " : res = "No Result";
+B) res = stuff.equals("TV") ? stuff.equals("Movie") ? "Walter" : "White" : "No Result";
+C) res = stuff.equals("TV") ? "Walter" else stuff.equals("Movie") ? "White ":"No Result";
+D) res = stuff.equals("TV") ? "Walter" : stuff.equals("Movie") ? "White" : "No Result";
+
+=======================================================
+
+Ex7.
+public static void main(String[] args) {		
+        String color="Blue";
+        switch(color)
+        {
+        case "Red":
+        	System.out.println("Found Red");
+        case "Blue":
+        	System.out.println("Found Blue");
+        case "White":
+        	System.out.println("Found White");
+                   break;
+        default:
+        	System.out.println("Found default");
+        }
+}
+輸出答案為：
+
+a. "Found Blue"     
+b. "Found Blue Found White "
+c. "Found Blue Found White Found default "
+d. 以上皆非
+
+=======================================================
+
+Ex 8:
+  public static void main(String[] args) {
+        short ii;
+        short jj=0;
+        short v=0;
+        for(ii=v; ii>6 ; ii-=1)
+        {
+        	jj++;
+        }
+        System.out.println("jj="+jj);        
+}
+以上改變 v =? 會使得 jj=5
+
+a. 5   b. 7  c. 9   d. 11
+
+=======================================================
+
+Ex 9:
+
+ public static void main(String[] args) {
+           int i=1;
+          do{
+        	  if(i%2==0){
+                       i++;
+                      continue;
+                    }
+        	  if(i==5)
+        	     break;
+        	  System.out.println(i+"\t");
+        	  i++;
+          }while(true);
+}
+i=2會輸出幾次？
+
+a.   0   
+b.   1   
+c.    2   
+d.   5
+
+=======================================================
+Ex 10.
+
+public static void main(String[] args) {
+         int x=0;
+         while(x<3)
+         {
+        	 x++;
+        	 System.out.print("|"+x+"|");
+        	 switch(x)
+        	 {
+        	 case 1:
+        		 System.out.print("case a ");
+        	 case 2:
+        		 System.out.print("case b ");
+        		 break;
+        	 }
+         }
+}
+請寫出列印輸出答案？
+
+

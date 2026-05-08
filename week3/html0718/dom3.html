@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>json html</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <div id="foo"><p>P1</p><span>Span1</span><p>P2</p></div>
+    <button onclick="execute()">get children</button>
+    <script>
+        function execute() {
+            // 取得id 為foo 的元素
+            var foo = document.getElementById('foo');
+            // 元素的hasChildNodes() 方法可以用來判斷㇐個元素下有沒子元素
+            if (foo.hasChildNodes()) {
+                // 取得foo 元素的所有子元素集合
+                var children = foo.childNodes;
+                // 可以用for 迴圈來遍歷每㇐個子元素
+                for (var i = 0; i < children.length; ++i) {
+                    // 用children[i] 來取得遍歷到子元素
+                    console.log("log1 " + children[i].innerText);
+                    console.log("log2 " + children[i].nodeName);
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+<div id="outer">
+    <div id="inner">blah</div>
+</div>
+<script>
+    var outerDiv = document.getElementById('outer');
+    var divs = document.getElementsByTagName('div');
+    // 顯示 2
+    alert(divs.length);
+    // 清空 outer 下的節點
+    outerDiv.innerHTML = 'Hello World';
+    // 顯示 1
+    alert(divs.length);
+</script>

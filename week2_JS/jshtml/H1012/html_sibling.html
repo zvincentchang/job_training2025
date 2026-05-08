@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML Sibling</title>
+</head>
+
+<body>
+     <p><span id="s1">First span</span><span id="s2">Second span</span><span id="s3">Last span</span></p>
+     <button onclick="next()">Next Sibling</button>
+     <button onclick="previous()">previous Sibling</button>
+    <script>
+        var s2=document.getElementById("s2");
+        function next(){
+           var n=s2.nextSibling;
+           alert(n.innerText);
+        }
+        function previous(){
+           var p=s2.previousSibling;
+           alert(p.innerHTML);
+        }   
+    </script>
+
+
+</body>
+
+</html>

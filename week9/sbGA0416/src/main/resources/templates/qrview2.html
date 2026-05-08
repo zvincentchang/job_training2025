@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh-tw" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Authenticator QR Code</title>
+</head>
+<body>
+    <h2>掃描 QR Code 以設定 Google Authenticator</h2>
+    <img th:src="${qrCode}" alt="Google Authenticator QR Code">
+	<h2>
+    <p>密鑰 (Secret Key)：<label th:text="${ secret }"></label></p>
+	 User Name : <input type="text" th:value="${username}" style="font-size:20px"/><p>	 
+	 <p></p>
+	 (Secret Key),User Name 必須存入資料庫
+	 </h2>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Json</title>
+    
+</head>
+<body>
+    <h1>Hello World</h1>
+    <button onclick="show()">show</button>
+    <button onclick="show2()">show 2</button>
+   <script>
+       function show(){
+          var person={"name":"john","age":20}
+          alert(person);
+          var str=JSON.stringify(person);
+          alert(str);
+       }
+       function show2(){
+        // var s="{\"name\":\"Demo\",\"age\":20}"
+         var s='{"name":"Demo","age":20}';
+         console.log(s);
+         var obj=JSON.parse(s);
+         console.log(obj.name);
+         console.log(obj.age);
+       }
+   </script>
+</body>
+</html>

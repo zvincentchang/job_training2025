@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>First jQuery Test</title>
+    <script src="js/jquery3.6.0.js"></script>
+</head>
+
+<body>
+    <h1>jQuery Test</h1>
+    <p>P1</p>
+    
+    <button id="b1">Set p Text</button>
+    <button id="b2">Get p Text</button>
+    <button id="b3">Set p HTML</button>
+    <button id="b4">Get p HTML</button>
+    <script>
+        function setPText(){
+            var s=prompt('Input Text');
+            $("p").text(s);
+        }
+        function getPText() {
+              var t= $("p").text();
+              alert(t);
+        }
+        function setHText() {
+                var s = prompt('Input Text');
+                $("p").html("<h1 style='color:red'>"+s+"</h1>");
+            }
+            function getHText() {
+                var t = $("p").html();
+                alert(t);
+            }
+        function start() {
+            $("#b1").click(setPText);
+            $("#b2").click(getPText);
+            $("#b3").click(setHText);
+            $("#b4").click(getHText);
+        }
+        $(document).ready(start);
+    </script>
+</body>
+
+</html>

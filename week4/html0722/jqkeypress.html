@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1 id="h1">Hello World</h1>
+    <p id="p1" nstyle="font-size: 24px;">Hello</p>
+    <script>
+        $("#p1").mousedown(function (evt) {
+            if(evt.ctrlKey)
+               console.log("Mouse down over ctrl p1");
+            else if(evt.altKey)
+               console.log("Mouse down over alt p1");
+        });
+        $(document).on("keypress", function (e) {
+            if (e.charCode == 13) {
+                $("body").append("<h2>You've pressed the enter key!</h2>");
+            }
+        });    
+    </script>
+
+</body>
+
+</html>

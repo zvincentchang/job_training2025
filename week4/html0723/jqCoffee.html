@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>jQuery html</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+  <h1 id="h1">Coffee Table</h1>
+  <form action="javascript:alert('coffee table')">
+    <h2>
+      Coffee Name:<input type="text" id="cofName" value="伯朗咖啡" /> <br />
+      Supplier ID:<input type="text" id="supId" value="49" /> <br />
+      Price:<input type="text" id="price" value="30" /> <br />
+      Sales:<input type="text" id="sales" value="1000" /> <br />
+      Total:<input type="text" id="total" value="1500" /> <br />
+      <input type="hidden" name="coffee" value="" id="coffee" />
+      <button id="cofAdd">新增咖啡</button> <button id="cofUpdate">修改咖啡</button>
+      <button id="cofDelete">刪除咖啡</button><button id="cofAll">讀取全部咖啡</button>
+    </h2>
+  </form>
+  <table id="cofTB" width="60%">
+  </table>
+  <script>
+     function updateCoffeeDB(evt){
+      var obj = {};
+      obj.cofName = $("#cofName").val();
+      obj.supId = parseInt($("#supId").val());
+      obj.price = parseFloat($("#price").val());
+      obj.sales = parseInt($("#sales").val());
+      obj.total = parseInt($("#total").val());
+      $("#coffee").val(JSON.stringify(obj));
+      $.post('http://localhost:8080/web0723/updatecoffee', { "coffee": $("#coffee").val() }, function (data) {
+        alert(data);
+        showAll(evt);
+      });
+      evt.preventDefault();
+    }
+    function deleteCoffeeDB(evt){
+      $.post('http://localhost:8080/web0723/deletecoffee', { "cofName": $("#cofName").val() }, function (data) {
+        alert(data);
+        showAll(evt);
+      });
+      evt.preventDefault();
+    }
+    function addCoffee(evt) {
+      var obj = {};
+      obj.cofName = $("#cofName").val();
+      obj.supId = parseInt($("#supId").val());
+      obj.price = parseFloat($("#price").val());
+      obj.sales = parseInt($("#sales").val());
+      obj.total = parseInt($("#total").val());
+      $("#coffee").val(JSON.stringify(obj));
+      // $.ajax({
+      //         url: 'http://localhost:8080/web0723/addcoffee',
+      //         type: 'post',
+      //         dataType: 'text', // From Server return type
+      //         contentType: 'application/x-www-form-urlencoded;charset=UTF-8', //Send to Server 
+      //         data:{"coffee":$("#coffee").val()} ,
+      //         success: function (result) {
+      //             alert(result);                     
+      //         }
+      //     }); 
+      $.post('http://localhost:8080/web0723/addcoffee', { "coffee": $("#coffee").val() }, function (data) {
+        alert(data);
+        showAll(evt);
+      });
+      evt.preventDefault();
+    }
+    function showAll(evt) {
+      $.ajax({
+        method: 'GET',
+        url: 'http://localhost:8080/web0723/coffees', //設定資料的網址
+        dataType: "json", //設定回傳的資料格式
+        success: onSuccess //設定當Ajax要求成功時所要執行的函式
+      });
+      evt.preventDefault();
+    }
+    function onSuccess(data) {
+      $("#cofTB").empty();
+      $("#cofTB").attr("border", "1");
+      //建立表格的第㇐列
+      var firstRow = $("<tr><th>咖啡名稱</th><th>供應商</th><th>單價</th><th>銷售量</th><th>總數量</th><th>Action</th></tr>");
+      $("#cofTB").append(firstRow);
+      //將取得的資料㇐㇐建立為表格的每㇐列
+      var url = "http://localhost:8080/web0723";
+      $.each(data, function (i) {
+        var row = $("<tr></tr>");
+        var td1 = $("<td></td>").text(this.cofName).appendTo(row);
+        var td2 = $("<td></td>").text(this.supId).appendTo(row);
+        var td3 = $("<td></td>").text(this.price).appendTo(row);
+        var td4 = $("<td></td>").text(this.sales).appendTo(row);
+        var td5 = $("<td></td>").text(this.total).appendTo(row);        
+        var td6 = $("<td></td>").html("<button onclick=updateCoffee(this)>修改</button><button  onclick=deleteCoffee(this)>刪除</button>").appendTo(row);
+        $("#cofTB").append(row);
+      });
+    }
+    
+    function updateCoffee(c) {
+      var currentRow=$(c).closest("tr");    
+      var n=currentRow.find("td:eq(0)").text();      
+      alert(n);
+      $.post('http://localhost:8080/web0723/getupdate', { "cofName": n }, function (data) {
+        $("#cofName").val(data.cofName);
+        $("#supId").val(data.supId);
+        $("#price").val(data.price);
+        $("#sales").val(data.sales);
+        $("#total").val(data.total);
+
+      });
+     
+    }
+    function deleteCoffee(c) {
+      updateCoffee(c);
+    }
+    $("#cofAll").click(showAll);
+    $("#cofAdd").click(addCoffee);
+    $("#cofDelete").click(deleteCoffeeDB);
+    $("#cofUpdate").click(updateCoffeeDB);
+  </script>
+
+</body>
+
+</html>

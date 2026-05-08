@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>json html</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <div id="foo"><span id="s1">hello</span><span id="s2">world</span></div>
+    <button onclick="execute()">insert before world</button>
+    <script>
+        function execute() {
+            // 建立㇐個新的<span>
+            var newSpan = document.createElement('span');
+            // 增添㇐些內容
+            newSpan.innerHTML = 'my new span text';
+            // 取得目前頁面上的foo 元素
+            var foo = document.getElementById('foo');
+            // 取得目前頁面上的s2 元素
+            var s2 = document.getElementById('s2');
+            // 將新的span 元素放到foo 元素中的s2 子元素前面
+            foo.insertBefore(newSpan, s2);
+        }
+    </script>
+
+</body>
+
+</html>
