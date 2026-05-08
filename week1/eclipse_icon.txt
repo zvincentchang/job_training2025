@@ -1,0 +1,3 @@
+-Dswt.enable.autoScale=true
+-Dswt.autoScale=120
+-Dswt.autoScale.method=nearest
