@@ -150,6 +150,8 @@ C0 → C1 → C2'(A2.txt) → C3'(A3.txt)   ← seednet-v1（不受影響）
 
 結果 `yahoo-v1` 就包含 README、A1、A2、A3 全部檔案。
 
+---
+
 # Pull Request：將 seednet-v1 合併進 yahoo-v1
 
 > **前置條件**：本機 Repository 必須已推送到 GitHub（或 Bitbucket）遠端，Pull Request 是遠端平台的功能，無法在純本機 Repository 發起。
@@ -258,4 +260,3 @@ GitHub seednet-v1 ──► 發起 PR（base: yahoo-v1）
                             ▼
                     本機 yahoo-v1（同步完成）
 ```
-
