@@ -1,0 +1,29 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import './index.css';
+//import App from './App';
+import reportWebVitals from './reportWebVitals';
+import LoginControl from './components/LoginComponent';
+//import VideoPlayer from './components/VideoPlayer';
+//import Greeting from './components/Greeting';
+//import NextStep from './components/NextStep';
+import BookComponent from './components/BookComponent';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    {/* <App /> */}
+    {/* <Greeting isLoggedIn={false} /> */}
+    {/* <LoginControl/> */}
+    {/* <VideoPlayer/> */}
+    {/* <NextStep/> */}
+    <BookComponent/>
+  </React.StrictMode>
+);
+
+// If you want to stclsart measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

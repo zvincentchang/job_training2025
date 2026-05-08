@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BOM Open Window</title>
+    <link href="css/basis.css" rel="stylesheet" />
+
+    </script>
+    <style>
+    </style>
+</head>
+
+<body style="background-image:url('../images/img12.jpg');background-size:100%;background-repeat:no-repeat">
+    <h1>Hello</h1>
+    <img src="../images/img1.jpg" id="p1" width="400" height="320"/>
+    <button onclick="countdown()">time out</button>
+    <button onclick="change()">timeout change</button>
+    <script>       
+       function countdown(){
+          setTimeout(function(){
+             alert('inline function called ');
+          }, 3000);
+       }
+       function caller(){
+          alert("function is called");
+       }
+       function change(){
+         setTimeout(switchpicture,3000);
+       }
+       function switchpicture(){
+          var pic=document.getElementById("p1");
+          pic.src="../images/img2.jpg";
+       }
+    </script>
+</body>
+
+</html>

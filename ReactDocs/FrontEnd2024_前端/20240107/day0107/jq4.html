@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery</title> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <button onclick="addText()">add text</button>
+        <button onclick="addHtml()">add html</button>
+        <button onclick="readVlaue()">read input</button>
+        <button onclick="writeVlaue()">write input</button>
+         <p>Hello jQuery</p>       
+         User :<input type="text" id="user" value="Teddy"/>
+          
+        <script>
+           function addText(){
+              $("p").text("java script text");
+           }
+           function addHtml(){
+            $("p").html("<h1>java script text</h1>");
+           }
+           function readVlaue(){
+              var n=$("#user").val();
+              alert(n);
+           }
+           function writeVlaue(){
+              var name=prompt('name:');
+              $("#user").val(name);
+             
+           }
+        </script>
+    </body>
+</html>

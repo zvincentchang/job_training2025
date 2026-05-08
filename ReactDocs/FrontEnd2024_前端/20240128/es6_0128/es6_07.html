@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+    <title>ES6 Javascript</title>
+</head>
+
+<body>
+    <button onclick="test1()">Object Property</button>
+    <button onclick="test2()">Array destructure</button>
+    <script>
+        function test2(){
+            var arry=['one','two','three'];
+            var arry2=[first,second,third]=arry;
+            console.log("first:"+first);
+            console.log("second:"+second);
+            console.log("third:"+third);
+        }
+        function test1() {
+            var prefix = 'es6';
+            var obj = {
+                // 計算屬性
+                [prefix + ' is']: 'cool',
+
+                // 計算方法
+                [prefix + ' score']() {
+                    console.log(100);
+                }
+            };
+            // 顯示 cool
+            console.log(obj['es6 is']);
+            // 顯示 100
+            obj['es6 score']();
+
+        }
+
+    </script>
+</body>
+
+</html>

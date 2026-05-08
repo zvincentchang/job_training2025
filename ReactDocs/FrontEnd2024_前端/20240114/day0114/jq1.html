@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Template</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+<button>start</button>
+
+<script>
+    function myclick(){
+        alert('button clicked');
+    }
+    function start(){
+        $("button").click(myclick);
+    }
+    $(document).ready(start);
+</script>
+</body>
+</html>

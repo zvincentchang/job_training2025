@@ -1,0 +1,382 @@
+第一章.安裝開發環境
+
+● Node js
+https://nodejs.org/zh-tw/download/
+
+● Visual Studio Code
+https://code.visualstudio.com/Download
+
+● Extensions 套件安裝
+1.Reactjs code snippets
+https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets
+
+2.ES7 React/Redux/GraphQL/React-Native snippets
+https://marketplace.visualstudio.com/items?itemName=rodrigovallades.es7-react-js-snippets
+
+● React官網
+https://reactjs.org/
+https://reactjs.org/docs/getting-started.html
+
+● Create React APP
+1.安裝 create-react-app
+Set-ExecutionPolicy RemoteSigned
+npm install yarn --g
+yarn global add create-react-app
+npm install --global create-react-app
+
+2.建立react專案
+create-react-app my-react-app
+
+3.npm 編譯建立(產生可發佈build資料夾)
+npm run build
+
+4.npm 專案啟動
+npm start
+
+● React開發npm安裝開發套件
+1.npm安裝開發套件指令參考
+npm install -S react
+npm install -S webpack
+npm install -S axios
+npm isntall -S zustand
+npm install -S cross-fetch
+npm install react-bootstrap@1.6.4 bootstrap@4.6.0
+npm i react-router
+npm i react-router-dom
+npm install --global babel-node
+npm install --save @babel/core @babel/cli @babel/preset-env @babel/node
+npm install --save @babel/polyfill
+npm remove --save react
+
+2.package.json (React App 套件設定檔)
+可直接複制以下dependencies設定後執行 npm install 指令
+  "dependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.6",
+    "@babel/node": "^7.19.1",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.19.4",
+    "axios": "^0.27.2",
+    "babel-node": "^0.0.1-security",
+    "bootstrap": "^4.6.0",
+    "cross-fetch": "^3.1.5",
+    "node-fetch": "^3.2.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-bootstrap": "^1.6.4",    
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.8.2",
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.73.0"
+  }
+
+
+● 快捷鍵說明
+EXTENSIONS(安裝rcc自動生成元件程式)
+1.Creates a React component clas
+指令：rcc
+Reactjs code snippets
+
+2.Creates a React Arrow Function Component
+指令：rafce
+ES7 React/Redux/GraphQL/React-Native snippets
+
+3.其它自動建立程式快捷鍵參考：
+https://ithelp.ithome.com.tw/articles/10266011
+
+4.VS Code
+Shift + Alt + F (自動排版)
+Ctrl + / (註解)
+Ctrl + e (尋找指定檔名的檔案)
+
+==============================================================================================================
+
+第二章.ES6(ECMAScript)、JSX
+
+● var、let、const
+程式範例：ES6/var-let-const.js
+
+● arrow functions
+程式範例：ES6/arrow-function.js
+
+● import 與 export
+程式範例：ES6/math.js、main.js
+
+● class 物件導向
+程式範例：ES6/class.js
+
+● ES6 其它語法
+陣列解構、物件解構、字串模板、ES6 非同步請求(callback、async/await)
+程式範例：ES6/esFeature.js
+
+● React JSX
+用javascript寫HTML
+在JS的檔案中使用HTML的標籤，並且使用JSX 語法建立的是「一個React的element」，此外這樣的標籤語法比起HTML，更貼近於JavaScript。
+程式範例：ES6/JsxFeature.js、index.js
+
+
+==============================================================================================================
+
+第三章.React Component
+
+● React Component import
+程式範例：Component/Item.js、List.js、index.js(React進入點)
+
+● React Component state 狀態管理
+1.組件狀態 state、setState
+2.組件的自訂函式,透過建構式再綁定回組件bind(this)
+程式範例：Component/Message.js、index.js
+
+● React Component props
+props 接收從父組件上面傳傳下來子組件的屬性
+程式範例：Component/Item2.js、List2.js、index.js
+
+● React Component state 解構
+程式範例：Component/Counter.js、index.js
+
+==============================================================================================================
+
+第四章.React Component 父子組件
+
+● React Component props
+1.props 指定初始 state 透過 constructor
+2.props 透過 defaultProps 指定 props
+3.props 用 propTypes 檢查 props 型別
+程式範例：Component_Parent_Child/CounterProps1.js、CounterProps2.js、CounterProps3.js、index.js
+
+
+● React Component state
+1.setState 可傳入function改為同步
+2.setState 可傳入第二個參數 callback function
+程式範例：Component_Parent_Child/ComponentState.js、index.js
+
+
+● React Component ref
+透過ref屬性找到DOM,JSX元素可以有ref屬性
+1.ref 指定"字串" (官方棄用)
+  <input type="text" ref="myInput"/>、this.refs.myInput
+2.ref 指定"函數" (官方建議)
+  <input type="text" ref={this.setRef}/>
+3.ref 透過 createRef 建立DOM參照 (官方建議)
+  <input type="text" ref={this.myInput}/>、myInput = createRef();
+程式範例：Component_Parent_Child/InputRefString.js、InputRefFunction.js、InputRefCreateRef.js、index.js
+
+==============================================================================================================
+
+第五章.React Component 父子組件"溝通"
+
+● 父子組件溝通
+1.父子組件"溝通"方式一
+父傳子:子元件透過 "props" 呼叫父組件函式
+子傳父:父元件透過 "ref" 呼叫子組件函式
+<Child ref={this.childRef} addParentCount={this.addParentCount}/> 
+程式範例：Component_Parent_Child_Deliver/Parent.js、Child.js、index.js
+
+2.父子組件"溝通"方式二
+完全由父組件來主導全部的 state 儲存至 props 操作子組件
+子組件再透過 props 解構"取值"、"取函數"
+程式範例：Component_Parent_Child_Deliver/ParentTwo.js、ChildTwo.js、index.js
+
+
+● 樣式控制: className 與 style
+1.三元運算子、判斷式
+2.控制 style JSX 物件
+3.控制 className
+程式範例：Component_Parent_Child_Deliver/CtrlStyle.js、index.js
+
+
+● 組件有三種
+1.class Component
+2.PureComponent
+    2.1
+    PureComponent與Component差異在效能上，當上層元件所傳入下層元件的props中的值若"未改變"的話
+    PureComponent是不會重新render，但Component與Functional Component 都會重新render效能較差
+    2.2
+    PureComponent 也會比較自已的state
+    shallow compare 淺層比較 (只比較state的第一層)
+    只有第一層值有更新時才會render
+3.Functional Component (Statless無狀態)
+
+程式範例：Component_Parent_Child_Deliver/ProgressPercent、Progress.js、index.js
+
+==============================================================================================================
+
+第六章.React Component (HOC、List Rendering、表單處理)
+
+● 高階組件HOC(Higher Order Component)
+以Component為輸入的Component
+1.相同邏輯組件套用在不同畫面組件(邏輯共用畫面不同)
+程式範例：ComponentHoc/ReactImgView.js、VueImgView.js、withOpen.js、HocAppOne.js、index.js
+
+2.不同邏輯組件套用在相同畫面組件(邏輯不同畫面共用)
+程式範例：ComponentHocTwo/CommonViewList.js、withAddText.js、withFilterText.js、HocAppTwo.js、index.js
+
+
+● 列表渲染 List Rendering
+1.List陣列元素走訪
+程式範例：ListRendering/Item.js、PureItem.js、ListRendering.js、index.js
+
+2.陣列的內建方法
+map、filter、reduce 函式都不會影響到原有陣列的值
+程式範例：ListRendering/ArrayFunction.js、index.js
+
+
+● 表單處理
+1.文字、數字、下拉選單 (FormText.js)
+2.單選按鈕、複選框按鈕 (RadioCheckbox.js)
+3.檔案上傳與圖片預覽 (FileUpload.js)
+程式範例：Form/FormText.js、RadioCheckbox.js、FileUpload.js、index.js
+
+==================================================================================
+
+第七章.常用生命週期函式
+
+● 生命週期
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+一.constructor(建構函式)
+二.render(渲染函式)
+三.componentDidMount(新增監聽、適合做AJAX)
+四.componentDidUpdate(組件更新)
+五.componentWillUnmount(移除監聽)
+備註說明:
+(1)在componentDidMount 透過 set­State(Updating) 會再次觸發 render(渲染函式)使畫面重新繪製
+(2)componentDidUpdate 透過 prevState 與前次的state中的值相比,判斷是否要更新組件set­State(Updating)
+
+★ 第三方API
+https://jsonplaceholder.typicode.com/
+https://jsonplaceholder.typicode.com/guide/
+
+
+1. constructor 建構函式 (Mounting:掛載)
+2. render 渲染函式 (Mounting:掛載、Updating:更新)
+3. componentDidMount 組件掛載 (Mounting:掛載)
+程式範例：ComponentLifeCycle/ComponentLifeCycle.js、index.js
+
+4. componentDidUpdate 組件更新 (Updating:更新)
+5. componentWillUnmount 組件卸載 (Unmounting:卸載)
+程式範例：ComponentLifeCycle/Profile.js、index.js
+
+==================================================================================
+
+第八章.React16功能
+
+● render 渲染函式(回傳類型)
+https://reactjs.org/docs/react-component.html#render
+程式範例：React16/Render.js、index.js
+
+● Portal 傳送門
+將元素render到指定的div裡
+import { createPortal } from 'react-dom';
+程式範例：React16/LessonModal.js、Lesson.js、index.js、index.html
+
+● Context API
+跨越多個組件之間的溝通組件(連結串連上下文)
+可跨越多個父子組件之間溝通傳遞資料(以模組的方式匯出、匯入)
+達成避免中繼組件傳入自身用不到的資料
+import { createContext } from 'react';
+<OrderContext.Provider>:將子組件包起來
+<OrderContext.Consumer>:就可在子組件中使用
+程式範例：
+  React16/Context/Before、After/OrderContext.js
+  Header.js、ProductList.js、Product.js
+  AppContext.js、index.js
+
+==================================================================================
+
+第九章.React Hooks
+
+React Hooks (16.8版)於2019/2/6之後引入
+https://reactjs.org/docs/hooks-intro.html
+1.使用函式組件(functional component)的方式來建構,而不用class component類別組件
+2.React團隊當初在設計Hooks的用意就在，使用函式組件(functional component)的時候
+也能夠自由的使用這個state，也能夠做到這個生命週期函式可以做到的事情
+3.使用Hooks可以把相同的邏輯組織起來放在同一個地方
+
+● Hooks useState(狀態管理)
+使用函式組件(functional component) 不能直接使用 state 必須透過 Hooks useState(狀態管理)
+使用 Hooks 就可以使用函式組件(functional component)來操作 state
+import React, { useState } from 'react';
+程式範例：Hooks/UseStateApp.js、UseStateApp2.js
+
+● Hooks useEffect(附加效果)
+相當於 componentDidMount、componentDidUpdate、componentWillUnmount
+程式範例：Hooks/UseEffectApp.js、UseEffectApp2.js
+
+● Hooks useContext(應用Context)
+1.Function Component 父傳子
+程式範例：HooksUseContext/Before/UseFunOpenButton.js、UseFunOpenButtonDiv.js、UseFunOpen.js
+2.使用 useContext 取代 Context API Consumer
+程式範例：HooksUseContext/context.js、UseContextOpenButton.js、UseContextOpenButtonDiv.js、UseContextOpen.js
+
+● Hooks useRef(存取參照)
+使用 useRef 取代 createRef
+1.ref 儲存DOM的參照
+程式範例：HooksUseRef/UseRefDom.js
+2.ref 儲存instance function實例函式
+程式範例：HooksUseRef/UseRefFunctions.js
+3.Function Component 子傳父
+程式範例：HooksUseRef/UseRefChild.js、UseRefParent.js
+
+● Hooks 綜合應用 TodoList(useState + useEffect + useContext + useRef)
+程式範例：HooksTodoList/context.js、TodoInput.js、TodoList.js
+
+1.Axios官網
+https://axios-http.com/docs/intro
+2.在React中使用Axios:
+https://ithelp.ithome.com.tw/articles/10230822
+3.Use Async and Await with Axios in React:
+https://thewebdev.info/2021/09/26/how-to-use-async-and-await-with-axios-in-react/
+4.Multiple requests using axios
+https://www.storyblok.com/tp/how-to-send-multiple-requests-using-axios
+
+==================================================================================
+
+第十章.React Router、React Bootstrap
+
+● 官方 React Router 路由
+主畫面父組件導航欄功能可連結切換畫面子組件
+1.匯入 import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+2.BrowserRouter 包覆整個子元件 Link, Routes, Route
+3.使用 useNavigate 主動觸發 react-router-dom 頁面跳轉功能(並且可傳入轉頁後的state資料)
+4.useParams接收網址路徑參數
+5.useLocation接收由navigate導頁傳入而來的資料
+程式範例：Bootstrap/RouterApp/App.js、About.js、Inbox.js、RouterDom.js
+
+● React Bootstrap(4.6) 安裝及匯入
+npm安裝指令
+npm install react-bootstrap@1.6.4 bootstrap@4.6.0
+英文官方
+https://react-bootstrap-v4.netlify.app/getting-started/introduction/
+中文第三方
+http://react.tgwoo.com/
+
+1.React Bootstrap Layout Container、grid system(網格系統)
+https://react-bootstrap-v4.netlify.app/layout/grid/
+程式範例：Bootstrap/GridSystem.js
+
+
+● React Bootstrap Components
+2.React Bootstrap Components Buttons
+https://react-bootstrap-v4.netlify.app/components/buttons/
+3.React Bootstrap Components Cards
+https://react-bootstrap-v4.netlify.app/components/cards/
+4.React Bootstrap Components Forms
+https://react-bootstrap-v4.netlify.app/components/forms/
+https://react-bootstrap-v4.netlify.app/components/forms/#forms-validation
+5.React Bootstrap Components Modal (互動對話框)
+https://react-bootstrap-v4.netlify.app/components/modal/
+6.React Bootstrap Components Navbar
+https://react-bootstrap-v4.netlify.app/components/navbar/
+7.React Bootstrap Components Pagination
+https://react-bootstrap-v4.netlify.app/components/pagination/
+8.React Bootstrap Components Tables
+https://react-bootstrap-v4.netlify.app/components/table/
+程式範例：Bootstrap/Components.js
+
+9.React Bootstrap Components Carousel(輪播效果)
+https://react-bootstrap-v4.netlify.app/components/carousel/
+程式範例：Bootstrap/Carousels.js
+
+==================================================================================

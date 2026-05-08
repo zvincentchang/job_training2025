@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dom Attribute</title>
+    <script type="text/javascript">
+        function getAttr() {
+            // 取得目前頁面上的 foo 元素
+            var foo = document.getElementById('foo');
+            // 顯示 null
+            alert(foo.getAttribute('xyz'));
+            // 顯示 http://www.gjun.com/
+            alert(foo.getAttribute('href'));
+            // 顯示 _blank
+            alert(foo.getAttribute('target'));
+            // 顯示 "" 空字串
+            alert(foo.getAttribute('data-foo'));
+
+        }
+        function triggerAlert(em) {
+            alert('Hey ' + em.getAttribute('data-name'));
+        }
+
+    </script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <p>Hello</p>
+    <h3>today is Sunday</h3>
+    <h2>
+        <button onclick="getAttr()">Show Anchor Attribute</button>
+        <button onclick="triggerAlert(this);" data-name="Mike">click me</button>
+        <br />
+        <a id="foo" href="http://www.gjun.com/" target="_blank" data-foo> www.gjun.com</a>
+    </h2>
+    <script>
+        // 當使用者用滑鼠點擊螢幕 (或用手點擊觸控螢幕) 時
+        document.body.addEventListener('click', function (event) {
+            // 把字體改成黃色
+            event.target.style.color = 'blue';
+        });
+        function myAlert() {
+            alert('Hey!');
+        }
+
+        // 當使用者用滑鼠點擊頁面時，執行 myAlert 函數
+        document.addEventListener('click', myAlert);
+
+    </script>
+</body>
+
+</html>

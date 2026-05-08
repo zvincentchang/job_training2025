@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+    <title>ES6 Javascript</title>
+</head>
+
+<body>
+    <button onclick="test1()">Object destructure 1</button>
+    <button onclick="test2()">Object destructure 2</button>
+    <button onclick="test3()">Object destructure 3</button>
+    <script>
+        function test3() {
+            drawChart({
+                cords: { x: 18, y: 30 },
+                radius: 30
+            });
+
+        }
+        function drawChart({ size = 'big', cords = { x: 0, y: 0 }, radius = 25 } = {}) {
+            console.log(size, cords, radius);
+        }
+
+        function test2() {
+            var o = { p: 42, q: true };
+
+            // 取出 key 名稱為 p 的值，指定給變數 foo
+            // 取出 key 名稱為 q 的值，指定給變數 bar
+            var { p: foo, q: bar } = o;
+
+            // 42
+            console.log(foo);
+            // true
+            console.log(bar);
+
+        }
+        function test1() {
+            var obj = { p: 42, q: true };
+
+            // 從物件 o 中取出 key 為 p 和 q 的值，指定給變數 p 和 q
+            var { p, q } = obj;
+
+            // 42
+            console.log(p);
+            // true
+            console.log(q);
+
+
+        }
+
+    </script>
+</body>
+
+</html>

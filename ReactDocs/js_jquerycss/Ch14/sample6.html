@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script>
+      var miliseconds = 0, seconds = 0;
+      document.myForm.myField.value = "0";
+      function showStayTime() {
+        if (miliseconds >= 9) {
+          miliseconds = 0;
+          seconds += 1;
+        }
+        else miliseconds += 1;
+        document.myForm.myField.value = seconds + "." + miliseconds;
+        setTimeout("showStayTime()", 100);
+      }
+    </script>
+  </head>
+  <body onload="showStayTime();">
+    <form name="myForm"> 
+      您的停留時間為<input type="text" name="myField" size="5">秒
+    </form>
+  </body>
+</html>

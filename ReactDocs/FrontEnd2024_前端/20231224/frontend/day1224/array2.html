@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Array Second Page</title>
+        <link href="css/basis.css" rel="stylesheet"/>
+                  
+        </script>
+        <style>          
+        </style>
+    </head>
+    <body style="background-image:url('images/img12.jpg');background-size:100%;background-repeat:no-repeat">
+        <h1>Hello</h1>       
+        <button onclick="deleteFruit()">delete</button>
+        <script>
+           var fruits=['Banana', 'Orange', 'Apple', 'Mango' , 'Peach'];
+           var deleteFruit=function(){
+              var f= prompt('輸入刪除水果名:');
+              var  i=fruits.indexOf(f);
+              if(i<0)
+                alert(f+"不存在");
+              else{
+                fruits.splice(i,1);
+              }
+              alert(fruits);
+           };
+        </script>
+    </body>
+</html>

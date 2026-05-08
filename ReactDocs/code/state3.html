@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React Hooks Example</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- 加載 React 和 ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+    <script type='text/babel'>
+        const { useState } = React;
+        function Car() {
+            const [brand, setBrand] = useState("Ford");
+            const [model, setModel] = useState("Mustang");
+            const [year, setYear] = useState("1964");
+            const [color, setColor] = useState("red");
+
+            return (
+                <div>
+                    <h1>My {brand}</h1>
+                    <p>
+                        It is a {color} {model} from {year}.
+                    </p>
+                </div>
+            )
+        }
+        function Car2() {
+            const [car, setCar] = useState({
+                brand: "Ford",
+                model: "Mustang",
+                year: "1964",
+                color: "red"
+            });
+
+            return (
+                <div>
+                    <h1>My {car.brand}</h1>
+                    <p>
+                        It is a {car.color} {car.model} from {car.year}.
+                    </p>
+                </div>
+            )
+        }
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Car2 />);
+
+    </script>
+</body>
+
+</html>

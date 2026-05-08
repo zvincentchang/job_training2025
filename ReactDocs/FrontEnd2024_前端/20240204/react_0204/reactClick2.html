@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Hello React Components!</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function Football() {
+            const shoot = () => {
+                alert("Great Button Event!");
+            }
+            return (         
+                  <button onClick={shoot}>Take the shot!</button>                 
+                
+            );
+        }
+        function Football2() {
+            const shoot = (a) => {
+                alert(a);
+            }
+
+            return (
+                <button onClick={() => shoot("Args!")}>Take the shot with Args!</button>
+            );
+        }
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<div><Football /><p/><Football2/></div>);
+    </script>
+</body>
+</html>

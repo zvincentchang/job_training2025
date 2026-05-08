@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script>
+      function showMsg() {
+        var msg = document.getElementById("msg");	//取得 <p> 元素
+        msg.innerHTML = "<i>Hello, world!</i>";		//設定 <p> 元素的內容
+      }
+    </script>
+  </head>
+  <body>
+    <button type="button" onclick="javascript: showMsg();">顯示訊息</button>
+    <p id="msg"></p>
+  </body>
+</html>

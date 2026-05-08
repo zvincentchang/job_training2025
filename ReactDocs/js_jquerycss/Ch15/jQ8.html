@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  </head>
+  <body>
+    <input type="text">
+    <p></p>
+    <script>
+      $("input").on({
+        "click" : function() {$("p").text("單行文字方塊被按一下");},
+        "dblclick": function() {$("p").text("單行文字方塊被按兩下");}
+      });
+    </script>
+  </body>
+</html>

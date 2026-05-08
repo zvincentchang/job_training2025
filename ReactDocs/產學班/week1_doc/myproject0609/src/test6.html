@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Hello React Components!</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        class Car extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    brand: " Ford ",
+                    model: " Mustang ",
+                    color: " Red ",
+                    year: 2023
+                };
+            }
+            changeColor = () => {
+                //this.setState({ color: "Blue" ,year:2024 });
+                
+                if(this.state.color===' Red ')
+                   this.setState({color:' Blue '});
+                else
+                   this.setState({color:' Red '});
+            }
+            render() {
+                return (
+                    <div>
+                        <h1>My {this.state.brand}</h1>
+                        <p>
+                            It is a {this.state.color}
+                            {this.state.model}
+                            from {this.state.year}.
+                        </p>
+                        <button
+                            type="button"
+                            onClick={this.changeColor}
+                        >Change color</button>
+                    </div>
+                );
+            }
+        }
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Car />);
+    </script>
+</body>
+</html>
+

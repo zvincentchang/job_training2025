@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  </head>
+  <body>
+    <img src="piece1.jpg" width="250">
+	<script>  
+	  $("img").on("mouseover", function() {
+        $("img").attr("src", "piece2.jpg");
+      });
+	  
+	  $("img").on("mouseout", function() {
+        $("img").attr("src", "piece1.jpg");
+      });
+    </script>
+  </body>
+</html>

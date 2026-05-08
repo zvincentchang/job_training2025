@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script>
+       var X = 100;
+       try {
+         X = Y;
+       }
+       catch(e) {
+         document.write("捕捉到的Error物件錯誤碼為" + e.number + "<br>");
+         document.write("捕捉到的Error物件錯誤訊息為" + e.message + "<br>");
+         document.write("捕捉到的Error物件錯誤描述為" + e.description + "<br>"); 
+       }
+       finally {
+         document.write("X的值為" + X);
+       }
+    </script>
+  </head>
+</html>

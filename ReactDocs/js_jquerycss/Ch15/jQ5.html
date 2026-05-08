@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  </head>
+  <body>
+    <h1>Hello, jQuery!</h1>
+    <script>
+      $("h1").on("mouseenter", function(){
+        $(this).css({"color" : "red", "text-shadow" : "gray 3px 3px"});
+      });
+      $("h1").on("mouseleave", function(){
+        $(this).css({"color" : "black", "text-shadow" : "none"});
+      });
+    </script>
+  </body>
+</html>

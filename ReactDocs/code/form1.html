@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Hello React Components!</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        function MyForm() {
+            const [name, setName] = React.useState("");
+
+            const handleSubmit = (event) => {
+                event.preventDefault();
+                alert(`The name you entered was: ${name}`)
+            }
+
+            return (
+                <form onSubmit={handleSubmit}>
+                    <label>Enter your name:
+                        <input
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    </label>
+                    <input type="submit" />
+                </form>
+            )
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<MyForm />);
+    </script>
+</body>
+
+</html>

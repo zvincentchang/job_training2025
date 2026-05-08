@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Template</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h2>start</h2>
+    <h2 id="p1">header 2</h2>
+    <button>focus blur</button><br>
+    <input type="text" placeholder="any text"/>
+    <script>
+
+        function start(e) {
+            if (e.which == 13) {
+                $("body").append("<p>You've pressed the enter key!</p>");
+            }
+        }
+        $(document).on("keypress", start);
+        $("#p1").mousedown(function(evt){
+            if(evt.ctrlKey)
+               alert("Mouse down over p1 + ctrlKey");
+            if(evt.altKey)
+               alert("Mouse down over p1 + altKey");
+        });
+        function events(){
+            $("input").focus(function( ){
+                  $(this).css("background-color", "yellow");
+            });
+
+            $("input").blur(function( ){
+                $(this).css("background-color", "white");
+            });
+
+        }
+        $(document).ready(events);
+    </script>
+</body>
+
+</html>

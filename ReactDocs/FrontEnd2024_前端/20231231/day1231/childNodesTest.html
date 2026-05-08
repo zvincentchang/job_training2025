@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ChildNodes demo</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="foo">
+        <p>P1</p>
+        <span>Span1</span>
+        <p>P2</p>
+    </div>
+    <button onclick="show()">start</button>
+    <script>
+        function show() {
+            // 取得 id 為 foo 的元素
+            var foo = document.getElementById('foo');
+
+            // 元素的 hasChildNodes() 方法可以用來判斷一個元素下有沒子元素
+            if (foo.hasChildNodes()) {
+                // 取得 foo 元素的所有子元素集合
+                var children = foo.childNodes;
+                // 可以用 for 迴圈來遍歷每一個子元素
+                for (var i = 0; i < children.length; ++i) {
+                    // 用 children[i] 來取得遍歷到子元素
+                    if(children[i].nodeName!="#text"){
+                      console.log("log1 " + children[i].innerHTML);
+                      console.log("log2 " + children[i].nodeName);
+                    }
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

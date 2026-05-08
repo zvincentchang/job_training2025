@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script>
+      function openDocument() {
+        //開啟新的HTML文件
+        document.open("text/html");
+        //在新文件中顯示此字串
+        document.write("這是新的HTML文件");	
+        //關閉新文件資料流
+        document.close();
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="開啟新文件" onclick="javascript: openDocument();">
+  </body>
+</html>

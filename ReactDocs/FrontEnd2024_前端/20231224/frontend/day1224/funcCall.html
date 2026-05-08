@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Second Page</title>
+    <link href="css/basis.css" rel="stylesheet" />
+    <script src="js/myscript.js">
+    </script>
+    <style>
+    </style>
+</head>
+
+<body style="background-image:url('images/img12.jpg');background-size:100%;">
+    <h1>Hello</h1>
+    <button onclick="execute(1)">Square</button>
+    <button onclick="execute(2)">Cube</button>
+    <button onclick="execute(3)">Factorial</button>
+    <script>
+        function execute(n) {
+            switch (n) {
+                case 1:
+                    alert(square(3)); break;
+                case 2:
+                    alert(cube(3)); break;
+                case 3:
+                    alert(factorial(5)); break;
+            }
+        }
+    </script>
+</body>
+
+</html>

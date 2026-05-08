@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Template</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <form action="javascript:alert('client submit')">
+        姓氏: <input type="text" id="firstName" name="firstName" value="Vinc" /><br/>
+        名字: <input type="text" id="lastName"  name="lastName" value="Lee" /><br/>
+        <input type="submit"/>
+    </form>
+    <span id="msg"></span>
+<script>   
+    function result(data,status){
+        alert(status);        
+        $("#msg").text("First:"+data.firstName+" Last:"+data.lastName);
+    }
+    function send(event){
+        var userObj={};
+        userObj.firstName=$("#firstName").val();
+        userObj.lastName=$("#lastName").val();
+        $.ajax({
+                url : 'http://localhost:8080/jsonname' ,
+                type : 'post', 
+                dataType : 'json',  // From Server returns
+                contentType : 'application/json;charset=UTF-8', //Send to Server 
+                data : JSON.stringify(userObj), 
+                success : result
+        });
+
+       event.preventDefault();
+    }
+    function start(){
+        $("form").submit(send);
+    }
+    $(document).ready(start);
+</script>
+</body>
+</html>

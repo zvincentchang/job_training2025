@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Hello React Components!</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Car extends React.Component {
+            constructor() {
+                super();
+                this.state = { color: "Blue" };
+            }
+            render() {
+                return <h2>I am a {this.state.color} Car in class Component!</h2>;
+            }
+        }
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Car />);
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+
+<body>
+    <!-- 建立一個 div 元素作為掛載點 -->
+    <div id="root"></div>
+    <!-- 將上面的程式碼放在 script 標籤中 -->
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        function Timer() {
+            const [count, setCount] = useState(0);
+
+            useEffect(() => {
+                setTimeout(() => {
+                    setCount((count) => count + 1);
+                }, 1000);
+            }, []); // <- add empty brackets here
+
+            return <h1>I've rendered {count} times!</h1>;
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Timer />);
+
+
+    </script>
+
+</body>
+
+</html>

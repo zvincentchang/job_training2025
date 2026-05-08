@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+
+<body>
+    <!-- 建立一個 div 元素作為掛載點 -->
+    <div id="root"></div>
+    <!-- 將上面的程式碼放在 script 標籤中 -->
+    <script type="text/babel">
+        // 引入 React 的 useState Hook
+        const { useState } = React;
+
+        // 定義一個 function component
+        function Counter() {
+            // 使用 useState Hook 宣告一個 state 變數 count，並設定初始值為 0
+            const [count, setCount] = useState(0);
+
+            // 定義一個 function handleClick，用來更新 count 的值
+            function handleClick() {
+                setCount(count + 1);
+            }
+            // 回傳 JSX 元素，顯示 count 的值和一個按鈕
+            return (
+                <div>
+                    <p>你點了 {count} 次</p>
+                    <button onClick={handleClick}>點我</button>
+                </div>
+            );
+        }
+
+        // 使用 ReactDOM.render 方法將 Counter component 渲染到 root div 中
+        ReactDOM.render(<Counter />, document.getElementById("root"));
+    </script>
+
+</body>
+
+</html>

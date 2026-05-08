@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .big {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .small {
+            font-weight: normal;
+            font-size: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hello jQuery</h1>
+    <button onclick="addBig()">add Big</button>
+    <button onclick="addSmall()">add Small</button>
+    <button onclick="removeBig()">remove Big</button>
+    <p></p>
+    <div class="container">
+        <h2>jQuery addClass() Method</h2>
+        <div class="hello">Hello</div>
+        <div class="goodbye">Goodbye</div>
+     </div>
+     
+    <script>
+        function removeBig(){
+            $(".hello"). removeClass("big" ); 
+        }
+        function addBig(){
+            $(".hello").addClass("big" ); 
+        }
+        function addSmall(){
+            $(".goodbye").addClass("small" );
+        }
+    </script>
+</body>
+
+</html>

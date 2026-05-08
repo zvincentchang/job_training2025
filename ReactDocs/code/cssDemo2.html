@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Hello React Render!</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const Header = () => {
+            const myStyle = {
+                color: "white",
+                backgroundColor: "DodgerBlue",
+                padding: "10px",
+                fontFamily: "Sans-Serif"
+            };
+            return (
+                <div>
+                    <h1 style={myStyle}>Hello Style!</h1>
+                    <p>Add a little style!</p>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Header />);
+
+    </script>
+</body>
+
+</html>

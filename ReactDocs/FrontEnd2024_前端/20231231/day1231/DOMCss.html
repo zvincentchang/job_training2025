@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DOM Css</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <p id="foo">hello world</p>
+
+    <button onclick="dispCSS1()">CSS1</button>
+    <button onclick="dispCSS2()">CSS2</button>
+    <button onclick="dispCSS3()">CSS Hide</button>
+    <button onclick="dispCSS4()">CSS Show</button>
+    <script>
+
+        function dispCSS1() {
+            var foo = document.getElementById('foo');
+            // 將 <p> 的文字字體顏色改成綠色
+            foo.style.color = 'green';
+            // 將 <p> 的背景顏色改成灰色
+            foo.style.background = 'yellow';
+
+        }
+        function dispCSS2() {
+            var foo = document.getElementById('foo');
+            // 將背景顏色改為紅色
+            foo.style['background-color'] = '#f00';
+            // 將 margin-top 設為 100px
+            foo.style.marginTop = '100px';
+        }
+        function dispCSS3() {
+            var foo = document.getElementById('foo');            
+            foo.style['display'] = 'none';
+        }
+        function dispCSS4() {
+            var foo = document.getElementById('foo');            
+            foo.style['display'] = '';
+        }
+    </script>
+</body>
+
+</html>

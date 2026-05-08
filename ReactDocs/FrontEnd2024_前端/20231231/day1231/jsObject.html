@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JSObject demo</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <h1>Hello</h1>
+    <button onclick="create()">Create Object</button>
+    <button onclick="showArray()">show Array</button>
+    <button onclick="dispAttendees()">attendees</button>
+    <p id="message"></p>
+    <script>
+        var attendees = [
+            {
+                "name": "Eric Gruber",
+                "age": "18"
+            },
+            {
+                "name": "Martin Weber",
+                "age": "28"
+            }
+        ];
+        var obj = {};
+        var fruits = [];
+        function create() {
+            obj = new Object();
+            obj.name = prompt("fruit name:");
+            obj.price = parseInt(prompt("fruit price:"));
+            
+            var s = JSON.stringify(obj);
+            var p1=document.getElementById("message");
+            p1.innerText=s;
+            fruits.push(obj);
+        }
+        function showArray() {
+            var s = JSON.stringify(fruits);
+            alert(s);
+        }
+        function dispAttendees(){
+            var str="";
+            for(var i=0;i<attendees.length;i++){
+                var data=attendees[i];
+                str+=data.name+","+data.age+"\n";
+            }
+            alert(str);
+        }
+    </script>
+</body>
+
+</html>

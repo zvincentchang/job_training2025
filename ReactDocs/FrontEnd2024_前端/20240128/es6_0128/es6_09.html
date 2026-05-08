@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+    <title>ES6 Javascript</title>
+</head>
+
+<body>
+    <button onclick="create()">Create Class</button>
+    <button onclick="exec()">exec B()</button>
+    <script>
+        class A {
+            constructor() {
+                this.x = 1;
+            }
+
+            print() {
+                console.log(this.x);
+            }
+        }
+
+        class B extends A {
+            constructor() {
+                super();
+                this.x = 2;
+            }
+
+            foo() {
+                super.print();
+            }
+        }
+
+        class Cat {
+            constructor(name) {
+                this.name = name;
+            }
+
+            speak() {
+                console.log(this.name + ' makes a noise.');
+            }
+        }
+
+        class Lion extends Cat {
+            speak() {
+                super.speak();
+                console.log(this.name + ' roars.');
+            }
+        }
+
+        class Animal {
+            constructor(name) {
+                this.name = name;
+
+            }
+            speak() {
+                console.log(this.name + ' makes a noise.');
+
+            }
+        }
+        class Dog extends Animal {
+            constructor(name, age) {
+                super(name);
+                this.age = age;
+            }
+            speak() {
+                console.log(this.name + ' barks.');
+                console.log(this.name + ' age ' + this.age);
+            }
+        }
+
+        function create() {
+            var obj = new Dog("Dan", 3);
+            obj.speak();
+
+            var a = new Lion('King');
+            a.speak();
+
+        }
+        function exec(){
+            var b = new B();
+            b.foo();
+        }
+    </script>
+</body>
+
+</html>

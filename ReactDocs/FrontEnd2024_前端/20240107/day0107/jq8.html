@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+      
+    </style>
+</head>
+
+<body>
+    <h1>Hello jQuery</h1>
+    <button onclick="findAddCss()">find add css</button>
+   
+    <p></p>
+    <div class="container">
+        <h2>jQuery addClass() Method</h2>
+        <div class="hello">Hello</div>
+        <div class="goodbye">Goodbye</div>
+     </div>
+     <div class="great-grand-parent">
+        <div class="grand-parent">
+           <ul class="parent">
+              <li class="child-one">Child One</li>
+              <li class="child-two">Child Two</li>
+           </ul>
+        </div>
+        <div class="grand-parent">
+           <ul class="parent">
+              <li class="child-three">Child Three</li>
+              <li class="child-four">Child Four</li>
+           </ul>
+        </div>
+     </div>
+    <script>
+        function findAddCss(){
+            $(".grand-parent").find("li").css( "border", "2px solid red" );
+
+        }
+    </script>
+</body>
+
+</html>

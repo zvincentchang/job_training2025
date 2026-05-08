@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery</title> 
+        <script src="./js/jquery3.6.0.js"></script>
+    </head>
+    <body>
+        <h1>Hello jQuery</h1>       
+        <button id="b1">test1</button>
+        <button id="b2">test2</button>
+        <script>
+            function hello2(){
+              alert('hello2');
+           }
+           function hello(){
+              alert('hello');
+           }
+           function start(){
+              $("button").click(hello);
+              $("#b1").click(hello);
+              $("#b2").click(hello2);
+           } 
+           $(document).ready(start);
+        </script>
+    </body>
+</html>

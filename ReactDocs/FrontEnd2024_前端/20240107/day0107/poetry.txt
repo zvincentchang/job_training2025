@@ -1,0 +1,13 @@
+    <head>
+        <title>Form Submit</title>       
+        <style>           
+        </style>
+    </head>
+    <body>
+        <h1>Hello</h1>
+        <form action="DOMKey.html" onsubmit="return check()">
+           <input type="text" id="num" value="1"/><br/>
+           <input type="submit"/>
+        </form>      
+       
+    </body>

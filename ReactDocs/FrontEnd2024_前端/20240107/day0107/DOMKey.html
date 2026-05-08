@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dom Key</title>
+    <script type="text/javascript">
+
+    </script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <h2>
+        <input type="text" id="sp2" placeholder="Key sp2 Test"></input>
+        <input type="text" id="sp1" placeholder="Key sp1 Test"></input>
+        <img src="../day1224/images/img1.jpg" id="scene" width="600" height="400"/>
+    </h2>
+    <script>
+        // 當使用者在網頁中按下鍵盤按鍵時
+        document.onkeydown = function (event) {
+            if (event.keyCode === 89 && event.ctrlKey) {
+                alert('你同時按下 "control + y"');
+            } else if (event.which === 90 && event.ctrlKey) {
+                alert('你同時按下 "control + z"');
+            }
+        };
+        document.getElementById('sp1').onkeydown=function (event) {
+            if (event.keyCode === 65 && event.ctrlKey) {
+                alert('你同時按下 "control + a"');    
+            }        
+        };
+       
+        document.getElementById('scene').addEventListener("mouseenter", 
+        function( ) { alert('enter text'); }, false);
+        document.getElementById('scene').addEventListener("mouseleave", 
+        function( ) { alert('leave text'); }, false);
+    </script>
+</body>
+
+</html>

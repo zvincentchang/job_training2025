@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/sunny/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+      #progressbar {
+        position: relative
+      }
+      #progresslabel {
+        position: absolute;
+        left: 50%;
+        top: 5px
+      }
+    </style>	
+    <script>
+      $(function(){
+        var progressbar = $("#progressbar");
+        var progresslabel = $("#progresslabel");
+ 
+        progressbar.progressbar({
+          value: false,
+          change: function(){
+            progresslabel.text(progressbar.progressbar("value") + "%");
+          },
+          complete: function(){
+            progresslabel.text("Complete!");
+          }
+        });
+ 
+        function progress(){
+          var val = progressbar.progressbar("value"); 
+          progressbar.progressbar("value", val + 2); 
+          if (val < 99) {
+            setTimeout(progress, 100);
+          }
+        } 
+        setTimeout(progress, 3000);    
+      });  
+    </script>
+  </head>
+  <body>
+    <div id="progressbar">
+	  <span id="progresslabel">Loading...</span>
+	</div>
+  </body>
+</html>

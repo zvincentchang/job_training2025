@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>setInterval demo</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <ul id="VList">
+        <li>Room A</li>
+        <li>Room B</li>
+    </ul>
+
+    <ul id="firstUL">
+    </ul>
+
+    <button onclick="addChild()">Add Child</button>
+    <button onclick="addRoom()">Add Room</button>
+    <script>
+
+        function addChild() {
+            var head = document.getElementById('firstUL');
+            for (var i = 1; i <= 3; i++) {
+                li01 = document.createElement("li");
+                li01.innerHTML = "<span style='color:red'>顯示的文字 " + i+"</span>";
+                head.appendChild(li01);
+            }
+
+        }
+        function addRoom() {
+            var list = document.getElementById("VList");
+            var newItem = document.createElement("li");
+            newItem.textContent = "Room C";
+            list.appendChild(newItem);
+
+        }
+    </script>
+</body>
+
+</html>

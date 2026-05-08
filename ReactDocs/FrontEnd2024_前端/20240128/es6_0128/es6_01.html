@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+    <title>ES6 Javascript</title>
+</head>
+
+<body>
+    <script>
+        // global 變數
+        var a = 1;
+        {
+            // block scope 變數
+            let a = 2;
+
+            // 2 
+            alert(a);
+
+            // 重複宣告變數，會發生錯誤
+            // TypeError: Identifier 'a' has already been declared 
+            a = 3;
+        }
+        // 1 
+        alert(a); 
+    </script>
+</body>
+
+</html>

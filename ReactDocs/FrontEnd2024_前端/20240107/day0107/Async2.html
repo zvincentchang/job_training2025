@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Async Submit</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <h1>Hello</h1>
+    <h2>       
+        <div id="user"></div>
+    </h2>
+    <script>
+        // 建立 XMLHttpRequest 物件
+        var httpRequest;
+        httpRequest = new XMLHttpRequest();
+        // AJAX callback
+        httpRequest.onreadystatechange = function () {
+            // 等狀態變成請求完成狀態
+            if (httpRequest.readyState === 4) {
+                // 只處理 server 返回正常的 HTTP 200 狀態
+                if (httpRequest.status == 200) {
+                    // 解開 server 返回的 JSON 資料格式
+                    var jsonResponse = JSON.parse(httpRequest.responseText);
+                    // 更新頁面內容
+                    document.getElementById('user').innerHTML = jsonResponse.userName;
+                } else {
+                    alert('ERROR - server status code: ' + httpRequest.status);
+                }
+            }
+        };
+        // 使用 HTTP GET 方法，從 URL {username:’Mary’}請求資料
+        httpRequest.open('GET', 'http://localhost:8080/mvweb0107/user.txt');
+        // 送出 HTTP 請求
+        httpRequest.send();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Template</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body> 
+    <button onclick="send()">Get All Employees</button>  <p> 
+    <span id="msg">employees data</span>
+<script>   
+    function result(data,status){
+       // alert(status);        
+        $("#msg").html(data);
+    }
+    function send(){        
+        $.ajax({
+                url : 'http://localhost:8080/mvweb0120/employees' ,
+                type : 'get', 
+                dataType : 'html',  // From Server returns
+                contentType : 'application/json;charset=UTF-8', //Send to Server 
+                data : "", 
+                success : result
+        });
+       
+    }   
+</script>
+</body>
+</html>

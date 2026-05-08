@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script>
+      function showClock() {
+        var today = Date();
+        document.myForm.myField.value = today.toString();
+        setTimeout("showClock()", 1000);
+      }
+    </script>
+  </head>
+  <body onload="showClock();">
+    <form name="myForm"> 
+      <input type="text" name="myField" size="50">
+    </form>
+  </body>
+</html>

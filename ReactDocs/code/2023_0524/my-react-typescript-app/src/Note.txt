@@ -1,0 +1,37 @@
+TypeScript(強型別)
+嚴謹的語法確保資料形別上的安全
+
+1.TypeScript相關指令
+● npm 安裝 typescript
+npm install typescript -g
+● 查詢 typescript 版本
+tsc -v
+● 編譯 typescript (*.ts → *.js)
+tsc xxx.ts
+● 建立 tsconfig.json
+tsc --init
+並修改(tsconfig.json)以下設置
+"rootDir": "./ts"(TypeScript檔案來源ts資料夾)
+"outDir": "./js"(編譯目的js資料夾)
+● 常駐自動編譯
+tsc --watch
+
+2.基礎類型、陣列
+3.Type、Interface、Enum、Union、Class、Function
+4.Fetch api, as 斷言
+5.Utility
+
+程式範例：Typescript/ts/index.ts
+
+6.TypeScript React
+create-react-app typescript
+https://create-react-app.dev/docs/adding-typescript/
+
+6.1 建立 React typescript專案
+npx create-react-app my-react-typescript-app --template typescript
+程式範例：my-react-typescript-app/src/App.tsx
+
+
+6.2 在既有的 create-react-app 專案安裝 TypeScript
+JS專案加入Typescript擴充包
+npm install --save typescript @types/node @types/react @types/react-dom @types/jest

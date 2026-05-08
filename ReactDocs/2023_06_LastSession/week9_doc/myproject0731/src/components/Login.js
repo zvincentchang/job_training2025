@@ -1,0 +1,75 @@
+import React, { useState } from "react";
+//import axios from "axios";
+
+const Login = ({ onLogin }) => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleUsernameChange = (event) => {
+        setUsername(event.target.value);
+    };
+
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
+    };
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            //     const response = await axios.post("http://localhost:8080/api/login", {
+            //         username,
+            //         password,
+            //     });
+            //     alert(response.data);
+            //     console.log(response.data);
+            // 在這裡處理登入成功後的操作，例如導向其他頁面
+
+            onLogin(username);
+        } catch (error) {
+            console.error(error.response.data);
+        }
+    };
+
+    return (
+        <div className="container mt-5">
+            <div className="row justify-content-left">
+                <div className="col-md-4">
+                    <h3>Login Form</h3>
+                    <form onSubmit={handleSubmit}>
+                        <div className="mb-3">
+                            <label htmlFor="username" className="form-label">
+                                Username:
+                            </label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="username"
+                                value={username}
+                                onChange={handleUsernameChange}
+                                required
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="password" className="form-label">
+                                Password:
+                            </label>
+                            <input
+                                type="password"
+                                className="form-control"
+                                id="password"
+                                value={password}
+                                onChange={handlePasswordChange}
+                                required
+                            />
+                        </div>
+                        <button type="submit" className="btn btn-primary">
+                            Login
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Login;

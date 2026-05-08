@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Hello React Components!</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function MyForm() {
+            const [myCar, setMyCar] = React.useState("Volvo");
+
+            const handleChange = (event) => {
+                setMyCar(event.target.value)
+            }
+
+            return (
+                <form>
+                    <select value={myCar} onChange={handleChange}>
+                        <option value="Ford">Ford</option>
+                        <option value="Volvo">Volvo</option>
+                        <option value="Fiat">Fiat</option>
+                    </select>
+                </form>
+            )
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<MyForm />);
+
+
+    </script>
+</body>
+
+</html>

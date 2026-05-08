@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Template</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="forecast">Get</button>
+    <table id="airQ" width="95%">
+    </table>
+    <script>
+        dataUrl = "air.json";
+        function start() {            
+            $("#forecast").on("click", function () {
+                $.ajax({
+                    method: 'GET',
+                    url: dataUrl,	//設定資料的網址
+                    dataType: "json",	//設定回傳的資料格式
+                    success: onSuccess	//設定當Ajax要求成功時所要執行的函式
+                });
+            });
+            function onSuccess(data) {
+                $("#airQ").attr("width","95%");
+                $("#airQ").empty();
+                //建立表格的第一列
+                var firstRow = $("<tr><th>地區</th><th>預報內容</th></tr>");
+                $("#airQ").append(firstRow);
+                //將取得的資料一一建立為表格的每一列
+                $.each(data, function (i) {
+                    var row = $("<tr></tr>");
+                    var td1 = $("<td></td>").text(this.Area).appendTo(row);
+                    var td2 = $("<td></td>").text(this.Content).appendTo(row);
+                    $("#airQ").append(row);
+                });
+
+            }
+        }
+        $(document).ready(start);
+    </script>
+</body>
+
+</html>

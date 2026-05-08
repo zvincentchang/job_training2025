@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BOM Open Window</title>
+    <link href="css/basis.css" rel="stylesheet" />
+
+    </script>
+    <style>
+    </style>
+</head>
+
+<body style="background-image:url('images/img12.jpg');background-size:100%;background-repeat:no-repeat">
+    <h1>Hello</h1>
+    <button onclick="openWin()">Open new Window</button>
+    <button onclick="transferWin()">Hyperlink Window</button>
+    <script>
+        function openWin() {
+            var windowObj = window.open(
+                'http://tw.yahoo.com/',
+                'yahoo', 'width=800,height=600,resizable=no,scrollbars=yes,status=no,location=no'
+            );
+
+        }
+        function transferWin(){
+            var url=prompt('input url');
+            location.href=url;
+        }
+    </script>
+</body>
+
+</html>

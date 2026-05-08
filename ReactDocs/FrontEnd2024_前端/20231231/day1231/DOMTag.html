@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>setInterval demo</title>        
+        <style>          
+        </style>
+    </head>
+    <body>
+        <p>Hello A</p>
+        <p>Hello B</p>
+       
+        <button onclick="showTags()">start</button>
+        <p>Hello C</p> 
+        <script>
+           function showTags(){
+             var pArray=document.getElementsByTagName("p");
+             for(var i=0;i<pArray.length;i++){
+                 var px=pArray[i];
+                 alert(px.innerText);
+             }
+           }
+        </script>
+    </body>
+</html>

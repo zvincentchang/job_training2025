@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Second Page</title>
+    <link href="css/basis.css" rel="stylesheet" />
+    </script>
+    <style>
+    </style>
+</head>
+
+<body style="background-image:url('images/img12.jpg');background-size:100%;background-repeat:no-repeat">
+    <h1>Hello</h1>
+    <button onclick="func1()">alert</button>
+    <button onclick="func2()">confirm</button>
+    <button onclick="func3()">prompt</button>
+    <br/>
+    <button onclick="guess()">guess</button>
+    <script>
+        function func1() {
+            alert('func1');
+        }
+        function func2() {
+            var m = confirm("(y/n)");
+            alert(m);
+        }
+        function func3() {
+            var age = prompt("input age");
+            alert(age);
+        }
+        function guess() {
+            var rnd = parseInt(Math.random() * 100) + 1;
+            var guess = 0;
+            while (rnd != guess) {
+                guess = prompt("Guess 1~100:");
+                if (guess > rnd)
+                    alert(guess + " too big");
+                else if (guess < rnd)
+                    alert(guess + " too small");
+                else {
+                    alert("Bingo");
+                    var ans=confirm("繼續猜數字?");
+                    if(ans){
+                       rnd=parseInt(Math.random() * 100) + 1;
+                       guess=0;
+                    }
+                    else
+                      break;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

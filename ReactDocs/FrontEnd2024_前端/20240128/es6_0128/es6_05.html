@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+    <title>ES6 Javascript</title>
+</head>
+
+<body>
+    <button onclick="Person2()">Exec Person()</button>
+    <button onclick="execCube()">Exec cube()</button>
+    <div id="data"></div>
+    <script>
+        function Person() {
+            self = this;
+            self.age = 10;
+            window.setInterval(function growUp() {
+                // 這邊的 this 會指向 window，造成程式錯誤
+                self.age++;
+                console.log("age:" + self.age);
+            }, 5000);
+        }
+
+        function Person2() {
+            this.age = 0;
+            // 定義該 Arrow Functions 時的環境，是在 Person 物件中
+            setInterval(() => {
+                // 所以 this 會正確指向 Person 物件
+                this.age++;
+                document.getElementById('data').innerText = this.age;
+            }, 1000);
+        }
+        var execCube= ()=>{
+            console.log("( )"+cube());
+            console.log("(3)"+cube(3));
+            console.log("(3,4)"+cube(3,4));
+            console.log("(3,4,5)"+cube(3,4,5));
+        }
+        function cube(a=1 , b = 1, c= 1) {
+            return a * b*c;
+        }
+
+
+    </script>
+</body>
+
+</html>

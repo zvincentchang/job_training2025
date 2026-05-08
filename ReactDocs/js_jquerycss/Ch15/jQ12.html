@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+      img {
+        width: 100px;
+        border: 1px solid lightgreen;
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="enlarge">放大</button><br>
+    <img src="Tulips.jpg">
+    <script>
+      $("#enlarge").on("click", function() {
+        $("img").animate({
+          width: "300px",
+          opacity: 1,
+          borderWidth: "10px"
+        }, 1500);
+      });
+    </script>
+  </body>
+</html>

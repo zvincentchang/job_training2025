@@ -1,0 +1,11 @@
+spring.datasource.url=jdbc:mysql://localhost:3306/demo
+spring.datasource.username=root
+spring.datasource.password=1234
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+# 自動建立(此參數請小心使用)
+spring.jpa.properties.hibernate.hbm2ddl.auto=create-drop

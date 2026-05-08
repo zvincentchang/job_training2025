@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <table border="1">
+      <script>
+        //宣告一個包含4個元素的一維陣列，用來表示四個學生
+        var Students = new Array(4);
+        //宣告一維陣列的每個元素都是另一個一維陣列，用來存放姓名與分數
+        for(var i = 0; i < Students.length; i++)
+          Students[i] = new Array(2);
+        //一一設定二維陣列的值
+        Students[0][0] = "小丸子";
+        Students[1][0] = "花輪";
+        Students[2][0] = "小玉";
+        Students[3][0] = "美環";
+        Students[0][1] = 80;
+        Students[1][1] = 95;
+        Students[2][1] = 92;
+        Students[3][1] = 88;
+        //使用巢狀迴圈顯示二維陣列的值
+        for(var i = 0; i < Students.length; i++) {
+          document.write("<tr>");
+          for(var j = 0; j < Students[i].length; j++)
+            document.write("<td>" + Students[i][j] + "</td>");
+          document.write("</tr>");
+        }
+      </script>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="utility.js"></script>
+    <script>
+      var XHR = null;
+
+      function startRequest() {
+        XHR = createXMLHttpRequest();
+        XHR.open("GET", "GetServerTime.php", true);
+        XHR.onreadystatechange = handleStateChange; 
+        XHR.send(null);
+      }
+      
+      function handleStateChange() {
+        if (XHR.readyState == 4) {
+          if (XHR.status == 200)
+            document.getElementById("span1").innerHTML = XHR.responseText;
+          else
+            window.alert("無法顯示時間!");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form id="form1">
+      <input id="button1" type="button" value="顯示時間" onclick="startRequest()">
+      <br><br><span id="span1"></span>
+    </form>
+  </body>
+</html>

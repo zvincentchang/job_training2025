@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JSObject demo</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <h1>Hello</h1>    
+    <button onclick="dispAttendees()">attendees</button>
+    <table id="table1" width="30%"></table>
+    <script>
+        var attendees = [
+            {
+                "name": "Eric Gruber",
+                "age": "18"
+            },
+            {
+                "name": "Martin Weber",
+                "age": "28"
+            }
+        ];       
+        function dispAttendees(){
+            var tb = document.getElementById('table1');
+            tb.setAttribute("border",1);
+            for(var i=0;i<attendees.length;i++){
+                var tr = document.createElement("tr");
+                tb.appendChild(tr);
+                var data=attendees[i];
+                var td = document.createElement("td");
+                td.innerText=data.name
+                tr.appendChild(td);
+                td = document.createElement("td");
+                td.innerText=data.age
+                tr.appendChild(td);                              
+            }            
+        }
+    </script>
+</body>
+
+</html>
+

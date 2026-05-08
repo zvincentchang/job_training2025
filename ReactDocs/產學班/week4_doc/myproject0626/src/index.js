@@ -1,0 +1,28 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+//import App from './App';
+import reportWebVitals from './reportWebVitals';
+//import ConcertApp from './components/ConcertApp';
+//import NetConcert from './components/NetConcert';
+import 'bootstrap/dist/css/bootstrap.min.css';
+//import BootstrapTable from './components/BootstrapTable';
+//import BootstrapTableFetch from './components/BootstrapTableFetch';
+//import ProductList from './components/ProductList';
+import ProductApp from './components/ProductApp';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    {/* <App /> */}
+    {/* <ConcertApp/> */}
+    {/* <NetConcert/> */}
+    {/* <BootstrapTable/> */}
+    {/* <BootstrapTableFetch/> */}
+    <ProductApp/>
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

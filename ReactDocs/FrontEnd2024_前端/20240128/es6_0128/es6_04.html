@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+    <title>ES6 Javascript</title>
+</head>
+
+<body>
+    <button onclick="javascript:alert(multiply1(1,2))">Standard Func</button>
+    <button onclick="javascript:alert(multiply2(5,6))">Arrow Func</button>
+    <button onclick="doubleArray()">Array Double</button>
+    <script>
+        // 傳統標準的函數宣告語法
+        var multiply1 = function (a, b) {
+            return a * b;
+        };
+
+        // 使用 Arrow Functions 的語法
+        var multiply2 = (a, b) => a * b;
+
+        function doubleArray() {
+            let numbers = [1, 2, 3];
+
+            // callback 用 Arrow Functions 的寫法更精簡
+            let doubles = numbers.map(num => {
+                return num * 2;
+            });
+
+            // [2, 4, 6]
+            console.log(doubles);
+        }
+
+    </script>
+</body>
+
+</html>

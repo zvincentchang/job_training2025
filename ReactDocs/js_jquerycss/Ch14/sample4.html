@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script>
+      function showEntryTime() {
+        var now = Date();
+        document.myForm.myField.value = now.toString();
+      }
+    </script>
+  </head>
+  <body onload="showEntryTime();">
+    <form name="myForm"> 
+      <input type="text" name="myField" size="50">
+    </form>
+  </body>
+</html>

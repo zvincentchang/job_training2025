@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+    <title>ES6 Javascript</title>
+</head>
+
+<body>
+    <button onclick="exec1()">Special Exec</button>
+    <button onclick="exec2()">Special Exec</button>
+    <script>
+        const visitMessage = (cus) => {
+            // 物件解構
+            const { age, name } = cus;
+            // 字串模板
+            const text = age < 18 ?
+                `Dear ${name}, you are under age:${age}`
+                : `Welcome, ${name}:${age}!`;
+            return text;
+        };
+        function exec2() {
+
+            var txt = visitMessage({ "name": "Mary", "age": 19 });
+            alert(txt);
+
+        }
+        function exec1() {
+            var a = 5;
+            var b = 10;
+            console.log('Fifteen is ' + (a + b) + ' and\nnot ' + (2 * a + b) + '.');
+
+            var a = 5;
+            var b = 10;
+            console.log(`Fifteen is ${a + b} and not ${2 * a + b}.`);
+
+        }
+    </script>
+</body>
+
+</html>

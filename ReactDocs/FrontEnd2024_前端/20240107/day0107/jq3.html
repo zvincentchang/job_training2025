@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .intro {
+            color: blue;
+            font-size: 32px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="b1">Update h2</button>
+    <button id="b2">Update p</button>
+    <h2>Header 2 jQuery1</h2>
+    <h2>Header 2 jQuery2</h2>
+    <h2>Header 2 jQuery3</h2>
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <p>Paragraph 3</p>
+    <script>
+        function updateP() {
+            $("p:last").addClass("intro");
+        }
+        function updateH2() {
+            $("h2").each(function() {
+                this.style.color = "red";
+            });
+
+        }
+        function start() {
+            $("#b1").click(updateH2);
+            $("#b2").click(updateP);
+        }
+        $(document).ready(start);
+    </script>
+</body>
+
+</html>

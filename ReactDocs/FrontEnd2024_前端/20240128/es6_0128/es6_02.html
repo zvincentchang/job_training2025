@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+    <title>ES6 Javascript</title>
+</head>
+
+<body>
+    <button onclick="varTest()">exec varTest()</button>
+    <button onclick="letTest()">exec letTest()</button>
+    <script>
+        function varTest() {
+            var x = 1;
+            if (true) {
+                // 同樣的 function scope 變數
+                var x = 2;
+                // 2
+                alert(x);
+            }
+            // 2
+            alert(x);
+        }
+        function letTest() {
+            let x = 1;
+            if (true) {
+                // 不一樣的 block scope 變數
+                let x = 2;
+                // 2
+                alert(x);
+            }
+            // 1
+            alert(x);
+        }
+
+    </script>
+</body>
+
+</html>

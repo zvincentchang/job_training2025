@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript Object</title>
+        <link href="css/basis.css" rel="stylesheet"/>
+                  
+        </script>
+        <style>          
+        </style>
+    </head>
+    <body style="background-image:url('images/img12.jpg');background-size:100%;background-repeat:no-repeat">
+        <h1>Hello</h1>       
+        <button onclick="create()">create</button>
+        <button onclick="show()">show</button>
+        <button onclick="createArray()">Product Array</button>
+        <button onclick="showArray()">Show Product Array</button>
+        <script>
+           var arry=[];
+           var product={};
+           var student=new Object();
+           function showArray(){
+             var str= JSON.stringify(arry);
+             alert(str);
+           }
+           function createArray(){
+             product=new Object();
+             product.name=prompt("product name");
+             product.price=parseInt(prompt("product price"));
+             product.place=prompt("product country");;
+             arry.push(product);
+           }
+           function create(){
+               product.name="Apple iWatch";
+               product.price=12500;
+               product.place="China";
+               student.id=1;
+               student.username="Adam";
+               student.age=20;               
+           }
+           function show(){
+             var m1=product.name+","+product.price+","+product.place;
+             alert(m1);
+           }
+        </script>
+    </body>
+</html>

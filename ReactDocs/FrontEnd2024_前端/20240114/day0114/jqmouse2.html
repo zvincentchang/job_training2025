@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Template</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>    
+</head>
+<style>
+    div{ margin:10px;padding:12px; border:2px solid #666666; width:150px;cursor:pointer}
+ </style>
+ 
+<body>
+<div>One</div>
+<div>Two</div>
+<div>Three</div>
+<script>
+    function start(){
+       $("div").click(function(eventObj){
+         alert('Event type is ' + eventObj.type);
+         alert('pageX : ' + eventObj.pageX);
+         alert('pageY : ' + eventObj.pageY);
+         alert('Target : ' + eventObj.target.innerHTML);
+      });
+      $("div").mousedown(function(){
+         $(this).text("mouse down");
+      });
+      $("div").mouseup(function(){
+         $(this).text("mouse up");
+      });
+
+    }
+    $(document).ready(function() {
+      start();
+   });
+
+</script>
+</body>
+</html>

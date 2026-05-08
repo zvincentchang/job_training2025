@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>insert Child demo</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="foo"><span id="s1">hello</span><span id="s2">world</span></div>
+
+
+    <button onclick="insertChild()">Add Child</button>
+
+    <script>
+        function insertChild() {
+            // 建立一個新的 <span>
+            var newSpan = document.createElement('span');
+            // 增添一些內容
+            newSpan.innerHTML = 'my new span text';
+
+            // 取得目前頁面上的 foo 元素
+            var foo = document.getElementById('foo');
+            // 取得目前頁面上的 s2 元素
+            var s2 = document.getElementById('s2');
+
+            // 將新的 span 元素放到 foo 元素中的 s2 子元素前面
+            foo.insertBefore(newSpan, s2);
+
+            // 顯示 <span id="s1">hello</span><span> my new span text </span><span id="s2">world</span>
+        }
+    </script>
+</body>
+
+</html>

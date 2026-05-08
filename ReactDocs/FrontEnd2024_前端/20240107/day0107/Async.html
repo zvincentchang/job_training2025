@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Async Submit</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <h1>Hello</h1>
+    <h2>
+        <button onclick="startRequest()">start</button>
+        <div id="span1"></div>
+    </h2>
+    <script>
+        function startRequest() {
+            XHR = new XMLHttpRequest( );
+            XHR.open("GET", "poetry.txt", true);
+            XHR.onreadystatechange = handleStateChange;
+            XHR.send(null);
+        }
+        function handleStateChange() {
+            if (XHR.readyState == 4) {
+                if (XHR.status == 200)
+                    document.getElementById("span1").innerHTML = XHR.responseText;
+                else
+                    window.alert("檔案開啟錯誤!");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/sunny/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $(function(){
+        $("#menu").menu();
+      });    
+    </script>
+	<style>
+      .ui-menu {width: 200px}
+    </style>
+  </head>
+  <body>     
+    <ul id="menu">
+	  <li><div>團體旅遊</div>
+	    <ul>
+          <li><div>國內旅遊</div>
+            <ul>          
+              <li><div><a href="1.html">漫遊日月潭</a></div></li>
+              <li><div><a href="2.html">奧萬大賞楓</a></div></li>
+		      <li class="ui-state-disabled"><div>愛在武陵農場</div></li>
+            </ul>
+          </li>	  
+          <li><div><span class="ui-icon ui-icon-gear"></span>國外旅遊</div></li>
+		</ul>  
+	  </li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src='https://unpkg.com/babel-standalone@6.26.0/babel.js'></script>
+
+    <script src="https://unpkg.com/react-router-dom@5.3.2/umd/react-router-dom.min.js"></script>
+</head>
+
+<body>
+    <div id='root'></div>
+    <script type='text/babel'>
+        const Home = () => {
+            return <h1>Home Func</h1>;
+        };
+
+        const Blogs = () => {
+            return <h1>Blog Articles</h1>;
+        };
+
+        const Contact = () => {
+            return <h1>Contact Me</h1>;
+        };
+        const NoPage = () => {
+            return <h1>404 Not Page</h1>;
+        };
+        const Layout = () => {
+            return (
+                <div>
+                    <nav>
+                        <ul>
+                            <li>
+                                <Link to="/">Layout</Link>
+                            </li>
+                            <li>
+                                <Link to="/home">Home</Link>
+                            </li>
+                            <li>
+                                <Link to="/blogs">Blogs</Link>
+                            </li>
+                            <li>
+                                <Link to="/contact">Contact</Link>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+            )
+        };
+        const Link = ReactRouterDOM.Link;
+        const Route = ReactRouterDOM.Route;
+        function App() {
+            return (
+                <ReactRouterDOM.BrowserRouter>
+                    <Route path="/" extract component={Layout} />
+                    <Route path="/home" component={Home} />
+                    <Route path="/blogs" component={Blogs} />
+                    <Route path="/contact" component={Contact} />
+                </ReactRouterDOM.BrowserRouter>
+            );
+        }
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+
+</html>
+ 
+

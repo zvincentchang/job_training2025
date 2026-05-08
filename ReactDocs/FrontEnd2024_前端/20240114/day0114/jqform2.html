@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Template</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <style>
+        .error{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <form action="javascript:alert( 'success!' );">  
+        <div>  
+          <input type="text" id="firstName" value= "javascript" />  
+          <input type="submit"/>  
+        </div>  
+      </form>  
+      <span id="result"></span>  
+
+<script>   
+  $("form").submit( function( event ) {  
+        var regex = /^[a-zA-Z]+$/;
+        var currentValue = $("#firstName").val();
+        if(regex.test(currentValue) == false){
+            $("#result").html('<p class="error">Not valid!</p>').show().fadeOut(2000);
+            // Preventing form submission
+            event.preventDefault();
+        }      
+  });  
+
+</script>
+</body>
+</html>

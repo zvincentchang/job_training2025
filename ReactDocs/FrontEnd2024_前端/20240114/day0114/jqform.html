@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Template</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <form action="javascript:alert( 'success!' );">  
+        <div>  
+          <input type="text" value= "javascript" />  
+          <input type="submit"/>  
+        </div>  
+      </form>  
+      <span></span>  
+
+<script>   
+  $("form").submit( function( event ) {  
+        if($( "input:first" ).val() === "javascript" ) {  
+            $( "span" ).text( "Submitted Successfully." ).show();  
+            return;  
+        }  
+    $( "span" ).text( "Not valid!" ).show().fadeOut( 2000 );  
+    //return false;
+    event.preventDefault();  
+});  
+
+</script>
+</body>
+</html>

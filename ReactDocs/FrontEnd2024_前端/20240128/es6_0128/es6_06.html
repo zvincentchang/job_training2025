@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+    <title>ES6 Javascript</title>
+</head>
+
+<body>
+    <button onclick="test()">exec 1</button>
+    <button onclick="test2()">exec 2</button>
+    <button onclick="test3()">exec 3</button>
+    <script>
+        function demo(a,b,...arry){
+            console.log("a:"+a);
+            console.log("b:"+b);
+            console.log(arry);
+        }
+        function test3(){
+            demo(1,2,3,4,5);
+        }
+        function test2(){
+            var arry1=[1,2,3];
+            var arry2=[4,5,6];
+            var arry3=[0,...arry1,...arry2];
+            console.log(arry3); 
+        }
+        function foo(a,b,c,d,e){
+           console.log("a:"+a);
+           console.log("b:"+b);
+           console.log("c:"+c);
+           console.log("d:"+d);
+           console.log("e:"+e);
+        }
+        function test() {
+            var arr = [3, 4];
+
+            // 輸出 1 2 3 4 5
+            // 等同於執行 foo(1, 2, 3, 4, 5)
+            foo(1, 2, ...arr, 5);
+
+        }
+        
+    </script>
+</body>
+
+</html>

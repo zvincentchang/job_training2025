@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>setInterval demo</title>        
+        <style>          
+        </style>
+    </head>
+    <body>
+        <div id="parent-id1">
+            <p>hello word1</p>
+            <p class="test">hello word2</p>
+            <p class="test">hello word3</p>
+        </div>       
+        <div id="parent-id2">
+            <p>hello word4</p>
+            <p class="test">hello word5</p>
+            <p class="test">hello word6</p>
+        </div>      
+        <button onclick="showClass()">start</button>
+       
+        <script>
+           function showClass(){
+             var pArray=document.getElementsByClassName("test");
+             for(var i=0;i<pArray.length;i++){
+                 var px=pArray[i];
+                 alert(px.innerText);
+             }
+           }
+        </script>
+    </body>
+</html>

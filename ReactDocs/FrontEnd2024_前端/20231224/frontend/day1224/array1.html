@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Second Page</title>
+        <link href="../css/basis.css" rel="stylesheet"/>
+                  
+        </script>
+        <style>          
+        </style>
+    </head>
+    <body style="background-image:url('../images/img12.jpg');background-size:100%;background-repeat:no-repeat">
+        <h1>Hello</h1>
+        <button onclick="build()">Build</button>
+        <button onclick="show()">Show</button>
+        <script>
+            var names=[];
+            function build(){
+              while(1){  
+               n= prompt('input name');
+               if(n=="")
+                 break;
+                names.push(n);
+              }
+            }
+            function show(){
+                if(names.length==0)
+                   alert('No names');
+                else{
+                    for(var i=0;i<names.length;i++)
+                      console.log(names[i]);
+                }
+            }
+        </script>
+    </body>
+</html>

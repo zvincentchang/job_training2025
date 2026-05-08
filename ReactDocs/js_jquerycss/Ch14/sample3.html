@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script>
+      function GO() {
+        newWin = open();
+        newWin.location.href = document.myForm.mySelect.options[document.myForm.mySelect.selectedIndex].value;
+      }
+    </script>
+  </head>
+  <body>
+    <form name="myForm">
+      <select name="mySelect" size="1">
+        <option value="https://www.google.com.tw/">Google
+        <option value="https://tw.yahoo.com/">Yahoo!奇摩
+        <option value="https://www.bing.com/">Bing
+      </select>
+      <input type="button" value="GO!" onclick="javascript: GO();">
+    </form>
+  </body>
+</html>

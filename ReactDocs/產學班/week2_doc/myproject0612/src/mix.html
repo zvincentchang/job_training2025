@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo"></p>
+<script type="module">
+import { name, age } from "./components/mix.js";
+import message from "./components/mix.js";
+document.getElementById("demo").innerHTML = "My name is " + name;
+document.getElementById("demo").innerHTML += ", I am " + age + ".<br/>";
+document.getElementById("demo").innerHTML += message();
+</script>
+</body>
+</html>

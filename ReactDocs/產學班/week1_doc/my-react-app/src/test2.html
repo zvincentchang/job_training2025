@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Hello React Render!</title>
+     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const myelement = (
+            <table>
+                <tr>
+                    <th>Name</th>
+                </tr>
+                <tr>
+                    <td>John</td>
+                </tr>
+                <tr>
+                    <td>Elsa</td>
+                </tr>
+            </table>
+        );
+
+        ReactDOM.render(myelement, document.getElementById('root'));
+    </script>
+</body>
+</html>

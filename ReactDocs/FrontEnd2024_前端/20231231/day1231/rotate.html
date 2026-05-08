@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>setInterval demo</title>        
+        <style>          
+        </style>
+    </head>
+    <body>        
+        <img src="photo6.jpg" width="600px" height="400px"  id="pic1"/>
+        <br/>
+        <button onclick="start()">start</button>
+        <button onclick="stopTime()">stop</button>
+        <script>
+            var id;
+            var picArray=["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg","photo6.jpg"];           
+            var index=0;
+            function dispPicture(){
+                var pic=document.getElementById("pic1");
+                pic.src=picArray[index];
+                index++;
+                if(index>=picArray.length)
+                  index=0;
+            }
+            function start(){
+               id=setInterval(dispPicture,3000);
+            }
+            function stopTime(){
+                window.clearInterval(id);
+            }
+        </script>
+    </body>
+</html>
